@@ -34,32 +34,31 @@
    </svg>
 </button>-->
 
-<nav class="w-full bg-white border-0 shadow-none">
-  <div class="max-w-4xl mx-auto flex flex-col items-center pt-20 pb-8 pl-40">
-    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20">
-  </div>
-</nav>
 
-<div class="flex">
+
+<div class="max-lg:px-1">
   <div id="sidebarContainer" x-ref="sidebarContainer"></div>
 
-  <main class="flex-1 sm:ml-64 p-10 pt-5">
-      <div class="mt-6 px-6 space-y-3">
-        <h1 class="text-3xl font-semibold">Airtime Vend Request</h1>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
-        <p class="mb-7">Service to perform airtime top-up of customer’s phone number through merchant’s account</p>
+  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-lg:w-full max-lg:px-4 max-lg:pb-2">
+        <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none">
+            <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
+        </div>
+      <div class="mt-6 px-6 space-y-3 max-lg:px-1">
+        <h1 class="text-3xl font-semibold max-lg:text-xl max-lg:px-0">Airtime Vend Request</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-lg:mb-3 max-lg:mt-2">
+        <p class="mb-7 max-lg:text-sm max-lg:mb-3">Service to perform airtime top-up of customer’s phone number through merchant’s account</p>
       </div>  
 
       
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16 max-lg:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-lg:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             Service
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             Merchant Info
                         </th>
                     </tr>
@@ -93,21 +92,21 @@
             </table>
         </div>
 
-        <h3 id="request-body" class="font-bold">Request Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <h3 id="request-body" class="font-bold max-lg:font-semibold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-lg:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-lg:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             Description
                         </th>
                     </tr>
@@ -216,34 +215,34 @@
         </div>
 
         <h6 class="font-light italic text-sm">Sample Request Body</h6>
-        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono">
+        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono overflow-x-auto">
             {"loginId": 1234,
                 <div>"key":"0688378ec7fe233","requestId":"11345","serviceId":"A01E", "amount":"100", "recipient":"08030001111",</div>
                 "date":"2-Jul-2017 18:30 GMT","checksum":"#2y*&23UnvC19" }
         </div>
         
         <h6 class="font-light italic text-sm">Sample JAMB Request Body</h6>
-        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono">
+        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono overflow-x-auto">
             {"loginId": 1434,
                 "key":"0688378ec7fe233","requestId":"11345","serviceId":"A01E", "amount":"4000", "recipient":"08030001111",
                 "date":"2-Jul-2017 18:30 GMT","checksum":"#2y*&23UnvC19" , "confirm code":"kvrbv3fjrv", "email":"support@creditswitch.com", "jambType":"jambutme"}
         </div>
 
-        <h3 id="response-body" class="font-bold">Response Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <h3 id="response-body" class="font-bold max-lg:font-semibold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-lg:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-lg:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
                             Description
                         </th>
                     </tr>
@@ -380,7 +379,7 @@
         </div>
 
         <h6 class="font-light italic text-sm">Sample Response Body</h6>
-        <div class="bg-black text-white p-8 mt-2 font-mono">
+        <div class="bg-black text-white p-8 mt-2 font-mono overflow-x-auto">
            {"statusCode":"00","statusDescription":"Successful","mReference":"11345",
        "tranxReference":" 123452114", "recipient":"08030001111", "amount":"100",
         "confirmCode":"R20170707.2150.234565","network":"MTN",tranxDate":"21-06-2017 10:25 am"}                   

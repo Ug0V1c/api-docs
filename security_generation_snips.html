@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+  [x-cloak] { display: none !important; }
+    </style>
+    <style>
+  body {
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+  body.loaded {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+  <link rel="stylesheet" href="./src/output.css">
+  <script type="module" src="./src/scripts/index.js"></script>
+  <title>Security: Generation Snips</title>
+</head>
+<body x-data class="font-light font-inter">
+  
+<!--<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+   <span class="sr-only">Open sidebar</span>
+   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+   <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+   </svg>
+</button>-->
+<nav class="w-full bg-white border-0 shadow-none">
+  <div class="max-w-4xl mx-auto flex flex-col items-center pt-20 pb-8 pl-40">
+    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20">
+  </div>
+</nav>
+
+
+<div class="flex">
+  <div id="sidebarContainer" x-ref="sidebarContainer"></div>
+
+  <main class="flex-1 sm:ml-64 p-10 pt-5">
+      
+      <div class="mt-6 px-6 space-y-3">
+        <h1 class="text-3xl font-semibold">Security: Generation Snips</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-10">Sample checksum generation snippets in some selected languages. These snippets are only meant to serve as a guide.</p>
+      </div>  
+
+        
+
+        <h3 id="php" class="font-semibold py-3 text-blue-400">PHP</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+            <pre>
+                <code>
+<span class="text-blue-400">public function</span> <span class="text-amber-200">getChecksumAirtimeData</span>(){
+
+    $loginId = <span class="text-green-400">"1234";</span>
+
+    $requestId = <span class="text-green-400">"112345";</span>
+
+    $serviceId = <span class="text-green-400">"A04E";</span>
+
+    $requestAmount = <span class="text-green-400">"100";</span>
+
+    $privateKey = <span class="text-green-400">"78858c42aff6b2210a2fdc637f6ebe39d53c38da95633d27f52fddeace60149162";</span>
+
+    $recipient = <span class="text-green-400">"08030001111";</span>
+
+    $concatString = $loginId .<span class="text-green-400">"|"</span>. $requestId.<span class="text-green-400">"|"</span>. $serviceId.<span class="text-green-400">"|"</span>.$requestAmount.<span class="text-green-400">"|"</span>.$privateKey.<span class="text-green-400">"|"</span>. $recipient;
+
+    $checksum = <span class="text-amber-200">base64_encode(password_hash</span>($concatString, <span class="text-red-500">PASSWORD_DEFAULT</span>) ); //PASSWORD_BCRYPT
+
+    <span class="text-blue-400">return</span> $checksum;
+
+}
+<span class="text-blue-400">public function</span> <span class="text-amber-200">getChecksumMertDetail</span>(){
+
+    $loginId = <span class="text-green-400">"1234";</span>
+
+    $privateKey = <span class="text-green-400">"78858c42aff6b2210a2fdc637f6ebe39d53c38da95633d27f52fddeace60149162";</span>
+
+    $concatString = $loginId .<span class="text-green-400">"|"</span>.$privateKey;
+
+    $checksum = <span class="text-amber-200">base64_encode(password_hash</span>($concatString, <span class="text-red-500">PASSWORD_DEFAULT</span>) ); //PASSWORD_BCRYPT
+
+    <span class="text-blue-400">return</span> $checksum;
+}
+                </code>
+            </pre>
+        </div>
+
+        <h3 id="python" class="font-semibold py-3 text-blue-400">Python</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+            <pre><code>
+<span class="text-blue-400">import</span> bcrypt
+<span class="text-blue-400">def</span> <span class="text-amber-200">getChecksumAirtimeData</span>():
+    loginId = <span class="text-green-400">"1234"</span>
+    requestId = <span class="text-green-400">"112345"</span>
+    serviceId = <span class="text-green-400">"A04E"</span>
+    requestAmount = <span class="text-green-400">"100"</span>
+    privateKey = <span class="text-green-400">"78858c42aff6b2210a2fdc637f6ebe39d53c38da95633d27f52fddeace60149162"</span>
+    recipient = <span class="text-green-400">"08030001111"</span>
+    concatString = loginId +<span class="text-green-400">"|"</span>+requestId+<span class="text-green-400">"|"</span>+serviceId+<span class="text-green-400">"|"</span>+requestAmount+<span class="text-green-400">"|"</span>+privateKey+<span class="text-green-400">"|"</span>+recipient;
+    checksum = base64.urlsafe_b64encode(bcrypt.hashpw(concatString, bcrypt.gensalt()))
+    <span class="text-blue-400">return</span> checksum
+
+
+<span class="text-blue-400">def</span> <span class="text-amber-200">getChecksumMertDetail</span>():
+    loginId = <span class="text-green-400">"1234"</span>
+    privateKey = <span class="text-green-400">"78858c42aff6b2210a2fdc637f6ebe39d53c38da95633d27f52fddeace60149162"</span>
+
+    concatString = loginId+<span class="text-green-400">"|"</span>+privateKey
+
+     checksum = base64.urlsafe_b64encode(bcrypt.hashpw(concatString, bcrypt.gensalt()))
+    <span class="text-blue-400">return</span> checksum
+            </code></pre>
+        </div>
+
+        <h3 id="java" class="font-semibold py-3 text-blue-400">Java</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+            <pre><code>
+<span class="text-blue-400">static</span> <span class="text-amber-200">String getChecksumAirtimeData</span>(){
+    String loginId = <span class="text-green-400">"1234";</span>
+    String requestId = <span class="text-green-400">"112345";</span>
+    String serviceId = <span class="text-green-400">"A04E";</span>
+    int requestAmount = <span class="text-purple-400">100</span>;
+
+    String privateKey = <span class="text-green-400">"78858c42aff6b2210a2fdc637f6ebe39d53c38da95633d27f52fddeace60149162";</span>
+    String recipient = <span class="text-green-400">"08030001111"</span>;
+    String concatString = <span class="text-green-400">""</span>+loginId +<span class="text-green-400">"|"</span>+requestId+<span class="text-green-400">"|"</span>+serviceId+<span class="text-green-400">"|"</span>+requestAmount+<span class="text-green-400">"|"</span>+privateKey+<span class="text-green-400">"|"</span>+recipient+<span class="text-green-400">""</span>;
+    byte[] message = Bcrypt.<span class="text-amber-200">hashpw</span>(concatString,Bcrypt.<span class="text-amber-200">gensalt</span>()).<span class="text-amber-200">getBytes</span>(StandardCharsets.<span class="text-red-500">UTF_8</span>);
+    String checksum = Base64.<span class="text-amber-200">getEncoder</span>().<span class="text-amber-200">encodeToString</span>(message);
+    String checksum = Base64.<span class="text-amber-200">getEncoder</span>().<span class="text-amber-200">encodeToString</span>(message);
+    <span class="text-blue-400">return</span> checksum;
+
+}
+<span class="text-blue-400">static</span> String <span class="text-amber-200">getChecksumMertDetail</span>(){
+    String loginId = <span class="text-green-400">"1234";</span>
+    String privateKey = <span class="text-green-400">"78858c42aff6b2210a2fdc637f6ebe39d53c38da95633d27f52fddeace60149162";</span>
+    String concatString = <span class="text-green-400">""</span>+loginId+<span class="text-green-400">"|"</span>+privateKey;
+    byte[] message = Bcrypt.<span class="text-amber-200">hashpw</span>(concatString,Bcrypt.<span class="text-amber-200">gensalt</span>()).<span class="text-amber-200">getBytes</span>(StandardCharsets.<span class="text-red-500">UTF_8</span>);
+    String checksum = Base64.<span class="text-amber-200">getEncoder</span>().<span class="text-amber-200">encodeToString</span>(message);
+    <span class="text-blue-400">return</span> checksum;
+ }
+            </code></pre>
+        </div>
+
+        <h3 id="netc" class="font-semibold py-3 text-blue-400">.NET C#</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+            <pre><code>
+<span class="text-blue-400">public</span> string <span class="text-amber-200">getCheckSum</span>() {
+    string loginId = <span class="text-green-400">"1234";</span>
+    string requestId = <span class="text-green-400">"bchsbhhbfdsbsdbh";</span>
+    string serviceId = <span class="text-green-400">"A04E";</span>
+    string amount = <span class="text-green-400">"100";</span>
+    string privatekey = <span class="text-green-400">"XY1t9Y159hWJaETD";</span>
+    string recipient = <span class="text-green-400">"07027829028";</span>
+    <span class="text-blue-400">var</span> concatText = loginId + <span class="text-green-400">"|"</span> + requestId + <span class="text-green-400">"|"</span> + serviceId + <span class="text-green-400">"|"</span> + amount + <span class="text-green-400">"|"</span> + privatekey + <span class="text-green-400">"|"</span> + recipient;
+    string salt = BCryptHelper.<span class="text-amber-200">GenerateSalt</span>();
+    <span class="text-blue-400">var</span> hashedText = BCryptHelper.<span class="text-amber-200">HashPassword</span>(concatText, salt);
+    <span class="text-blue-400">return</span> checkSum = Convert.<span class="text-amber-200">ToBase64String</span>(Encoding.UTF8.<span class="text-amber-200">GetBytes</span>(hashedText));
+}
+            </code></pre>
+        </div>
+    </main>
+</div>
+</body>
+</html>

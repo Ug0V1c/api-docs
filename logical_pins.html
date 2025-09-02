@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+  [x-cloak] { display: none !important; }
+    </style>
+    <style>
+  body {
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+  body.loaded {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+  <link rel="stylesheet" href="./src/output.css">
+  <script type="module" src="./src/scripts/index.js"></script>
+  <title>Logical PINS</title>
+</head>
+<body x-data class="font-light font-inter">
+  
+<!--<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+   <span class="sr-only">Open sidebar</span>
+   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+   <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+   </svg>
+</button>-->
+<nav class="w-full bg-white border-0 shadow-none">
+  <div class="max-w-4xl mx-auto flex flex-col items-center pt-20 pb-8 pl-40">
+    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20">
+  </div>
+</nav>
+
+
+<div class="flex">
+  <div id="sidebarContainer" x-ref="sidebarContainer"></div>
+
+  <main class="flex-1 sm:ml-64 p-10 pt-5">
+      
+      
+      <div class="mt-6 px-6 space-y-3">
+        <h1 class="text-3xl font-semibold">Logical PINS</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">This service will purchase a logical pin for the service ID provided. <span><span class="font-semibold">NOTE:</span> Payload may differ depending on service ID. Logical Pin services cover the following <span class="font-semibold inline">AIRTEL,GLO,9MOBILE,MTN,JAMB,NECO,WAEC,NABTECH,SPECTRANET</span></span> The respective service ID's can be found in the service ID table below.</p>
+      </div>  
+
+        <h6 id="logical-pins-fetch-pins" class="pb-4 font-bold">1) FETCH PINS</h6>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Fetch All Pins
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">{{baseUrl}}get_avail_pin_packages</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="fetch-pins-request-body" class="font-bold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant’s (public) key
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            serviceId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Corresponding service id for the request type
+                        </td>
+                    </tr>      
+                </tbody>
+            </table>
+        </div>
+
+        
+        
+        <h6 class="font-light italic text-sm">Sample Request Body</h6>
+        <div class="bg-black text-white text-sm p-8 mt-2 mb-1 font-mono">
+            {
+                <p>"loginId": "{{loginId}}",</p>
+                <p>"key": "{{publicKey}}",</p>
+                <p>"serviceId": "PO4N"</p>
+            }
+        </div>
+        
+        
+        
+        <p class="mb-16"><span class="text-red-600 font-bold">NOTE:</span> 'statusCode'='00' in response body implies success. If otherwise, it implies failed.</p>
+
+        
+        
+        <h6 id="fetch-pins-response-body" class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono">
+            {
+                <p>"statusCode": "00",</p>
+                <p>"statusDescription": "successful",</p>
+                <p>"pinDetail": {</p>
+                    <p>"pinValues": [</p>
+                        <p>{
+                            "amount": 100</p>
+                        },
+                        <p>{
+                            "amount": 200</p>
+                        },
+                        <p>{
+                            "amount": 500</p>
+                        },
+                        <p>{
+                            "amount": 1000</p>
+                        },
+                        <p>{
+                            "amount": 1500
+                       }
+                   ]</p>
+               }
+            }
+        </div>
+
+        
+        
+        <h6 id="logical-pin-vend" class="pb-4 font-bold">2) LOGICAL PIN VEND</h6>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Logical PINS
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">baseUrl/api/v1/vend_pins</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            application/json
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+        
+        <h3 id="logical-pin-vend-request-body" class="font-bold">Request Parameters</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            serviceId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Corresponding service id for the request type. See "Services" section for the available services and corresponding service codes for each.
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            recipient
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Phone number of the merchant
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            requestId		
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants unique id/reference for the transaction
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            amount		
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Face Value of the PIN
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key		
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Merchants (public) key
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            checksum		
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Checksum computed for the request. See "Security: Checksum" section for hash computation steps
+                        </td>
+                    </tr>            
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono mb-16 text-sm">
+            {"loginId":"38457","key":"***","checksum":"******","serviceId":"P01N",
+            <p>"recipient":"080", "amount":"100","requestId":"4792sccfkdkfd8fdbxxclxcxg"}</p>               
+        </div>
+
+        <h3 id="logical-pin-vend-response-body" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusCode
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the transaction. 00 signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusDescription
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Corresponding description for the status code. 00=Successful
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            tranxReference
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Creditswitch transaction reference
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            qty		
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Quantity of PINs generated (usually 1)
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            amount		
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            The face value of the generated pin
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            network		
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           The actual network of the PIN
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            detail		
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Contains array of pin and serial number generated by the network operator
+                        </td>
+                    </tr>            
+                </tbody>
+            </table>
+        </div>
+        
+        <h6 class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono">
+            {"statusCode": "00","statusDescription": "successful","detail": {"pin": ["614821599037390"],<p>"serialNo": ["903736148215990"],"network": "Airtel","qty": 1,"amount": "100","tranxReference": "354391599124667"}}</p>      
+        </div>
+
+        
+        
+        <h6 id="validate-jamb" class="pb-4 font-bold">3) VALIDATE JAMB</h6>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Validate Jamb Confirm Code
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">{{baseUrl}}verify_jamb_candidate</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            GET
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="validate-jamb-request-body" class="font-bold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants (public) key
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Confirm Code
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Individual Student Code gotten from Jamb Board
+                        </td>
+                    </tr>                  
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono mb-1 text-sm">
+            "loginId": "{{loginId}}",
+            <p>"key": "{{publicKey}}",</p>
+            <p>"ConfirmCode": "a8h793b4f35f"</p>              
+        </div>
+
+        <p class="mb-16"><span class="text-red-600 font-bold">NOTE:</span> 'statusCode'='00' in response body implies success. If otherwise, it implies failed.</p>
+
+        <h6 id="validate-jamb-response-body" class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono">
+           {
+                <p>"statusCode": "00",</p>
+                <p>"statusDescription": "Successful",</p>
+                <p>"result": {</p>
+                    <p>"gsmNo": "08000000000",</p>
+                    <p>"lastName": "Amunike",</p>
+                    <p>"firstName": "Emmanuel",</p>
+                    <p>"middleName": "Michael"
+                }</p>
+            }     
+        </div>
+
+        <h6 id="vend-jamb" class="pb-4 font-bold">4) VEND JAMB</h6>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Vend Jamb
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">{{baseUrl}}vend_pins</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="vend-jamb-request-body" class="font-bold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants (public) key
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Confirm Code
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Individual Student Code gotten from Jamb Board
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            RequestId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants unique id/reference for the transaction
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            ServiceId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants id provided during integration
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Amount
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Face Value of the pin
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Recipients
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Phone number of the merchant
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Checksum
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Checksum computed for the request. See "Security: Checksum" section for hash computation steps
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            email
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Email of the candidate
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            productType
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Type of Jamb service
+                        </td>
+                    </tr>                  
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono mb-1 text-sm">
+            {
+                <p>"loginId": "{{loginId}}",</p>
+                <p>"key": "{{publicKey}}",</p>
+                <p>"requestId": "{{requestId}}",</p>
+                <p>"serviceId": "P07N",</p>
+                <p>"amount": 4,</p>
+                <p>"recipient": "08012345678",</p>
+                <p>"checksum": "{{checkSum}}",</p>
+                <p>"email": "xyz@gmail.com",</p>
+                <p>"confirmCode": "1375779512",</p>
+                <p>"productType": "jambutme"</p>
+            }            
+        </div>
+
+        <p class="mb-16"><span class="text-red-600 font-bold">NOTE:</span> 'statusCode'='00' in response body implies success. If otherwise, it implies failed.</p>
+
+        <h6 id="vend-jamb-response-body" class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono">
+            {
+                <p>"statusCode": "00",</p>
+                <p>"statusDescription": "successful",</p>
+                <p>"detail": {</p>
+                    <p>"pin": "30138820169806991",</p>
+                    <p>"serial_no": "094089700 1698060076",</p>
+                    <p>"network": "JAMB",</p>
+                    <p>"qty": 1,</p>
+                    <p>"amount": 4,</p>
+                    <p>"tranxReference": "2310231221161190695"
+                }</p>
+            }    
+        </div>
+
+        <h6 id="vend-other-educational-services" class="pb-4 font-bold">5) VEND OTHER EDUCATIONAL SERVICES</h6>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Vend Other Educational Services
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">{{baseUrl}}vend_pins</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="vend-other-educational-services-request-body" class="font-bold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants (public) key
+                        </td>
+                    </tr>                        
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            RequestId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants unique id/reference for the transaction
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            ServiceId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants id provided during integration
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Amount
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Face Value of the pin
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Recipients
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Phone number of the merchant
+                        </td>
+                    </tr>                  
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Checksum
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Checksum computed for the request. See "Security: Checksum" section for hash computation steps
+                        </td>
+                    </tr>                                   
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            productType
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Type of Jamb service
+                        </td>
+                    </tr>                  
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono mb-1 text-sm">
+            {
+                <p>"loginId": "{{loginId}}",</p>
+                <p>"key": "{{publicKey}}",</p>
+                <p>"requestId": "{{requestId}}",</p>
+                <p>"serviceId": "P06N",</p>
+                <p>"amount": 4,</p>
+                <p>"recipient": "08012345678",</p>
+                <p>"checksum": "{{checkSum}}",</p>
+                <p>"productType": "WAEC Checker"</p>
+            }           
+        </div>
+
+        <p class="mb-16"><span class="text-red-600 font-bold">NOTE:</span> 'statusCode'='00' in response body implies success. If otherwise, it implies failed.</p>
+
+        <h6 id="vend-other-educational-services-response-body" class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono">
+            {
+                <p>"statusCode": "00",</p>
+                <p>"statusDescription": "successful",</p>
+                <p>"detail": {</p>
+                    <p>"pin": "30138820169806991",</p>
+                    <p>"serial_no": "094089700 1698060076",</p>
+                    <p>"network": "WAEC",</p>
+                    <p>"qty": 1,</p>
+                    <p>"amount": 4,</p>
+                    <p>"tranxReference": "2310231221161190695"
+                }</p>
+            }
+        </div>
+    </main>
+</div>
+</body>
+</html>

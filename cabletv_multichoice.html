@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+  [x-cloak] { display: none !important; }
+    </style>
+    <style>
+  body {
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+  body.loaded {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+  <link rel="stylesheet" href="./src/output.css">
+  <script type="module" src="./src/scripts/index.js"></script>
+  <title>Cable TV: Multichoice</title>
+</head>
+<body x-data class="font-light font-inter">
+  
+<!--<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+   <span class="sr-only">Open sidebar</span>
+   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+   <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+   </svg>
+</button>-->
+<nav class="w-full bg-white border-0 shadow-none">
+  <div class="max-w-4xl mx-auto flex flex-col items-center pt-20 pb-8 pl-40">
+    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20">
+  </div>
+</nav>
+
+
+<div class="flex">
+  <div id="sidebarContainer" x-ref="sidebarContainer"></div>
+
+  <main class="flex-1 sm:ml-64 p-10 pt-5">
+      
+      <div class="mt-6 px-6 space-y-3">
+        <h1 class="text-3xl font-semibold">Cable TV: Multichoice(DSTV & GOTV)</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">Service to pay for an existing subscription on Multichoice (DSTV and GOTV) cable TV account. Basically, there are three (3) phases for this web service – validation of smart card number, fetching available multichoice product codes and account vending.</p>
+      </div>  
+
+        <h6 id="vcns" class="pb-4 font-bold">1) VALIDATE CUSTOMER NUMBER/SMARTCARD NUMBER</h6>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Validate Multichoice SmartCard/Customer Number
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">baseUrl//api/v1/cabletv/multichoice/validate</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="vcnsreqb" class="font-bold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant’s (public) key
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            checksum
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Checksum computed for the request. See "Security: Checksum" section for hash computation steps
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            customerNo
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Smart card number or Customer Number.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            serviceId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Multichoice service type – ‘dstv’ or ‘gotv’.
+                        </td>
+                    </tr>      
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body</h6>
+        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono">
+            {"loginId":"1234","key":"f7a2b427de…","checksum":"JDJhJDE…","customerNo":"10553886499","serviceId":"dstv"}
+        </div>
+
+
+        <h3 id="vcnsresb" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusCode
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the transaction. 00 signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusDescription	
+                        </th>
+                        <td class="px-6 py-4">
+                            json
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Corresponding details retrieved after validating customer number or smartcard number. It holds information such as customer name, invoice period, next due date etc.
+                        </td>
+                    </tr>      
+                </tbody>
+            </table>
+        </div>
+
+
+        
+        <h6 id="startimes-fetch-products-response-body" class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono">
+           {
+                <p>"statusCode": "00",</p>
+                <p>"statusDescription": {</p>
+                    <p>"customerNo": 300846162,</p>
+                    <p>"firstname": "AYOBAMI OJO",</p>
+                    <p>"lastname": "",</p>
+                    <p>"customerType": "GOTV",</p>
+                    <p>"invoicePeriod": "",</p>
+                    <p>"dueDate": "2021-10-26T13:32:11.227+01:00",</p>
+                    <p>"amount": 2500 }</p>
+                <p></p>
+            }
+        </div>
+
+        
+        
+        <h6 id="fmpc" class="pb-4 font-bold">2) FETCH MULTICHOICE PRODUCT CODES</h6>
+
+        <p class="mb-10">This can be used to retrieve available multichoice products. Each product has a code, description and price. Product codes can be fetched by either of these two methods – finding available standalone products or finding available add-ons for a selected product.</p>
+        <P id="fmpcfsp" class="pb-3 font-normal">a). Find Standalone Products</P>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Find Standalone Products
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">baseUrl//api/v1/cabletv/multichoice/fetchproducts</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+        
+        <h3 id="fmpcfspreqb" class="font-bold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants (public) key
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            serviceId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Multichoice service type – ‘dstv’ or ‘gotv’.
+                        </td>
+                    </tr>                  
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono mb-16 text-sm">
+            {"loginId":"1234","key":"f7a2b427d..","serviceId":"dstv"}               
+        </div>
+
+        <h3 id="fmpcfspresb" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusCode
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the transaction. 00 signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusDescription
+                        </th>
+                        <td class="px-6 py-4">
+                            json
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            statusDescription is a json that has embedded in it an ‘items’ object, which contains available products. items an array of composite objects – code, invoicePeriods, price, name, description
+                        </td>
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+        
+        <h6 id="smartcard-code-validation-response-body" class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white p-8 mt-2 mb-20 font-mono text-sm">
+            {"statusCode":"00","statusDescription":{"items":[{"availablePricingOptions":[{"monthsPaidFor":1,"price":2000,"invoicePeriod":1},
+                {"monthsPaidFor":2,"price":4000,"invoicePeriod":1},{"monthsPaidFor":3,"price":6000,"invoicePeriod":1},{"monthsPaidFor":4,"price":8000,"invoicePeriod":1},{"monthsPaidFor":5,"price":10000,"invoicePeriod":1},
+                {"monthsPaidFor":6,"price":12000,"invoicePeriod":1},{"monthsPaidFor":7,"price":14000,"invoicePeriod":1},{"monthsPaidFor":8,"price":16000,"invoicePeriod":1},{"monthsPaidFor":9,"price":18000,"invoicePeriod":1},
+                {"monthsPaidFor":10,"price":20000,"invoicePeriod":1},{"monthsPaidFor":12,"price":22000,"invoicePeriod":12}],"code":"ACSSE36","name":"DStv Access","description":" "},{"availablePricingOptions":[{"monthsPaidFor":1,"price":4000,"invoicePeriod":1},
+                {"monthsPaidFor":2,"price":8000,"invoicePeriod":1},{"monthsPaidFor":3,"price":12000,"invoicePeriod":1},{"monthsPaidFor":4,"price":16000,"invoicePeriod":1},{"monthsPaidFor":5,"price":20000,"invoicePeriod":1},
+                {"monthsPaidFor":6,"price":24000,"invoicePeriod":1},{"monthsPaidFor":7,"price":28000,"invoicePeriod":1},{"monthsPaidFor":8,"price":32000,"invoicePeriod":1},{"monthsPaidFor":9,"price":36000,"invoicePeriod":1},{"monthsPaidFor":10,"price":40000,"invoicePeriod":1},
+                {"monthsPaidFor":12,"price":44000,"invoicePeriod":12}],"code":"COFAME36","name":"DStv Family","description":" "},{"availablePricingOptions":[{"monthsPaidFor":1,"price":6800,"invoicePeriod":1},{"monthsPaidFor":2,"price":13600,"invoicePeriod":1},
+                {"monthsPaidFor":3,"price":20400,"invoicePeriod":1},{"monthsPaidFor":4,"price":27200,"invoicePeriod":1},{"monthsPaidFor":5,"price":34000,"invoicePeriod":1},{"monthsPaidFor":6,"price":40800,"invoicePeriod":1},{"monthsPaidFor":7,"price":47600,"invoicePeriod":1},
+                {"monthsPaidFor":8,"price":54400,"invoicePeriod":1},{"monthsPaidFor":9,"price":61200,"invoicePeriod":1},{"monthsPaidFor":10,"price":68000,"invoicePeriod":1},{"monthsPaidFor":12,"price":74800,"invoicePeriod":12}],"code":"COMPE36","name":"DStv Compact","description":" "},
+                {"availablePricingOptions":[{"monthsPaidFor":1,"price":10650,"invoicePeriod":1},{"monthsPaidFor":2,"price":21300,"invoicePeriod":1},{"monthsPaidFor":3,"price":31950,"invoicePeriod":1},{"monthsPaidFor":4,"price":42600,"invoicePeriod":1},
+                {"monthsPaidFor":5,"price":53250,"invoicePeriod":1},{"monthsPaidFor":6,"price":63900,"invoicePeriod":1},{"monthsPaidFor":7,"price":74550,"invoicePeriod":1},{"monthsPaidFor":8,"price":85200,"invoicePeriod":1},{"monthsPaidFor":9,"price":95850,"invoicePeriod":1},
+                {"monthsPaidFor":10,"price":106500,"invoicePeriod":1},{"monthsPaidFor":12,"price":117150,"invoicePeriod":12}],"code":"COMPLE36","name":"DStv Compact Plus","description":" "},{"availablePricingOptions":[{"monthsPaidFor":1,"price":15800,"invoicePeriod":1},
+                {"monthsPaidFor":2,"price":31600,"invoicePeriod":1},{"monthsPaidFor":3,"price":47400,"invoicePeriod":1},{"monthsPaidFor":4,"price":63200,"invoicePeriod":1},{"monthsPaidFor":5,"price":79000,"invoicePeriod":1},{"monthsPaidFor":6,"price":94800,"invoicePeriod":1},"code":"FTAE36","name":"DStv FTA Plus","description":" "}]}}      
+        </div>
+
+
+        <P id="fmpcfpa" class="pb-3 font-normal">b). Find Product Add-ons for Selected Product</P>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Find Product Add-ons
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">baseUrl//api/v1/cabletv/multichoice/productaddons</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+        
+        <h3 id="fmpcfpareqb" class="font-bold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants (public) key
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            serviceId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Multichoice service type – ‘dstv’ or ‘gotv’.
+                        </td>
+                    </tr>                  
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono mb-16 text-sm">
+            {
+                "loginId": "1234",
+                <P>"key": "f7a2b427d2…",</P>
+                <p>"serviceId": "dstv",</p>
+                <p>"primaryProductCode": "ACSSE36"</p>
+            }               
+        </div>
+
+        <h3 id="fmpcfparesb" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusCode
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the transaction. 00 signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusDescription
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            statusDescription is a string that has embedded in it an ‘items’ object, which contains available products. items an array of composite objects – code, price, name, description
+                        </td>
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+
+
+        <h6 id="smartcard-code-validation-response-body" class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white p-8 mt-2 mb-20 font-mono text-sm">
+            {"statusCode":"00","statusDescription":{"items":[{"code":"ASIADDE36","price":5050,
+                <p>"name":"Asian Add-on","description":" "},{"code":"HDPVRE36","price":2200,"name":"HDPVR\/XtraView","description":" "}]}}</p>
+        </div>
+
+        
+        
+        <h6 id="vma" class="pb-4 font-bold">3) VEND MULTICHOICE ACCOUNT</h6>
+        <p class="pb-4">Now you can either RENEW an existing subscription or CHANGE PACKAGE to another</p>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Vend Multichoice Account
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">	baseUrl/api/v1/cabletv/multichoice/vend</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="vmareqb" class="font-bold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants (public) key
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            checksum
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Checksum computed for the request. See "Security: Checksum" section for hash computation steps
+                        </td>
+                    </tr>      
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            serviceId	
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Multichoice service type – ‘dstv’ or ‘gotv’
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            transactionRef	
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Unique transaction Id for the request. Maxlength (36characters)
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            customerNo	
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Customer number retrieved at validation stage.
+                        </td>
+                    </tr>            
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            customerName	
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Customer name retrieved at validation stage.
+                        </td>
+                    </tr>            
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            productsCodes	
+                        </th>
+                        <td class="px-6 py-4">
+                            Array of strings
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="font-bold">(For renew option leave as empty array [] )</span> An array of product/addon codes selected. Codes can be fetched from the related method calls (find standalone products and find product addons)
+                        </td>
+                    </tr>            
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            amount	
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="font-bold">(For renew option amount is gotten from the validate customer API end point)</span>Total transaction amount – in case of a 12 month invoice period, the product prices need to be multiplied by 11
+                        </td>
+                    </tr>            
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            invoicePeriod	
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Invoice period for which the payment is made. Retrieved when validating customer number. Can be either 1 or 12 (months)
+                        </td>
+                    </tr>            
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body Renew</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono mb-16 text-sm">
+            {
+                <p>"loginId": "{{loginId}}",</p>
+                <p>"key": "{{publicKey}}",</p>
+                <p>"serviceId": "gotv",</p>
+                <p>"customerNo": "300846162",</p>
+                <p>"customerName": "AYOBAMI OJO",</p>
+                <p>"productsCodes": [ ],</p>
+                <p>"amount": "800",</p>
+                <p>"invoicePeriod": "1",</p>
+                <p>"checksum": "{{checkSum}}",</p>
+                <p>"transactionRef": "te333u9u9j3949"</p>
+            }               
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body Change Package</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono mb-16 text-sm">
+            {
+                <p>"loginId": "{{loginId}}",</p>
+                <p>"key": "{{publicKey}}",</p>
+                <p>"serviceId": "gotv",</p>
+                <p>"customerNo": "300846162",</p>
+                <p>"customerName": "CSW TEST",</p>
+                <p>"productsCodes": [ "GOHAN" ],</p>
+                <p>"amount": "800",</p>
+                <p>"invoicePeriod": "1",</p>
+                <p>"checksum": "{{checkSum}}",</p>
+                <p>"transactionRef": "tester23kfkej3u943"</p>
+            }               
+        </div>
+
+        <h3 id="vmaresb" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusCode
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the transaction. 00 signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusDescription
+                        </th>
+                        <td class="px-6 py-4">
+                            json
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            statusDescription is a json string that has embedded in it details of the transaction. If successful, it contains object such as amount, transactionNo (Creditswitch’s unique reference generated for the transaction)
+                        </td>
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+
+        <h6 id="smartcard-recharge-response-body" class="font-light italic text-sm">Sample Response Body Renew</h6>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono">
+           {
+                <p>"statusCode": "00",</p>
+                <p>"statusDescription": {</p>
+                    <p>"message": "successful",</p>
+                    <p>"amount": "4",</p>
+                    <p>"type": "gotv",</p>
+                    <p>"package": "Renewal",</p>
+                    <p>"transactionRef": "test0bab9419g",</p>
+                    <p>"transactionNo": "941851634826388"
+                }</p>
+            }     
+        </div>
+
+        <h6 id="smartcard-recharge-response-body" class="font-light italic text-sm">Sample Response Body Change Package</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono">
+           {
+                <p>"statusCode": "00",</p>
+                <p>"statusDescription": {</p>
+                    <p>"message": "successful",</p>
+                    <p>"amount": "4",</p>
+                    <p>"type": "gotv",</p>
+                    <p>"package": "GOtv Smallie - monthly",</p>
+                    <p>"transactionRef": "test9j55216da",</p>
+                    <p>"transactionNo": "280721634826502"
+                }</p>
+            }     
+        </div>
+    </main>
+</div>
+</body>
+</html>

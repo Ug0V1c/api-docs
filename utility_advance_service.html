@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+  [x-cloak] { display: none !important; }
+    </style>
+    <style>
+  body {
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+  body.loaded {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+  <link rel="stylesheet" href="./src/output.css">
+  <script type="module" src="./src/scripts/index.js"></script>
+  <title>UTILITY ADVANCE SERVICE</title>
+</head>
+<body x-data class="font-light font-inter">
+  
+<!--<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+   <span class="sr-only">Open sidebar</span>
+   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+   <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+   </svg>
+</button>-->
+<nav class="w-full bg-white border-0 shadow-none">
+  <div class="max-w-4xl mx-auto flex flex-col items-center pt-20 pb-8 pl-40">
+    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20">
+  </div>
+</nav>
+
+
+<div class="flex">
+  <div id="sidebarContainer" x-ref="sidebarContainer"></div>
+
+  <main class="flex-1 sm:ml-64 p-10 pt-5">
+      
+      <div class="mt-6 px-6 space-y-3 justify-center">
+        <h1 class="text-3xl font-semibold">UTILITY ADVANCE SERVICE</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-16">This document gives an overview of the Creditswitch Utility Advance service. This service enables business partners to consume existing services on the Creditswitch Platform in a buy now pay later fashion.
+        For technical assistance with the CSW API contact us at techsupport@creditswitch.com to enable swift response and support.</p>
+      </div>
+      
+      <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">Integration Process Flow</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="pb-4">This section contains a description of recommended integration flow which helps minimize the risk of disputing transactions and also increase customer confidence in the system</p>
+      </div>
+
+      <div class="px-6 space-y-1 mb-12">
+        <p>1) Authentication: Begin by authenticating through the Login Endpoint to retrieve a bearer token for subsequent API calls.</p>
+        <p>2) Loan Eligibility Check: Call the Loan Eligibility Endpoint with the specified payload. This step confirms eligibility and returns potential loan offers if eligible.</p>
+        <p>3) Loan Approval: If the user accepts the terms and conditions presented in step 2, the system automatically processes the loan disbursement/approval.</p>
+        <p>4) Loan Status: Check the status of an existing loan, utilize the status endpoint.</p>
+        <p>5) Loan Repayment: To close an existing loan, utilize the Repayment Endpoint as needed.</p>
+      </div>
+
+      <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">1) Authentication</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">Generate bearer token for subsequent API calls.</p>
+      </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Login - Generate Auth Token
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            baseUrl/api/v1/login
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            <p>Content-Type: application/json</p>
+                            X-Signature: {{encrypted_checksum}}
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            email
+                        </th>
+                        <td class="px-6 py-4">
+                            Email
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Configured Email Address
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            password
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Password
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            status
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the request. true signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            code
+                        </th>
+                        <td class="px-6 py-4">
+                            Integer
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Corresponding description for the status. 200 = Successful
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            message
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Description of the api response.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            data
+                        </th>
+                        <td class="px-6 py-4">
+                            Object
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           An object containing authentication details.
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono">
+            <pre>
+{
+    <span class="text-green-400">"status"</span>:<span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>:<span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>:<span class="text-green-400">"Successful"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"token_type"</span>: <span class="text-green-400">"Bearer"</span>,
+        <span class="text-green-400">"access_token"</span>: <span class="text-green-400">"eyJygurwiyugiwbreugijbiwqhfiywefgibwa"</span>,
+        <span class="text-green-400">"expires_at"</span>: <span class="text-purple-400">7200</span>,
+        <span class="text-green-400">"name"</span>: <span class="text-green-400">"John Doe"</span>,
+        <span class="text-green-400">"email"</span>: <span class="text-green-400">"john.doe@example.com"</span>
+    }
+}</pre>
+        </div>
+
+        <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">2) Loan Eligibility Check</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">This action confirms recipient's eligibility using agreed metrics and returns with loan offers where eligible.
+        <span class="inline-block">Client is required to make a POST request to this endpoint.</span></p>
+      </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Loan Eligibility Check
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            baseUrl/api/v1/loan/eligibility/check
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            <p>Content-Type: application/json</p>
+                            <p>Bearer: {{access_token}}</p>
+                            X-Signature: {{encrypted_checksum}}
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant Id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            serviceType
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            airtime or data
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            recipient
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Customers phone number
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            status
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the request. true signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            code
+                        </th>
+                        <td class="px-6 py-4">
+                            Integer
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Corresponding description for the status. 200 = Successful
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            message
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Description of the api response.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            data
+                        </th>
+                        <td class="px-6 py-4">
+                            Object
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           An object containing check response with available offer(s).
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono">
+            <pre>
+{
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Successful"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"offer1"</span>: {
+            <span class="text-green-400">"amount"</span>: <span class="text-green-400">"200"</span>,
+            <span class="text-green-400">"serviceId</span>: <span class="text-green-400">"A04E"</span>,
+            <span class="text-green-400">"product"</span>: <span class="text-green-400">"airtime"</span>
+        },
+        <span class="text-green-400">"offer2"</span>: {
+            <span class="text-green-400">"amount"</span>: <span class="text-green-400">"100"</span>,
+            <span class="text-green-400">"serviceId"</span>: <span class="text-green-400">"A04E"</span>,
+            <span class="text-green-400">"product"</span>: <span class="text-green-400">"airtime"</span>
+        },
+        <span class="text-green-400">"isEligible"</span>: <span class="text-purple-400">true</span>,
+        <span class="text-green-400">"reference"</span>: <span class="text-green-400">"077416241021064788727052243034"</span>
+    },
+    <span class="text-green-400">"meta"</span>: <span class="text-blue-300">null</span>
+}
+            </pre>
+        </div>
+
+        <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">3) Disburse Loan</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">This action confirms recipient's consent to the loan terms and conditions as indicated by the response returned from step 2) above. <span class="block">Client is required to make a POST request to this endpoint.</span></p>
+      </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Disburse Loan
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            baseUrl/api/v1/loan/apply
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            <p>Content-Type: application/json</p>
+                            <p>Bearer: {{access_token}}</p>
+                            X-Signature: {{encrypted_checksum}}
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Request Body (Airtime)</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant Id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            requestId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Unique transaction Id for the request. Maxlength (36characters)
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            serviceId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Corresponding service id for the request type. See "Services" section for the available services and corresponding service codes for each.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            amount
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Amount with which to top-up amount customers phone Maximum 100000
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            recipient
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Customers phone number to top-up
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            status
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the request. true signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            code
+                        </th>
+                        <td class="px-6 py-4">
+                            Integer
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Corresponding description for the status. 200 = Successful, 202 = Processing, 422 = Failed
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            message
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Description of the vend response.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            data
+                        </th>
+                        <td class="px-6 py-4">
+                            Object
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           An object containing vend response details.
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Responses</h6>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-1 font-mono">
+            <pre>
+{
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Loan Advance Approved Successfully"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"requestId"</span>: <span class="text-green-400">"jc1bciigdebc"</span>,
+        <span class="text-green-400">"recipient</span>: <span class="text-green-400">"08092343261"</span>,
+        <span class="text-green-400">"amount"</span>: <span class="text-green-400">"90.00"</span>
+        <span class="text-green-400">"confirmCode"</span>: <span class="text-green-400">"1705997694210722624497994"</span>,
+        <span class="text-green-400">"network"</span>: <span class="text-green-400">"9Mobile"</span>,
+        <span class="text-green-400">"tranxDate"</span>: <span class="text-green-400">"23-01-2024 9:14 am"</span>
+        <span class="text-green-400">"serviceCharge"</span>: <span class="text-green-400">10.00</span>
+    },
+        <span class="text-green-400">"meta"</span>: <span class="text-blue-300">null</span>
+}
+            </pre>
+        </div>
+        
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-1 font-mono">
+            <pre>
+{
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">202</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Your transaction is being processed... Kindly run TSQ in 5 minutes"</span>,
+}
+            </pre>
+        </div>
+
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono">
+            <pre>
+{
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">false</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">422</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Failed to fulfil request"</span>,
+}
+            </pre>
+        </div>
+
+        <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">4) Get Loan Status</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">This endpoint is used to confirm the status of a loan application.</p>
+      </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Retrieve Utility Loan Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            baseUrl/api/v1/loan/status/{requestId}
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            GET
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            <p>Content-Type: application/json</p>
+                            <p>Bearer: {{access_token}}</p>
+                            X-Signature: {{encrypted_checksum}}
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            status
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the request. true signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            code
+                        </th>
+                        <td class="px-6 py-4">
+                            Integer
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Corresponding description for the status. 200 = Successful
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            message
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Description of the status check response.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            data
+                        </th>
+                        <td class="px-6 py-4">
+                            Object
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           An object containing utility loan details.
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono">
+            <pre>
+{
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Loan Request Retrieved Successfully"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"requestId"</span>: <span class="text-green-400">"9a1d44fij437"</span>,
+        <span class="text-green-400">"recipient</span>: <span class="text-green-400">"07067729339"</span>,
+        <span class="text-green-400">"amount"</span>: <span class="text-green-400">"100"</span>
+        <span class="text-green-400">"confirmCode"</span>: <span class="text-green-400">"2021063019080126701629681"</span>,
+        <span class="text-green-400">"network"</span>: <span class="text-green-400">"MTN"</span>,
+        <span class="text-green-400">"tranxDate"</span>: <span class="text-green-400">"17-01-2024 2:06 pm"</span>
+        <span class="text-green-400">"serviceCharge"</span>: <span class="text-green-400">10.00</span>,
+        <span class="text-green-400">"status"</span>: <span class="text-green-400">Open</span>
+    },
+    <span class="text-green-400">"meta"</span>: <span class="text-blue-300">null</span>
+}
+            </pre>
+        </div>
+
+        <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">5) Repay Utility Loan</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">This endpoint is used to finalized or close out an outstanding loan. To confirm the outstanding payment, a call the the loan status endpoint will suffice</p>
+      </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Repay Utility Loan
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            baseUrl/api/v1/loan/repay
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            <p>Content-Type: application/json</p>
+                            <p>Bearer: {{access_token}}</p>
+                            X-Signature: {{encrypted_checksum}}
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            requestId
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Unique transaction Id for the request. Maxlength (36characters)
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            amount
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Outstanding Loan Amount. Note: It must be the exact amount as indicated by get loan status.
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            status
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the request. true signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            code
+                        </th>
+                        <td class="px-6 py-4">
+                            Integer
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Corresponding description for the status. 200 = Successful
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            message
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Description of the status repayment request.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            data
+                        </th>
+                        <td class="px-6 py-4">
+                            Object
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           An object containing utility loan repayment details.
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-1 font-mono">
+            <pre>
+{
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Loan status updated successfully"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"message"</span>: <span class="text-green-400">"Loan status updated successfully"</span>
+    },
+    <span class="text-green-400">"meta"</span>: <span class="text-blue-300">null</span>
+}
+            </pre>
+        </div>
+    </main>
+</div>
+</body>
+</html>

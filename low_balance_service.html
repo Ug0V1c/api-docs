@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+  [x-cloak] { display: none !important; }
+    </style>
+    <style>
+  body {
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+  body.loaded {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+  <link rel="stylesheet" href="./src/output.css">
+  <script type="module" src="./src/scripts/index.js"></script>
+  <title>LOW BALANCE SERVICE</title>
+</head>
+<body x-data class="font-light font-inter">
+  
+<!--<button
+    data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+    <span class="sr-only">Open sidebar</span>
+    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+    </svg>
+</button>-->
+
+<nav class="w-full bg-white border-0 shadow-none">
+  <div class="max-w-4xl mx-auto flex flex-col items-center pt-20 pb-8 pl-40">
+    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20">
+  </div>
+</nav>
+
+<div class="flex container mx-auto px-10 max-md:px-4">
+  <div id="sidebarContainer" x-ref="sidebarContainer"></div>
+
+  <main class="flex-1 sm:ml-64 p-10 pt-5">
+      
+      
+      <div class="mt-6 px-6 space-y-3 justify-center">
+        <h1 class="text-3xl font-semibold">LOW BALANCE SERVICE (AUTO TOP-UP)</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-16">This document gives an overview of the Creditswitch low balance service. This is a subscription based service that enables customer to top up their balance while making calls .
+        <span class="inline-block">For technical assistance with the CSW API contact us at techsupport@creditswitch.com to enable swift response and support.</span></p>
+      </div>
+      
+      <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">Integration Process Flow</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="pb-4">This section contains a description of recommended integration flow which helps minimize the risk of disputing transactions and also increase customer confidence in the system</p>
+      </div>
+
+      <div class="px-6 space-y-1 mb-12">
+        <p>1) Onboarding: Begin by authenticating through the onboard Endpoint to retrieve a token for subsequent API calls.</p>
+        <p>2) Subscription: Call the Auto Top up subscription Endpoint with the specified payload. This step allows user to subscribe to the service.</p>
+        <p>3) Unsubscribe: If the customer wishes to unsubscribe from the Low Balance service, Call the unsubscribe endpoint to cancel active subscription.</p>
+      </div>
+
+      <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">1) Onboarding</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">Generate token for subsequent API calls.</p>
+      </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Onboard - Generate Auth Token
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            baseUrl/api/v1/low/balance/create/vendor
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            Content-Type: application/json
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Merchant Login Id
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant LoginId
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Merchant Name
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant Name
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Debit URL
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant debit callback Url
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Account URL
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant account callback Url
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            status
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the request.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusDescription
+                        </th>
+                        <td class="px-6 py-4">
+                            Integer
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Corresponding description for the status.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            data
+                        </th>
+                        <td class="px-6 py-4">
+                            Object
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           An object containing authentication details.
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono">
+            <pre>
+{
+    <span class="text-green-400">"statusCode"</span>: <span class="text-green-400">"00"</span>,
+    <span class="text-green-400">"statusDescription"</span>: <span class="text-green-400">"Account created successfully"</span>,
+    <span class="text-green-400">"data"</span>: <span class="text-green-400">"srUNEuasfbs_UtcuwJHIVWO-euJHCHVcggfw"</span>
+}
+            </pre>
+        </div>
+
+        <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">2) Subscription</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">Call the Auto Top up subscription Endpoint with the specified payload. This step allows user to subscribe to the service.
+        <span class="block">Client is required to make a POST request to this endpoint.</span></p>
+      </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Subscription
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            baseUrl/api/v1/low/balance/subscribe
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            Content-Type: application/json
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            msisdn
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Customers Msisdn
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            amount
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            amount to top up
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            AirtimeThreshold
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            O
+                        </td>
+                        <td class="px-6 py-4">
+                           airtime threshold at which service should trigger
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            DataThreshold
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            O
+                        </td>
+                        <td class="px-6 py-4">
+                           data threshold at which service should trigger
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Product
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           trigger type weather for airtime or data
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            network
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           customers msisdn network provider
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            createdAt
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            O
+                        </td>
+                        <td class="px-6 py-4">
+                           request timestamp
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono">
+            <pre>
+{ <span class="text-green-400">"network"</span>: <span class="text-green-400">"MTN"</span>, <span class="text-green-400">"product"</span>: <span class="text-green-400">"airtime"</span>, <span class="text-green-400">"airtimeThreshold"</span>: <span class="text-green-400">"200"</span>, <span class="text-green-400">"dataThreshold"</span>: <span class="text-green-400">"500MB"</span>, <span class="text-green-400">"amount"</span>: 
+<span class="text-green-400">"100"</span>, <span class="text-green-400">"msisdn"</span>: <span class="text-green-400">"string"</span>, <span class="text-green-400">"createdAt"</span>: <span class="text-green-400">"2025-07-18T18:37:12.779576"</span> }
+            </pre>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            status
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the request.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusDescription
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Corresponding description for the status.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            data
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            O
+                        </td>
+                        <td class="px-6 py-4">
+                           response data if any.
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Response Body "statusCode": "string", "statusDescription": "string", "data": "string"</h6>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono">
+            <pre>
+{ <span class="text-green-400">"statusCode"</span>: <span class="text-green-400">"00"</span>, <span class="text-green-400">"statusDescription"</span>: <span class="text-green-400">"Subscription is successful"</span>, <span class="text-green-400">"data"</span>: <span class="text-green-400">"udgsigiub_bjadvb"</span> }
+            </pre>
+        </div>
+
+        <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">3) Unsubscribe</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">If the customer wishes to unsubscribe from the Low Balance service, Call the unsubscribe endpoint to cancel active subscription. <span class="block">Client is required to make a DELETE request to this endpoint.</span></p>
+      </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Unsubscribe
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            baseUrl/api/v1/low/balance/{{msisdn}}/{{thresholdType}}/unsubscrible
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            DELETE
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            Content-Type: application/json
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            msisdn
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Customers Msisdn
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Threshold Type
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            trigger type weather for airtime or data
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Sample Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            status
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the request.
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusDescription
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                           Status Description of the request.
+                        </td>
+                    </tr>              
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono">
+            <pre>
+{
+    <span class="text-green-400">"statusCode"</span>: <span class="text-green-400">"00"</span>,
+    <span class="text-green-400">"statusDescription"</span>: <span class="text-green-400">"Unsubscribed"</span>
+}
+            </pre>
+        </div>
+
+        <div class="mt-6 px-6 space-y-3 justify-center">
+        <h2 class="text-3xl font-semibold">4) Notifications Callback</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">A Low balance notification is trigger to you if the subscriber airtime/data balance is below their threshold and a successful response will also trigger value to be given to the subscriber.</p>
+      </div>
+
+        <h3 id="request-body" class="font-bold">Callback Event -- notification request</h3>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-7 font-mono">
+            <pre>
+{"<span class="text-green-400">subscriberMSISDN"</span>: <span class="text-green-400">"0803xxxxxxx"</span>, <span class="text-green-400">"airtimeThreshold"</span>: <span class="text-green-400">"50"</span>, <span class="text-green-400">"network"</span>: <span class="text-green-400">"MTN"</span>, <span class="text-green-400">"dataThreshold"</span>: <span class="text-green-400">""</span>,
+<span class="text-green-400">"thresholdType"</span>: <span class="text-green-400">"airtime"</span>, <span class="text-green-400">"transactionId"</span>: 
+<span class="text-green-400">"251068796011729491882"</span>,<span class="text-green-400">"requestType"</span>:<span class="text-green-400">"OneTime/Subscription"</span>, <span class="text-green-400">"event"</span>: <span class="text-green-400">"notification"</span>}
+            </pre>
+        </div>
+        
+        <h3 id="request-body" class="font-bold">Callback Event -- notification Expected Response</h3>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-7 font-mono">
+            <pre>
+{<span class="text-green-400">"status"</span>:<span class="text-purple-400">true</span>,<span class="text-green-400">"code"</span>:<span class="text-purple-400">200</span>,<span class="text-green-400">"message"</span>:<span class="text-green-400">"Debited Successful"</span>,<span class="text-green-400">"data"</span>:
+{<span class="text-green-400">"isDebited"</span>:<span class="text-purple-400">true</span>,<span class="text-green-400">"transaction_reference"</span>:<span class="text-green-400">"931ATT6715e690775841729488528"</span>,<span class="text-green-400">"amount"</span>:<span class="text-green-400">100"</span>,<span class="text-green-400">"recipient"</span>:<span class="text-green-400">"0803xxxxxxxxxxxx"</span>}}
+            </pre>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Callback Event -- update request</h3>
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-7 font-mono">
+            <pre>
+{"<span class="text-green-400">statusCode"</span>: <span class="text-green-400">"00"</span>, <span class="text-green-400">"statusDescription"</span>: <span class="text-green-400">"Successful"</span>, <span class="text-green-400">"confirmCode"</span>: <span class="text-green-400">"251068796011729491882"</span>, 
+<span class="text-green-400">"tranxReference"</span>: <span class="text-green-400">"931ATT6715e690775841729488528"</span>, <span class="text-green-400">"event"</span>: <span class="text-green-400">"update"</span>}
+            </pre>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Callback Event -- update Expected Response</h3>
+        <div class="bg-black text-white text-xs p-8 mt-2 font-mono">
+            <pre>
+{ <span class="text-green-400">"status"</span>:<span class="text-purple-400">true</span>, <span class="text-green-400">"code"</span>:<span class="text-purple-400">200</span>, <span class="text-green-400">"message"</span>:<span class="text-green-400">"update Successful"</span> }
+            </pre>
+        </div>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+  [x-cloak] { display: none !important; }
+    </style>
+    <style>
+  body {
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+  body.loaded {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+  <link rel="stylesheet" href="./src/output.css">
+  <script type="module" src="./src/scripts/index.js"></script>
+  <title>Get Merchant Info</title>
+</head>
+<body x-data class="font-light font-inter">
+  
+<!--<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+   <span class="sr-only">Open sidebar</span>
+   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+   <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+   </svg>
+</button>-->
+<nav class="w-full bg-white border-0 shadow-none">
+  <div class="max-w-4xl mx-auto flex flex-col items-center pt-20 pb-8 pl-40">
+    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20">
+  </div>
+</nav>
+
+
+<div class="flex">
+  <div id="sidebarContainer" x-ref="sidebarContainer"></div>
+
+  <main class="flex-1 sm:ml-64 p-10 pt-5">
+      
+      <div class="mt-6 px-6 space-y-3">
+        <h1 class="text-3xl font-semibold">Get Merchant Info</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="mb-7">Get Allowed Services operation enables Creditswitch integrator to fetch current info about integrator’s account, such as the balance, allowed ip addresses, available services, and the discount given for each service.</p>
+      </div>  
+
+      
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Service
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Merchant Info
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request URL
+                        </th>
+                        <td class="px-6 py-4">
+                            <a href="" class="hover:underline">baseUrl/api/v1/mdetails</a>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            HTTP Method
+                        </th>
+                        <td class="px-6 py-4">
+                            POST
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Request Headers
+                        </th>
+                        <td class="px-6 py-4">
+                            application/json
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="request-body" class="font-bold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            loginId
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant id provided during integration
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            key
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchants (public) key
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            checksum
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Checksum computed for the request. See "Security: Checksum for hash computation steps"
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+
+        <h6 class="font-light italic text-sm">Sample Request Body</h6>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono">
+            {"loginId":1234, "key":"0688378ec7fe233","checksum":"#2y*&amp;23UnvC19"}
+        </div>
+
+        <h3 id="response-body" class="font-bold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusCode
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the transaction. 00 signifies success
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            statusDescription
+                        </th>
+                        <td class="px-6 py-4">
+                            Collection
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            An array of merchant details
+                        </td>
+                    </tr>      
+                </tbody>
+            </table>
+        </div>
+
+        <h5 id="request-body" class="font-bold"><span class="italic text-sm">"statusDescription"</span> Body:</h5>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Parameter Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            M/O
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            name
+                        </th>
+                        <td class="px-6 py-4">
+                            Numeric
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant name supplied during production endpoint setup
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            balance
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Merchant name supplied during production endpoint setup
+                        </td>
+                    </tr> 
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            status
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Status of the Merchant's account
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            email
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Email of the merchant
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            allowedIps
+                        </th>
+                        <td class="px-6 py-4">
+                            Collection
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Array of Ip's configured for merchant
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            serviceDetail
+                        </th>
+                        <td class="px-6 py-4">
+                            Collection
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            A multidimensional array of (service ids and the corresponding commisions) for each
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            transactionsToday
+                        </th>
+                        <td class="px-6 py-4">
+                            String
+                        </td>
+                        <td class="px-6 py-4">
+                            M
+                        </td>
+                        <td class="px-6 py-4">
+                            Total daily transaction count for merchant
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+
+         <h6 class="font-light italic text-sm">Sample Response Body</h6>
+        <div class="bg-black text-white p-8 mt-2 font-mono">
+            {"statusCode":"00",
+                "statusDescription":
+                <div>{"name":" Test Test ","balance":"2855.00","status":"active","email":"support@test.com ",</div>
+                <div>"allowed_ips":["127.0.0.1"],"serviceDetail":[["A01E","5.00"],["A02E","5.00"],</div>
+                <div>["A03E","5.00" ],["A04E","5.00"],["D01D","0.00"],["D02D","0.00"],</div>
+                ["D03D","0.00"],["D04D","0.00"]],"transac tionsToday":0}
+            }
+                                        
+        </div>
+    </main>
+</div>
+</body>
+</html>

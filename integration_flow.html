@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  [x-cloak] { display: none !important; }
+  </style>
+  <style>
+  body {
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+  body.loaded {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+  <link rel="stylesheet" href="./src/output.css">
+  <script type="module" src="./src/scripts/index.js"></script>
+  <title>Integration Flow</title>
+</head>
+<body x-data class="font-inter font-light">
+  
+<!--<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+   <span class="sr-only">Open sidebar</span>
+   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+   <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+   </svg>
+</button>-->
+<nav class="w-full bg-white border-0 shadow-none">
+  <div class="max-w-4xl mx-auto flex flex-col items-center pt-20 pb-8 pl-40">
+    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20">
+  </div>
+</nav>
+
+
+<div class="flex">
+  <div id="sidebarContainer" x-ref="sidebarContainer"></div>
+
+  <main class="flex-1 sm:ml-64 p-10 pt-5">
+
+      <div class="mt-6 px-6">
+        <h1 class="text-3xl font-semibold">Integration Flow</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
+        <p class="">This section contains a description of recommended integration flow which helps minimize the risk of disputing transactions and also increase customer confidence in the system.</p>
+        <h3 id="iFSONE" class="uppercase font-bold text-gray-500 my-4">Step one</h3>
+        <p>If the service has a method for validating the customer, that method should be used first in order to make sure the customer is properly identified on provider platform and that products customer wishes to purchase are available at the moment.</p>
+        <h3 id="iFSTWO" class="uppercase font-bold text-gray-500 my-4">Step Two</h3>
+        <p>In case step 1 is successfully completed, a Vend request can be sent. If the HTTP status of the response is OK, then you can check the request status through status field which can be Successful or not. In either case, the request has been processed</p>
+        <div>
+        <h3 id="iFSTHREE" class="uppercase font-bold text-gray-500 my-4">Step Three</h3>
+        <p>Possible alternative scenarios to an ideal step 2 include a Response timeout or a Connection error or any other error defined in our response</p>
+        <ul class="ml-8 space-y-2 list-disc">
+          <li>In case of an error, you can safely resend the vend request - however, the request id must be updated.</li>
+          <li>If a response with HTTP status OK is received, you can consider vend to have been carried out.</li>
+        </ul>
+        </div>
+        <h3 id="iFSFOUR" class="uppercase font-bold text-gray-500 my-4">Step Four</h3>
+        <p>If the service has a method for validating the customer, that method should be used first in order to make sure the customer is properly identified on provider platform and that products customer wishes to purchase are available at the moment.</p>
+      </div>
+    </main>
+</div>
+</body>
+</html>

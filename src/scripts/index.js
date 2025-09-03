@@ -4,6 +4,12 @@ import './componentLoader'
 
 Alpine.plugin(persist);
 
+document.addEventListener('alpine:init', () => {
+    Alpine.store('sidebar', {
+        showSidebar: false,
+    })
+});
+
 window.Alpine = Alpine;
 
 Alpine.start();

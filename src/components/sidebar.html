@@ -1,5 +1,6 @@
 <aside id="default-sidebar"
-  class="fixed top-0 left-0 z-40 w-64 h-screen bg-sidebar_color text-white transition-transform -translate-x-full lg:translate-x-0"
+  :class="$store.sidebar.showSidebar ? '' : '-translate-x-full'"
+  class="fixed top-0 left-0 z-40 w-3/4 md:w-1/2 lg:w-64 h-screen bg-sidebar_color text-white transition-transform lg:translate-x-0"
   aria-label="Sidebar">
   <div class="h-full flex flex-col overflow-y-auto overflow-x-hidden custom-scrollbar" x-data="{
       menuToggle: $persist({
@@ -79,6 +80,7 @@
     }">
     <!-- Logo / Header -->
     <div class="sticky flex flex-col items-center top-0 border-b border-gray-700 z-50 bg-sidebar_color px-6 py-5 shadow-sm">
+      <button id="close-btn" class="lg:hidden text-gray-300 hover:text-white text-3xl absolute top-5 right-6 cursor-pointer p-1" @click="$store.sidebar.showSidebar = false">&times;</button>
       <div>
         <div>
           <img src="/img/logo.png" class="w-12 h-12 object-contain rounded-full"/>

@@ -1050,6 +1050,11 @@
       padding-block: calc(var(--spacing) * 2);
     }
   }
+  .max-md\:pt-1 {
+    @media (width < 48rem) {
+      padding-top: calc(var(--spacing) * 1);
+    }
+  }
   .max-md\:pt-2 {
     @media (width < 48rem) {
       padding-top: calc(var(--spacing) * 2);
@@ -1058,6 +1063,11 @@
   .max-md\:pb-2 {
     @media (width < 48rem) {
       padding-bottom: calc(var(--spacing) * 2);
+    }
+  }
+  .max-md\:pl-0 {
+    @media (width < 48rem) {
+      padding-left: calc(var(--spacing) * 0);
     }
   }
   .max-md\:text-sm {

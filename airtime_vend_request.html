@@ -27,32 +27,32 @@
 </head>
 <body x-data class="font-light font-inter">
 
-<div class="max-lg:px-1">
+<div class="max-md:px-1">
   <div id="sidebarContainer" x-ref="sidebarContainer"></div>
 
-  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-lg:w-full max-lg:px-4 max-lg:pb-2">
+  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:w-full max-md:px-4 max-md:pb-2">
         <!-- SideBar Mobile Button Component  -->
             <div id="sidebarMobileButton" x-ref="sidebarMobileButton"></div>
             
-        <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none">
+        <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none max-md:mb-10">
             <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
         </div>
-      <div class="mt-6 px-6 space-y-3 max-lg:px-1">
-        <h1 class="text-3xl font-semibold max-lg:text-xl max-lg:px-0">Airtime Vend Request</h1>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-lg:mb-3 max-lg:mt-2">
-        <p class="mb-7 max-lg:text-sm max-lg:mb-3">Service to perform airtime top-up of customer’s phone number through merchant’s account</p>
+      <div class="mt-6 px-6 space-y-3 max-md:px-1">
+        <h1 class="text-3xl font-semibold max-md:text-xl max-md:px-0">Airtime Vend Request</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-md:mb-3 max-md:mt-2">
+        <p class="mb-7 max-md:text-sm max-md:mb-3">Service to perform airtime top-up of customer’s phone number through merchant’s account</p>
       </div>  
 
       
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16 max-lg:mb-12">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-lg:text-xs">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Service
                         </th>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Merchant Info
                         </th>
                     </tr>
@@ -86,21 +86,21 @@
             </table>
         </div>
 
-        <h3 id="request-body" class="font-bold max-lg:font-semibold">Request Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-lg:mb-12">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-lg:text-xs">
+        <h3 id="request-body" class="font-bold max-md:font-semibold">Request Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
@@ -222,21 +222,21 @@
                 "date":"2-Jul-2017 18:30 GMT","checksum":"#2y*&23UnvC19" , "confirm code":"kvrbv3fjrv", "email":"support@creditswitch.com", "jambType":"jambutme"}
         </div>
 
-        <h3 id="response-body" class="font-bold max-lg:font-semibold">Response Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-lg:mb-12">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-lg:text-xs">
+        <h3 id="response-body" class="font-bold max-md:font-semibold">Response Body</h3>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3 max-lg:px-3 max-lg:py-2">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>

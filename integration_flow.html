@@ -28,33 +28,33 @@
 <body x-data class="font-inter font-light">
 
 
-<div class="max-lg:px-1">
+<div class="max-md:px-1">
   <div id="sidebarContainer" x-ref="sidebarContainer"></div>
 
-  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-lg:px-4 max-lg:pb-2">
+  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:px-4 max-md:pb-2">
     <!-- SideBar Mobile Button Component  -->
             <div id="sidebarMobileButton" x-ref="sidebarMobileButton"></div>
-      <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none">
+      <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none max-md:mb-10">
         <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
       </div>
 
-      <div class="mt-6 px-6">
-        <h1 class="text-3xl font-semibold">Integration Flow</h1>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
-        <p class="">This section contains a description of recommended integration flow which helps minimize the risk of disputing transactions and also increase customer confidence in the system.</p>
-        <h3 id="iFSONE" class="uppercase font-bold text-gray-500 my-4">Step one</h3>
-        <p>If the service has a method for validating the customer, that method should be used first in order to make sure the customer is properly identified on provider platform and that products customer wishes to purchase are available at the moment.</p>
-        <h3 id="iFSTWO" class="uppercase font-bold text-gray-500 my-4">Step Two</h3>
-        <p>In case step 1 is successfully completed, a Vend request can be sent. If the HTTP status of the response is OK, then you can check the request status through status field which can be Successful or not. In either case, the request has been processed</p>
+      <div class="mt-6 px-6  max-md:px-1">
+        <h1 class="text-3xl font-semibold max-md:text-xl max-md:px-0">Integration Flow</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-md:mb-3 max-md:mt-2">
+        <p class="max-md:text-sm">This section contains a description of recommended integration flow which helps minimize the risk of disputing transactions and also increase customer confidence in the system.</p>
+        <h3 id="iFSONE" class="uppercase font-bold text-gray-500 my-4 max-md:my-2">Step one</h3>
+        <p class="max-md:text-sm">If the service has a method for validating the customer, that method should be used first in order to make sure the customer is properly identified on provider platform and that products customer wishes to purchase are available at the moment.</p>
+        <h3 id="iFSTWO" class="uppercase font-bold text-gray-500 my-4 max-md:my-2">Step Two</h3>
+        <p class="max-md:text-sm">In case step 1 is successfully completed, a Vend request can be sent. If the HTTP status of the response is OK, then you can check the request status through status field which can be Successful or not. In either case, the request has been processed</p>
         <div>
-        <h3 id="iFSTHREE" class="uppercase font-bold text-gray-500 my-4">Step Three</h3>
-        <p>Possible alternative scenarios to an ideal step 2 include a Response timeout or a Connection error or any other error defined in our response</p>
-        <ul class="ml-8 space-y-2 list-disc">
+        <h3 id="iFSTHREE" class="uppercase font-bold text-gray-500 my-4 max-md:my-2">Step Three</h3>
+        <p class="max-md:text-sm">Possible alternative scenarios to an ideal step 2 include a Response timeout or a Connection error or any other error defined in our response</p>
+        <ul class="ml-8 space-y-2 list-disc max-md:text-sm">
           <li>In case of an error, you can safely resend the vend request - however, the request id must be updated.</li>
           <li>If a response with HTTP status OK is received, you can consider vend to have been carried out.</li>
         </ul>
         </div>
-        <h3 id="iFSFOUR" class="uppercase font-bold text-gray-500 my-4">Step Four</h3>
+        <h3 id="iFSFOUR" class="uppercase font-bold text-gray-500 my-4 max-md:my-2">Step Four</h3>
         <p>If the service has a method for validating the customer, that method should be used first in order to make sure the customer is properly identified on provider platform and that products customer wishes to purchase are available at the moment.</p>
       </div>
     </main>

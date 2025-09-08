@@ -30,56 +30,56 @@
 <div class="max-md:px-1">
   <div id="sidebarContainer" x-ref="sidebarContainer"></div>
 
-  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:px-4 max-md:pb-2">
+  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:w-full max-md:px-4 max-md:pb-2">
         <!-- SideBar Mobile Button Component  -->
         <div id="sidebarMobileButton" x-ref="sidebarMobileButton"></div>
         
-        <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none">
+        <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none max-md:mb-10">
             <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
         </div>
       
-      <div class="mt-6 px-6 space-y-3">
-        <h1 class="text-3xl font-semibold">Electricty Vending Requests</h1>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
-        <p class="mb-7">The request parameters to the vending endpoint remains the same across distribution companies.
+      <div class="mt-6 px-6 space-y-3 justify-center max-md:px-1">
+        <h1 class="text-3xl font-semibold max-md:text-xl max-md:px-0">Electricty Vending Requests</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-md:mb-3 max-md:mt-2">
+        <p class="mb-7 max-md:text-sm">The request parameters to the vending endpoint remains the same across distribution companies.
         <span class="inline-block">Pay attention though to the <span class="font-bold">Vending</span> responses. Varying responses are returned for each electric disco.</span>
         <span class="inline-block">Security checksum generation is covered in the Security: Checksum section</span></p>
       </div>  
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Service
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             ELECTRICITY VENDING
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             Request URL
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             <a href="" class="hover:underline">baseUrl/api/v1/evend</a>
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             HTTP Method
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             POST
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             Request Headers
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             application/json
                         </td>
                     </tr>                 
@@ -88,148 +88,148 @@
         </div>
 
         <h3 id="request-body" class="font-bold">Request Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             loginId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Merchant id provided during integration
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             serviceId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Corresponding service id for the request type. See "Services" section for the available services and corresponding service codes for each.
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             customerAccountId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Customers unique identifier on distributors platform e.g Account Number or Meter Number
                         </td>
                     </tr> 
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             amount
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Amount to top-up customers account/meter with
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             customerName
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Name of Customer
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             requestId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Merchants unique id/reference for the transaction
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             customerAddress
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Address of the Customer
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             key
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Merchants (public) key
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             checksum
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Checksum computed for the request. See "Security: Checksum" section for hash computation steps
                         </td>
                     </tr>            
@@ -238,74 +238,74 @@
         </div>
 
         <h6 class="font-light italic text-sm">Sample Request Body</h6>
-        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono">
+        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono overflow-x-auto max-md:p-4 max-md:mb-12 max-md:text-xs">
             {<p>"loginId":"1234","key":"0688378ec7fe233",</p>
             <p>"serviceId":"E02E","customerAccountId":"0110347638","requestId":1511693541,"amount":"1000","customerName": "MR & MRS. Test CSW",</p>
             <p>"customerAddress": "93B, ODUDUWA CRESCENT, GRA, IKEJA, LAGOS","checksum": "$2y$10$rv89doOk0TdmGrWhyrj4gepYG6I3Toi5CSVdMV.mFmRvKBN\/\/JEE2"</p>
             }
         </div>
 
-        <div id="response-body" class="flex justify-center"><h2 id="request-body" class="font-extrabold pt-8 pb-16 text-2xl">Responses</h3></div>
+        <div id="response-body" class="flex justify-center"><h2 id="request-body" class="font-extrabold pt-8 pb-16 text-2xl max-md:pt-4 max-md:pb-8">Responses</h3></div>
 
         <h3 id="response-prepaid-response" class="font-bold">Prepaid Response</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             statusCode
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Status of the transaction. 00 signifies success
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             statusDescription
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Corresponding description for the status code. 00=Successful
                         </td>
                     </tr>      
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             detail
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Collection
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             An array of merchant customer’s detail
                         </td>
                     </tr>            
@@ -314,120 +314,120 @@
         </div>
 
         <h3 id="response-body" class="font-medium"><span class="italic">"detail"</span> Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             name
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Name of customer, as supplied by electric disco
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             address
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Address to which the meter number belongs
                         </td>
                     </tr>      
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             accountId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Customer’s Account/Meter number
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             amount
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Top-up amount
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             units
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Units of power purchased
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             token
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Prepaid meter token generated on the disco’s end
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             tranxId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Unique Reference generated for the transaction
                         </td>
                     </tr>            
@@ -436,71 +436,71 @@
         </div>
 
         <h6 class="font-light italic text-sm">Sample Response Body</h6>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono">
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono overflow-x-auto max-md:p-4 max-md:mb-12 max-md:text-xs">
             <p>{"statusCode":"00","statusDescription":"successful","detail":</p>
             <p>{"name": "MR & MRS XD MICHAEL","address":"71 XAVIER CRESCENT ","accountId":"0110347638","amount":"1000",</p>
             <p>"units":"788.14kWh","token":"01234567890123456789","tranxId":"20170727085357"}}</p>                 
         </div>
 
         <h3 id="response-postpaid-response" class="font-bold">Postpaid Response</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             statusCode
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Status of the transaction. 00 signifies success
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             statusDescription
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Corresponding description for the status code. 00=Successful
                         </td>
                     </tr>      
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             detail
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Collection
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             An array of merchant customer’s detail
                         </td>
                     </tr>            
@@ -509,92 +509,92 @@
         </div>
 
         <h3 id="response-body" class="font-medium"><span class="italic">"detail"</span> Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             name
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Name of customer, as supplied by electric disco
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             address
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Address to which the meter number belongs
                         </td>
                     </tr>      
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             accountId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Customer’s Account/Meter number
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             amount
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Top-up amount
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             tranxId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Unique Reference generated for the transaction
                         </td>
                     </tr>            
@@ -603,7 +603,7 @@
         </div>
 
         <h6 class="font-light italic text-sm">Sample Response Body</h6>
-        <div class="bg-black text-white p-8 mt-2 font-mono">
+        <div class="bg-black text-white p-8 mt-2 font-mono overflow-x-auto max-md:p-4 max-md:text-xs">
             {"statusCode":"00","statusDescription":"successful",
             <p>"detail":{"name":"MR & MRS XD MICHAEL","address":"71 XAVIER CRESCENT ",</p>
             <p>"accountId":"0110347638","amount":"1000","tranxId":"150168371668"}}</p>                 

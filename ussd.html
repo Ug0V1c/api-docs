@@ -30,59 +30,59 @@
 <div class="max-md:px-1">
   <div id="sidebarContainer" x-ref="sidebarContainer"></div>
 
-  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:px-4 max-md:pb-2">
+  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:w-full max-md:px-4 max-md:pb-2">
     <!-- SideBar Mobile Button Component  -->
             <div id="sidebarMobileButton" x-ref="sidebarMobileButton"></div>
-        <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none">
+        <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none max-md:mb-10">
             <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
         </div>
       
-      <div class="mt-6 px-6 space-y-3 justify-center">
-        <h1 class="text-3xl font-semibold">USSD SOLUTIONS</h1>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
-        <p class="mb-16">This document gives a description of the USSD web service exposed on the Creditswitch Platform which enables business partners’ display their USSD menu.
+      <div class="mt-6 px-6 space-y-3 justify-center max-md:px-1">
+        <h1 class="text-3xl font-semibold max-md:text-xl max-md:px-0">USSD SOLUTIONS</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-md:mb-3 max-md:mt-2">
+        <p class="mb-16 max-md:mb-10 max-md:text-sm">This document gives a description of the USSD web service exposed on the Creditswitch Platform which enables business partners’ display their USSD menu.
         For technical assistance with the CSW API contact us at techsupport@creditswitch.com to enable swift response and support.</p>
       </div>
       
-      <div class="mt-6 px-6 space-y-3 justify-center">
-        <h2 class="text-3xl font-semibold">Integration</h2>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
-        <p class="pb-1">This section contains a description of recommended integration flow which helps minimize the risk of disputing transactions and also increase customer confidence in the system</p>
-        <p class="mb-16">For a secure transfer of data between Creditswitch server and client’s server, a secured connection is required. This can be achieved via a VPN a connection, https or other secured protocols.</p>
+      <div class="mt-6 px-6 space-y-3 justify-center max-md:px-1">
+        <h2 class="text-3xl font-semibold max-md:text-xl max-md:px-0">Integration</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-md:mb-3 max-md:mt-2">
+        <p class="pb-1 max-md:text-sm">This section contains a description of recommended integration flow which helps minimize the risk of disputing transactions and also increase customer confidence in the system</p>
+        <p class="mb-16 max-md:mb-10 max-md:text-sm">For a secure transfer of data between Creditswitch server and client’s server, a secured connection is required. This can be achieved via a VPN a connection, https or other secured protocols.</p>
       </div>
 
-      <div class="mt-6 px-6 space-y-3 justify-center">
-        <h2 class="text-3xl font-semibold">External USSD Application Service</h2>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
-        <p class="mb-7">This service allows a client to be able to display their preferred menu via USSD. Creditswitch will append user’s request parameters and push to the provided endpoint. A JSON response is expected for this request.</p>
+      <div class="mt-6 px-6 space-y-3 justify-center max-md:px-1">
+        <h2 class="text-3xl font-semibold max-md:text-xl max-md:px-0">External USSD Application Service</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-md:mb-3 max-md:mt-2">
+        <p class="mb-7 max-md:text-sm max-md:mb-4">This service allows a client to be able to display their preferred menu via USSD. Creditswitch will append user’s request parameters and push to the provided endpoint. A JSON response is expected for this request.</p>
       </div>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Service
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Merchant Info
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             Request URL
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             To be provided by the client
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             HTTP Method
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             GET
                         </td>
                     </tr>                 
@@ -91,106 +91,106 @@
         </div>
 
         <h3 id="request-body" class="font-bold">Request Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             msisdn
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Customer’s 13 digit phone number e.g. 2347055699312
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             input
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             For first dial, this fields comes with the short (without #) e.g *444 subsequently, with the user’s input e.g. 1
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             sessionid
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             This displays a unique numeric ID for each request
                         </td>
                     </tr> 
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             network
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             It identifies the network providers’ which includes MTN, Glo, Airtel or 9Mobile
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             action
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             This could either be begin, request, or end begin– means a new request request – means session should be continued end – means session should be ended
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             allinput	
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             For first dial, this fields comes with the short (without #) e.g .*444 subsequently, the concatenation of the initial input and other user input e.g.*444*1
                         </td>
                     </tr>              
@@ -199,55 +199,55 @@
         </div>
 
         <h6 class="font-light italic text-sm">Sample Request Body</h6>
-        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono">
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-16 font-mono overflow-x-auto max-md:p-4 max-md:text-xs max-md:mb-12">
             <pre>http://CLIENT_FULL_BASEURL?msisdn=<span class="text-purple-400">23478599658965</span>&input=*<span class="text-purple-400">444</span>&sessionid=<span class="text-purple-400">123555522</span>&net work=MTN&action=begin&allinput=*<span class="text-purple-400">444</span>*<span class="text-purple-400">1</span></pre>
         </div>
 
         <h3 id="response-body" class="font-bold">Response Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             message
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String of message (140 characters) to be displayed to the user
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             action
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             This could either be request or end request – means session should be continued end – means session should be ended
                         </td>
                     </tr>            
@@ -256,42 +256,42 @@
         </div>
 
         <h6 class="font-light italic text-sm">Sample Response Body</h6>
-        <div class="bg-black text-white text-xs p-8 mt-2 mb-20 font-mono">
+        <div class="bg-black text-white text-xs p-8 mt-2 mb-20 font-mono overflow-x-auto max-md:p-4 max-md:text-xs max-md:mb-10">
             {<span class="text-green-400">"message"</span>: <span class="text-green-400">"Welcome to Creditswitch\n\n1.Airtime/Data\n2.Airtime Swap\n3.Fund Wallet\n4.Balance\n5.Transactions\n6.Change PIN"</span>,  <span class="text-green-400">"action"</span>:<span class="text-green-400">"request"</span> }                
         </div>
 
-        <div class="mt-6 px-6 space-y-3 justify-center">
-        <h2 class="text-3xl font-semibold">USSD Push Notification Application Service</h2>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
-        <p class="mb-7">This API describe how a third party can initiate USSD push to subscriber mobile phone number from CreditSwitch Platform.</p>
+        <div class="mt-6 px-6 space-y-3 justify-center max-md:px-1">
+        <h2 class="text-3xl font-semibold max-md:text-xl max-md:px-0">USSD Push Notification Application Service</h2>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-md:mb-3 max-md:mt-2">
+        <p class="mb-7 max-md:text-sm">This API describe how a third party can initiate USSD push to subscriber mobile phone number from CreditSwitch Platform.</p>
       </div>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Service
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Merchant Info
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             Request URL
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             http://BASEURL:PORT
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             HTTP Method
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             GET
                         </td>
                     </tr>                 
@@ -300,120 +300,120 @@
         </div>
 
         <h3 id="request-body" class="font-bold">Request Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             msisdn
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             13 digit Phone number of the subscriber that will receive the push
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             network
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Mobile network of the subscriber
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             username
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             The username that was assigned to the third-party user during integration
                         </td>
                     </tr> 
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             password
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             The Password that was assigned to the third-party user during integration
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             msg
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             A 130-character text that will be display to subscribers
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             msg_type	
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             This could either be begin, continue, or end begin– means apass as instruction to create new session. continue-will allow subscriber response back. End – means terminate the sessiong
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             sessionid	
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             O
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             set this to empty string when msg_type is begin, for continue and end request you should return back the generated sessionid
                         </td>
                     </tr>              
@@ -422,7 +422,7 @@
         </div>
 
         <h6 class="font-light italic text-sm">Sample Request Body</h6>
-        <div class="bg-black text-white text-xs p-8 px-0 mt-2 mb-16 font-mono overflow-x-auto">
+        <div class="bg-black text-white text-xs p-8 px-0 mt-2 mb-16 font-mono overflow-x-auto max-md:p-4 max-md:text-xs max-md:mb-12">
             <pre>
                                     "http://BASEURL:PORT/ussd_push?msg= welcome to Creditswitch
 Pro\n\n1.Win <span class="text-purple-400">10</span>,<span class="text-purple-400">000</span> airtime\n2.Refer a friend&msisdn=<span class="text-purple-400">23480000000</span>&username=xyz&password=xzy&msg_type=<span class="text-blue-400">continue</span>&network=MTN&sessionid=<span class="text-purple-400">111192029228292</span>"
@@ -430,78 +430,78 @@ Pro\n\n1.Win <span class="text-purple-400">10</span>,<span class="text-purple-40
         </div>
 
         <h3 id="response-body" class="font-bold">Response Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             msisdn
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             msisdn provided in the payload
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             sessionid
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Session Id for the request
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             network
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Network of the msisdn provided
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             input
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             user input (it could be empty if it does not require input from the user)
                         </td>
                     </tr>            
@@ -510,7 +510,7 @@ Pro\n\n1.Win <span class="text-purple-400">10</span>,<span class="text-purple-40
         </div>
 
         <h6 class="font-light italic text-sm">Sample Response Body</h6>
-        <div class="bg-black text-white text-sm p-8 mt-2 font-mono">
+        <div class="bg-black text-white text-sm p-8 mt-2 font-mono overflow-x-auto max-md:p-4 max-md:text-xs max-md:mb-12">
              {<span class="text-green-400">"msisdn"</span>:<span class="text-green-400">" 23480000000"</span>,<span class="text-green-400">"sessionid"</span>:<span class="text-green-400">"111192029228292"</span>,<span class="text-green-400">"network"</span>:<span class="text-green-400">"MTN"</span>,<span class="text-green-400">"input"</span>:<span class="text-green-400">"1"</span>}                
         </div>
     </main>

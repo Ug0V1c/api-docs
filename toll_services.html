@@ -30,46 +30,46 @@
 <div class="max-md:px-1">
   <div id="sidebarContainer" x-ref="sidebarContainer"></div>
 
-  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:px-4 max-md:pb-2">
+  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:w-full max-md:px-4 max-md:pb-2">
     <!-- SideBar Mobile Button Component  -->
             <div id="sidebarMobileButton" x-ref="sidebarMobileButton"></div>
-        <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none">
+            <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none max-md:mb-10">
             <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
         </div>
       
-      <div class="mt-6 px-6 space-y-3">
-        <h1 class="text-3xl font-semibold">Toll Services</h1>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
-        <p class="mb-7">This service will fund a user's Toll Account.</p>
+      <div class="mt-6 px-6 space-y-3 justify-center max-md:px-1">
+        <h1 class="text-3xl font-semibold max-md:text-xl max-md:px-0">Toll Services</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-md:mb-3 max-md:mt-2">
+        <p class="mb-7 max-md:text-sm">This service will fund a user's Toll Account.</p>
       </div>  
 
-        <h6 id="toll-account-validation" class="pb-4 font-bold">1) TOLL ACCOUNT VALIDATION</h6>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <h6 id="toll-account-validation" class="pb-4 font-bold max-md:pb-2">1) TOLL ACCOUNT VALIDATION</h6>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Service
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Toll Account Validate
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             Request URL
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             <a href="" class="hover:underline">	{{baseUrl}}toll/validate</a>
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             HTTP Method
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             POST
                         </td>
                     </tr>   
@@ -78,64 +78,64 @@
         </div>
 
         <h3 id="toll-account-validation-request-body" class="font-bold">Request Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             loginId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Merchant id provided during integration
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             key
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Merchant’s (public) key
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             customerId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Id of Toll account
                         </td>
                     </tr>      
@@ -146,7 +146,7 @@
         
         
         <h6 class="font-light italic text-sm">Sample Request Body</h6>
-        <div class="bg-black text-white text-sm p-8 mt-2 mb-1 font-mono">
+        <div class="bg-black text-white text-sm p-8 mt-2 mb-1 font-mono overflow-x-auto max-md:p-4 max-md:text-xs">
             {
                 <p>"loginId": "{{loginId}}",</p>
                 <p>"key": "{{publicKey}}",</p>
@@ -156,12 +156,12 @@
         
         
         
-        <p class="mb-16"><span class="text-red-600 font-bold">NOTE:</span> 'statusCode'='00' in response body implies success. If otherwise, it implies failed.</p>
+        <p class="mb-16 max-md:mb-12 max-md:text-xs"><span class="text-red-600 font-bold">NOTE:</span> 'statusCode'='00' in response body implies success. If otherwise, it implies failed.</p>
 
         
         
         <h6 id="toll-account-validation-response-body" class="font-light italic text-sm">Sample Response Body</h6>
-        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono">
+        <div class="bg-black text-white text-sm p-8 mt-2 mb-16 font-mono overflow-x-auto max-md:p-4 max-md:text-xs max-md:mb-12">
             {<p>"statusCode":"00","statusDescription":"Successful","result":{</p>
                 <p>"result": {</p>
                 <p>"status": "200",</p>
@@ -181,33 +181,33 @@
 
         
         
-        <h6 id="toll-account-funding" class="pb-4 font-bold">2) TOLL ACCOUNT FUNDING</h6>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <h6 id="toll-account-funding" class="pb-4 font-bold max-md:pb-2">2) TOLL ACCOUNT FUNDING</h6>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Service
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Toll Account Funding
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             Request URL
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             <a href="" class="hover:underline">		{{baseUrl}}toll/pay</a>
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             HTTP Method
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             POST
                         </td>
                     </tr>   
@@ -217,106 +217,106 @@
 
         
         <h3 id="toll-account-funding-request-body" class="font-bold">Request Body</h3>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2 mb-16 max-md:mb-12">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 max-md:text-xs">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Parameter Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Type
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             M/O
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 max-md:px-3 max-md:py-2">
                             Description
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             loginId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Merchant id provided during integration
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             key
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Merchants (public) key
                         </td>
                     </tr>      
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             serviceId
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             B01T Is the service code for betting
                         </td>
                     </tr>      
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             customerId	
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             String
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Bet ID of the customer
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             amount	
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Numeric
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             Amount to fund Bet ID
                         </td>
                     </tr>
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 max-md:px-3 max-md:py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             name	
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             string
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             M
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 max-md:px-3 max-md:py-2">
                             name of the account associated with the Bet ID
                         </td>
                     </tr>            
@@ -325,7 +325,7 @@
         </div>
 
         <h6 class="font-light italic text-sm">Sample Request Body</h6>
-        <div class="bg-black text-white p-8 mt-2 font-mono mb-1 text-sm">
+        <div class="bg-black text-white p-8 mt-2 font-mono mb-1 text-sm overflow-x-auto max-md:p-4 max-md:text-xs">
             {
                 <p>"loginId": "{{loginId}}",</p>
                 <p>"key": "{{publicKey}}",</p>
@@ -339,12 +339,12 @@
 
         
         
-        <p class="mb-16"><span class="text-red-600 font-bold">NOTE:</span> 'statusCode'='00' in response body implies success. If otherwise, it implies failed.</p>
+        <p class="mb-16 max-md:mb-12 max-md:text-xs"><span class="text-red-600 font-bold">NOTE:</span> 'statusCode'='00' in response body implies success. If otherwise, it implies failed.</p>
 
         
         
         <h6 id="toll-account-funding-response-body" class="font-light italic text-sm">Sample Response Body</h6>
-        <div class="bg-black text-white p-8 mt-2 font-mono">
+        <div class="bg-black text-white p-8 mt-2 font-mono overflow-x-auto max-md:p-4 max-md:text-xs">
            {<p>"statusCode": "00",</p>
                 <p>"statusDescription": "successful"</p>
                 {

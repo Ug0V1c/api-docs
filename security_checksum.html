@@ -31,93 +31,88 @@
 <div class="max-md:px-1">
   <div id="sidebarContainer" x-ref="sidebarContainer"></div>
 
-  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:px-4 max-md:pb-2">
+  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:w-full max-md:px-4 max-md:pb-2">
     <!-- SideBar Mobile Button Component  -->
             <div id="sidebarMobileButton" x-ref="sidebarMobileButton"></div>
-      <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none">
-        <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
-      </div>
-
-      <div class="sm:ml-80">
-        <img src="/img/boilerplate stuff.png" alt="CSW logo">
-        <p class="text-blue-400 text-3xl ml-7">API DOCS</p>
+            <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none max-md:mb-10">
+            <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
       </div>
       
-      <div class="mt-6 px-6 space-y-3">
-        <h1 class="text-3xl font-semibold">Security: Checksum</h1>
-        <hr class="border-t-1 border-gray-300 mt-5 mb-8">
-        <p>The Creditswitch REST API uses an authentication scheme which utilizes the Bcrypt hashing algorithm. Each merchant has a private and public key. To authenticate a request, you first concatenate certain selected elements of the request (including the merchant’s private key) to form a string.</p>
+      <div class="mt-6 px-6 space-y-3 justify-center max-md:px-1">
+        <h1 class="text-3xl font-semibold max-md:text-xl max-md:px-0">Security: Checksum</h1>
+        <hr class="border-t-1 border-gray-300 mt-5 mb-8 max-md:mb-3 max-md:mt-2">
+        <p class="max-md:text-sm">The Creditswitch REST API uses an authentication scheme which utilizes the Bcrypt hashing algorithm. Each merchant has a private and public key. To authenticate a request, you first concatenate certain selected elements of the request (including the merchant’s private key) to form a string.</p>
         
-        <p>Next you generate the hash of the concatenated string in the previous step using the Bcrypt algorithm. Finally, get the base-64 encoding of the hash. When the system receives an authenticated request, it fetches the Creditswitch’s secret access key you claim to have, and uses it in computing the checksum in the same way you should have. If the two checksums match, the system concludes the requester must have access to the secret key, and therefore acts with the authority of the integrator to whom the key was issued.
+        <p class="max-md:text-sm">Next you generate the hash of the concatenated string in the previous step using the Bcrypt algorithm. Finally, get the base-64 encoding of the hash. When the system receives an authenticated request, it fetches the Creditswitch’s secret access key you claim to have, and uses it in computing the checksum in the same way you should have. If the two checksums match, the system concludes the requester must have access to the secret key, and therefore acts with the authority of the integrator to whom the key was issued.
         <span class="inline-block">If there is a mismatch, the request is dropped, and the system responds with an error message.</span></p>
 
-        <p class="mb-7">The following illustrates the construction of the requests’ checksum. The output of the Bcrypt hash is a string.</p>
+        <p class="mb-7 max-md:text-sm">The following illustrates the construction of the requests’ checksum. The output of the Bcrypt hash is a string.</p>
       </div>  
 
         
 
-        <h3 id="airtime-data" class="font-semibold py-3 text-blue-400">Airtime/Data Request</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="airtime-data" class="font-semibold py-3 text-blue-400 max-md:py-1">Airtime/Data Request</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + requestId + "|" + serviceId + "|" + requestAmount + "|" + privateKey + "|" + recipient;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 id="electric-validate" class="font-semibold py-3 text-blue-400">Electric Validate Request</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="electric-validate" class="font-semibold py-3 text-blue-400 max-md:py-1">Electric Validate Request</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + serviceId + "|" + privateKey + "|" + customerAccountId;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 id="electric-vend" class="font-semibold py-3 text-blue-400">Electric Vend Request</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="electric-vend" class="font-semibold py-3 text-blue-400 max-md:py-1">Electric Vend Request</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + serviceId + "|" + privateKey + "|" + customerAccountId + "|" + requestId + "|" + amount;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 id="merchant-details" class="font-semibold py-3 text-blue-400">Merchant Details Request</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="merchant-details" class="font-semibold py-3 text-blue-400 max-md:py-1">Merchant Details Request</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + privateKey;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 id="deduct-mobile-subscriber-airtime" class="font-semibold py-3 text-blue-400">Deduct Mobile Subscriber's Airtime Request</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="deduct-mobile-subscriber-airtime" class="font-semibold py-3 text-blue-400 max-md:py-1">Deduct Mobile Subscriber's Airtime Request</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>loginId + "|" + privateKey + "|" + msisdn+ "|" + amount;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 id="send-sms" class="font-semibold py-3 text-blue-400">Send SMS</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="send-sms" class="font-semibold py-3 text-blue-400 max-md:py-1">Send SMS</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + privateKey + "|" + transactionRef;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 id="cable-tv-startimes-validate" class="font-semibold py-3 text-blue-400">Cable TV: Startimes Validate</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="cable-tv-startimes-validate" class="font-semibold py-3 text-blue-400 max-md:py-1">Cable TV: Startimes Validate</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + privateKey + "|" + smartCardCode;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 id="cable-tv-startimes-vend" class="font-semibold py-3 text-blue-400">Cable TV: Startimes Vend</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="cable-tv-startimes-vend" class="font-semibold py-3 text-blue-400 max-md:py-1">Cable TV: Startimes Vend</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + privateKey + "|" + smartCardCode + "|" + fee;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 id="cable-tv-validate-multichoice" class="font-semibold py-3 text-blue-400">Cable TV: Validate Multichoice SmartCard/Customer Number</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="cable-tv-validate-multichoice" class="font-semibold py-3 text-blue-400 max-md:py-1">Cable TV: Validate Multichoice SmartCard/Customer Number</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + privateKey + "|" + customerNo;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 id="cable-tv-vend-multichoice" class="font-semibold py-3 text-blue-400">Cable TV: Vend Multichoice Account</h3>
-        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm">
+        <h3 id="cable-tv-vend-multichoice" class="font-semibold py-3 text-blue-400 max-md:py-1">Cable TV: Vend Multichoice Account</h3>
+        <div class="bg-black text-white p-8 mt-2 mb-16 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + privateKey + "|" + customerNo + "|" + transactionRef + "|" + amount;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>
 
-        <h3 class="font-semibold py-3 text-blue-400">Logical Pins: Vend logical Pins</h3>
-        <div class="bg-black text-white p-8 mt-2 font-mono text-sm">
+        <h3 class="font-semibold py-3 text-blue-400 max-md:py-1">Logical Pins: Vend logical Pins</h3>
+        <div class="bg-black text-white p-8 mt-2 font-mono text-sm max-md:mb-12 max-md:text-xs max-md:p-4">
             <p>ConcatString = loginId + "|" + serviceId + "|" + privateKey + "|" + requestId + "|" + amount;</p>
             Checksum = Base64(Bcyrpt(ConcatString));
         </div>

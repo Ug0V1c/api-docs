@@ -31,12 +31,15 @@
 <div class="max-md:px-1">
   <div id="sidebarContainer" x-ref="sidebarContainer"></div>
 
-  <main class="lg:ml-64 overflow-x-hidden p-10 pt-5 max-md:px-4 max-md:pb-2">
+  <main class="lg:ml-64 p-10 pt-5 max-md:px-4 max-md:pb-2">
     <!-- SideBar Mobile Button Component  -->
-            <div id="sidebarMobileButton" x-ref="sidebarMobileButton"></div>
-      <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none max-md:mb-10">
-        <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
-      </div>
+            <header class="sticky bg-white lg:relative top-0 z-20 max-lg:-mx-1">
+                <div id="sidebarMobileButton" x-ref="sidebarMobileButton"></div>
+
+                <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none max-md:mb-10">
+                    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
+                </div>
+            </header>
 
       <div class="mt-6 px-6  max-md:px-1">
         <h1 class="text-3xl font-semibold max-md:text-xl max-md:px-0">Integration Flow</h1>

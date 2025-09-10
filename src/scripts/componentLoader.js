@@ -1,41 +1,27 @@
+// Import raw HTML files at build time
+import sidebarHTML from '../components/sidebar.html?raw';
+import mobileButtonHTML from '../components/mobile_button.html?raw';
+
 //Sidebar Navigation Loader
 document.addEventListener('DOMContentLoaded', () => {
   const sidebarContainer = document.querySelector('#sidebarContainer');
 
   if (sidebarContainer) {
-    fetch('./src/components/sidebar.html')
-      .then(response => {
-        if (!response.ok) throw new Error(`Failed to load sidebar: ${response.status}`);
-        return response.text();
-      })
-      .then(html => {
-        sidebarContainer.innerHTML = html;
+    sidebarContainer.innerHTML = sidebarHTML;
 
-        // Re-initialize Alpine on dynamically added content
-        Alpine.initTree(sidebarContainer);
-      })
-      .catch(error => console.error('Sidebar loading failed:', error));
+    // Re-initialize Alpine on dynamically added content
+    Alpine.initTree(sidebarContainer);
   }
 });
-
 
 //Sidebar Mobile Button Loader
 document.addEventListener('DOMContentLoaded', () => {
   const sidebarMobileButton = document.querySelector('#sidebarMobileButton');
 
   if (sidebarMobileButton) {
-    fetch('./src/components/mobile_button.html')
-      .then(response => {
-        if (!response.ok) throw new Error(`Failed to load sidebar: ${response.status}`);
-        return response.text();
-      })
-      .then(html => {
-        sidebarMobileButton.innerHTML = html;
+    sidebarMobileButton.innerHTML = mobileButtonHTML;
 
-        // Re-initialize Alpine on dynamically added content
-        Alpine.initTree(sidebarMobileButton);
-      })
-      .catch(error => console.error('Sidebar loading failed:', error));
+    // Re-initialize Alpine on dynamically added content
+    Alpine.initTree(sidebarMobileButton);
   }
 });
-

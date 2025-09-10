@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "vite-plugin-mpa": "^1.2.0"
   },
   "dependencies": {
     "@alpinejs/persist": "^3.14.9",

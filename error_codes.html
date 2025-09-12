@@ -22,22 +22,824 @@
   });
 </script>
   <link rel="stylesheet" href="./src/output.css">
-  <script type="module" src="./src/scripts/index.js"></script>
+  
+  <!-- Alpine Plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+ 
+<!-- Alpine Core -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.store('sidebar', {
+      showSidebar: false,
+    })
+  })
+</script>
+
   <title>Error Codes and Description</title>
 </head>
 <body x-data class="font-light font-inter">
 
 
 <div class="max-md:px-1">
-  <div id="sidebarContainer" x-ref="sidebarContainer"></div>
+  <div id="sidebarContainer" x-ref="sidebarContainer">
+      <div x-data="{ sidebarOpen: false }">
+
+  <aside id="default-sidebar"
+    :class="$store.sidebar.showSidebar ? '' : '-translate-x-full'"
+    class="fixed top-0 left-0 z-50 w-3/4 md:w-1/2 lg:w-64 h-screen bg-sidebar_color text-white transition-transform lg:translate-x-0"
+    aria-label="Sidebar">
+    <div class="h-full flex flex-col overflow-y-auto overflow-x-hidden custom-scrollbar" x-data="{
+        menuToggle: $persist({
+          integrationFlow: false,
+          getMerchantInfo: false,
+          requery: false,
+          airtimeVendRequest: false,
+          dataVendRequest: false,
+          sendSMS: false,
+          insurance: false,
+          internationalServices: false,
+          showmax: false,
+          cableTvStartimes: false,
+          cableTvMultichoice: false,
+          bettingServices: false,
+          tollServices: false,
+          requeryTransaction: false,
+          electricityValidationRequests: false,
+          electricityVendingRequests: false,
+          logicalPins: false,
+          phoneNumberLookUp: false,
+          dataPlans: false,
+          securityChecksum: false,
+          securityGenerationSnips: false
+        }),
+        nestedToggle: $persist({
+          insurance: {
+            getPackages: false,
+            recharge: false
+          },
+          internationalServices: {
+            listCountries: false,
+            getServicesForCountry: false,
+            getExchangeRate: false,
+            vend: false
+          },
+          showmax: {
+            getPackages: false,
+            recharge: false
+          },
+          cableTvStartimes: {
+            fetchProducts: false,
+            codeValidation: false,
+            recharge: false
+          },
+          cableTvMultichoice: {
+            validateCustomerNumber: false,
+            fetchMultichoiceProductCodes: false,
+            vendmultichoiceAccount: false
+          },
+          bettingServices: {
+            fetchProviders: false,
+            betAccountValidation: false,
+            betAccountFunding: false
+          },
+          tollServices: {
+            tollAccountValidation: false,
+            tollAccountFunding: false
+          },
+          electricityVendingRequests: {
+            response: false
+          },
+          logicalPins: {
+            fetchPins: false,
+            vendPins: false,
+            validateJamb: false,
+            vendJamb: false,
+            vendOtherEducationalServices: false
+          }
+        }),
+        deepToggle: $persist({
+          fetchMultichoiceProductCodes: {
+            findStandAloneProducts: false,
+            findProductAddonsForSelectedProduct: false
+          }
+        })
+      }">
+      <!-- Logo / Header -->
+      <div class="sticky flex flex-col items-center top-0 border-b border-gray-700 z-50 bg-sidebar_color px-6 py-5 shadow-sm">
+        <button id="close-btn" class="lg:hidden text-gray-300 hover:text-white text-3xl absolute top-5 right-6 cursor-pointer p-1" @click="$store.sidebar.showSidebar = false">&times;</button>
+          <div>
+            <img src="/public/img/creditswitchlogoife.png" class="size-48 object-contain rounded-full -mt-18 pr-3 pt-3 max-md:pr-7"/>
+          </div>
+          <div class="flex justify-center gap-2 text-center -mt-16 pr-3 max-md:pr-7">
+            <p class="uppercase font-extrabold text-base text-blue-300">API</p>
+            <span class="uppercase text-base font-extrabold">Docs</span>
+          </div>
+      </div>
+
+      <!-- Navigation -->
+      <ul class="flex-1 mt-4 space-y-1 px-3 pb-10 text-sm">
+        <!-- Overview -->
+        <li>
+          <a href="/index.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+            <span>Overview</span>
+          </a>
+        </li>
+
+        <!-- Dropdown Item -->
+        <template x-for="(open, key) in menuToggle" :key="key">
+          <li>
+            <button @click="menuToggle[key] = !menuToggle[key]"
+              class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+              <span x-text="{
+                integrationFlow: 'Integration Flow',
+                getMerchantInfo: 'Get Merchant Info',
+                requery: 'Requery',
+                airtimeVendRequest: 'Airtime Vend Request',
+                dataVendRequest: 'Data Vend Request',
+                sendSMS: 'Send SMS',
+                insurance: 'Insurance',
+                internationalServices: 'International Services',
+                showmax: 'Showmax',
+                cableTvStartimes: 'Cable TV: Startimes',
+                cableTvMultichoice: 'Cable TV: Multichoice',
+                bettingServices: 'Betting Services',
+                tollServices: 'Toll Services',
+                requeryTransaction: 'Re-query Transaction',
+                electricityValidationRequests: 'Electricity Validation Req',
+                electricityVendingRequests: 'Electricity Vending Req',
+                logicalPins: 'Logical PINS',
+                phoneNumberLookUp: 'Phone Number LookUp',
+                dataPlans: 'Data Plans',
+                securityChecksum: 'Security: Checksum',
+                securityGenerationSnips: 'Security: Generation Snips'
+              }[key]"></span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300"
+                :class="menuToggle[key] ? 'rotate-90' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+
+            <!-- Submenu -->
+            <div x-show="menuToggle[key]" x-transition class="mt-1 space-y-1 pl-8 text-gray-300 text-xs">
+              <template x-if="key === 'integrationFlow'">
+                <div class="space-y-3">
+                  <a href="/integration_flow.html" class="block hover:underline">Introduction</a>
+                  <a href="/integration_flow.html#iFSONE" class="block hover:underline">Step One</a>
+                  <a href="/integration_flow.html#iFSTWO" class="block hover:underline">Step Two</a>
+                  <a href="/integration_flow.html#iFSTHREE" class="block hover:underline">Step Three</a>
+                  <a href="/integration_flow.html#iFSFOUR" class="block hover:underline">Step Four</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'getMerchantInfo'">
+                <div class="space-y-3">
+                  <a href="/get_merchant_info.html" class="block hover:underline">Introduction</a>
+                  <a href="/get_merchant_info.html#request-body" class="block hover:underline">Request Body</a>
+                  <a href="/get_merchant_info.html#response-body" class="block hover:underline">Response Body</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'requery'">
+                <div class="space-y-3">
+                  <a href="/requery.html" class="block hover:underline">Introduction</a>
+                  <a href="/requery.html#request-body" class="block hover:underline">Request Body</a>
+                  <a href="/requery.html#response-body" class="block hover:underline">Response Body</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'airtimeVendRequest'">
+                <div class="space-y-3">
+                  <a href="/airtime_vend_request.html" class="block hover:underline">Introduction</a>
+                  <a href="/airtime_vend_request.html#request-body" class="block hover:underline">Request Body</a>
+                  <a href="/airtime_vend_request.html#response-body" class="block hover:underline">Response Body</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'dataVendRequest'">
+                <div class="space-y-3">
+                  <a href="/data_vend_request.html" class="block hover:underline">Introduction</a>
+                  <a href="/data_vend_request.html#request-body" class="block hover:underline">Request Body</a>
+                  <a href="/data_vend_request.html#response-body" class="block hover:underline">Response Body</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'sendSMS'">
+                <div class="space-y-3">
+                  <a href="/send_sms.html" class="block hover:underline">Introduction</a>
+                  <a href="/send_sms.html#request-body" class="block hover:underline">Request Body</a>
+                  <a href="/send_sms.html#response-body" class="block hover:underline">Response Body</a>
+                </div>
+              </template>
+              
+              <template x-if="key === 'insurance'">
+                <div class="space-y-3">
+                  <a href="/insurance.html" class="block hover:underline">Introduction</a>
+                  
+                  <div>
+                    <button @click="nestedToggle.insurance.getPackages = !nestedToggle.insurance.getPackages"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/insurance.html#insurance-gp">Insurance Get Packages</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.insurance.getPackages ? 'rotate-90' : ''" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.insurance.getPackages" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/insurance.html#request-body-igp" class="block hover:underline">Request Body</a>
+                      <a href="/insurance.html#response-body-igp" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button @click="nestedToggle.insurance.recharge = !nestedToggle.insurance.recharge"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/insurance.html#insurance-r">Insurance Recharge</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.insurance.recharge ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.insurance.recharge" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/insurance.html#request-body-r" class="block hover:underline">Request Body</a>
+                      <a href="/insurance.html#response-body-r" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <template x-if="key === 'internationalServices'">
+                <div class="space-y-3">
+                  <a href="/international_services.html" class="block hover:underline">Introduction</a>
+                  
+                  <div>
+                    <button @click="nestedToggle.internationalServices.listCountries = !nestedToggle.internationalServices.listCountries"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/international_services.html#list-countries">List Countries</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.internationalServices.listCountries ? 'rotate-90' : ''" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.internationalServices.listCountries" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/international_services.html#list-countries-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/international_services.html#list-countries-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button @click="nestedToggle.internationalServices.getServicesForCountry = !nestedToggle.internationalServices.getServicesForCountry"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/international_services.html#get-services-for-country">Get services for Country</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.internationalServices.getServicesForCountry ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.internationalServices.getServicesForCountry" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/international_services.html#get-services-for-country-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                    <div>
+                      <button @click="nestedToggle.internationalServices.getExchangeRate = !nestedToggle.internationalServices.getExchangeRate"
+                        class="w-full flex items-center justify-between hover:underline">
+                        <a href="/international_services.html#get-exchange-rate">Get Exchange Rate</a>
+                        <svg class="w-3 h-3 transition-transform duration-300"
+                          :class="nestedToggle.internationalServices.getExchangeRate ? 'rotate-90' : ''"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                        </svg>
+                      </button>
+                      <div x-show="nestedToggle.internationalServices.getExchangeRate" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                        <a href="/international_services.html#get-exchange-rate-response-body" class="block hover:underline">Response Body</a>
+                      </div>
+                    </div>
+
+                    <div>
+                      <button @click="nestedToggle.internationalServices.vend = !nestedToggle.internationalServices.vend"
+                        class="w-full flex items-center justify-between hover:underline">
+                        <a href="/international_services.html#vend">Vend</a>
+                        <svg class="w-3 h-3 transition-transform duration-300"
+                          :class="nestedToggle.internationalServices.vend ? 'rotate-90' : ''"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                        </svg>
+                      </button>
+                      <div x-show="nestedToggle.internationalServices.vend" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                        <a href="/international_services.html#vend-request-body" class="block hover:underline">Request Body</a>
+                        <a href="/international_services.html#vend-response-body" class="block hover:underline">Response Body</a>
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+              </template>
+
+              <template x-if="key === 'showmax'">
+                <div class="space-y-3">
+                  <a href="/showmax.html" class="block hover:underline">Introduction</a>
+                  
+                  <div>
+                    <button @click="nestedToggle.showmax.getPackages = !nestedToggle.showmax.getPackages"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/showmax.html#showmax-get-packages">Showmax Get Packages</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.showmax.getPackages ? 'rotate-90' : ''" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.showmax.getPackages" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/showmax.html#showmax-get-packages-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/showmax.html#showmax-get-packages-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button @click="nestedToggle.showmax.recharge = !nestedToggle.showmax.recharge"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/showmax.html#showmax-recharge">Showmax Recharge</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.showmax.recharge ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.showmax.recharge" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/showmax.html#showmax-recharge-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/showmax.html#showmax-recharge-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <template x-if="key === 'cableTvStartimes'">
+                <div class="space-y-3">
+                  <a href="/cabletv_startimes.html" class="block hover:underline">Introduction</a>
+                  
+                  <div>
+                    <button @click="nestedToggle.cableTvStartimes.fetchProducts = !nestedToggle.cableTvStartimes.fetchProducts"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/cabletv_startimes.html#startimes-fetch-products">Startimes Fetch Products</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.cableTvStartimes.fetchProducts ? 'rotate-90' : ''" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.cableTvStartimes.fetchProducts" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/cabletv_startimes.html#startimes-fetch-products-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/cabletv_startimes.html#startimes-fetch-products-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button @click="nestedToggle.cableTvStartimes.codeValidation = !nestedToggle.cableTvStartimes.codeValidation"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/cabletv_startimes.html#smartcard-code-validation">Smartcard Code Validation</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.cableTvStartimes.codeValidation ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.cableTvStartimes.codeValidation" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/cabletv_startimes.html#smartcard-code-validation-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/cabletv_startimes.html#smartcard-code-validation-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                    <div>
+                      <button @click="nestedToggle.cableTvStartimes.recharge = !nestedToggle.cableTvStartimes.recharge"
+                        class="w-full flex items-center justify-between hover:underline">
+                        <a href="/cabletv_startimes.html#smartcard-recharge">Smartcard Recharge</a>
+                        <svg class="w-3 h-3 transition-transform duration-300"
+                          :class="nestedToggle.cableTvStartimes.recharge ? 'rotate-90' : ''"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                        </svg>
+                      </button>
+                      <div x-show="nestedToggle.cableTvStartimes.recharge" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                        <a href="/cabletv_startimes.html#smartcard-recharge-request-body" class="block hover:underline">Request Body</a>
+                        <a href="/cabletv_startimes.html#smartcard-recharge-response-body" class="block hover:underline">Response Body</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+              
+              <template x-if="key === 'cableTvMultichoice'">
+                <div class="space-y-3">
+                  <a href="/cabletv_multichoice.html" class="block hover:underline">Introduction</a>
+                  
+                  <div>
+                    <button @click="nestedToggle.cableTvMultichoice.validateCustomerNumber = !nestedToggle.cableTvMultichoice.validateCustomerNumber"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <span class="flex-1 text-left truncate" title="Validate Customer Number/Smartcard Number">
+                        <a class="cursor-pointer" href="/cabletv_multichoice.html#vcns">Validate Customer Number/Smartcard</a>
+                      </span>
+                      <svg class="w-3 h-3 flex-shrink-0 transition-transform duration-300"
+                        :class="nestedToggle.cableTvMultichoice.validateCustomerNumber ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.cableTvMultichoice.validateCustomerNumber" x-transition x-cloak class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/cabletv_multichoice.html#vcnsreqb" class="block hover:underline">Request Body</a>
+                      <a href="/cabletv_multichoice.html#vcnsresb" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button @click="nestedToggle.cableTvMultichoice.fetchMultichoiceProductCodes = !nestedToggle.cableTvMultichoice.fetchMultichoiceProductCodes"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <span class="flex-1 text-left truncate" title="Fetch Multichoice Product Codes">
+                        <a class="cursor-pointer" href="/cabletv_multichoice.html#fmpc">Fetch Product Codes</a>
+                      </span>
+                      <svg class="w-3 h-3 flex-shrink-0 transition-transform duration-300"
+                        :class="nestedToggle.cableTvMultichoice.fetchMultichoiceProductCodes ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+
+                    <div x-show="nestedToggle.cableTvMultichoice.fetchMultichoiceProductCodes" x-transition x-cloak class="pl-6 mt-1 space-y-2 text-gray-400">
+
+                      <button @click="deepToggle.fetchMultichoiceProductCodes.findStandAloneProducts = !deepToggle.fetchMultichoiceProductCodes.findStandAloneProducts"
+                        class="w-full flex items-center justify-between hover:underline">
+                        <span class="flex-1 text-left truncate" title="Find Standalone Products"><a class="cursor-pointer" href="/cabletv_multichoice.html#fmpcfsp">Standalone Products</a></span>
+                        <svg class="w-3 h-3 flex-shrink-0 transition-transform duration-300"
+                          :class="deepToggle.fetchMultichoiceProductCodes.findStandAloneProducts ? 'rotate-90' : ''"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                        </svg>
+                      </button>
+                      <div x-show="deepToggle.fetchMultichoiceProductCodes.findStandAloneProducts" x-transition x-cloak class="pl-6 mt-1 space-y-2 text-gray-400">
+                        <a href="/cabletv_multichoice.html#fmpcfspreqb" class="block hover:underline">Request Body</a>
+                        <a href="/cabletv_multichoice.html#fmpcfspresb" class="block hover:underline">Response Body</a>
+                      </div>
+
+                      <button @click="deepToggle.fetchMultichoiceProductCodes.findProductAddonsForSelectedProduct = !deepToggle.fetchMultichoiceProductCodes.findProductAddonsForSelectedProduct"
+                        class="w-full flex items-center justify-between hover:underline">
+                        <span class="flex-1 text-left truncate" title="Find Product Add-ons for Selected Product">
+                          <a class="cursor-pointer" href="/cabletv_multichoice.html#fmpcfpa">Product Add-ons</a>
+                        </span>
+                        <svg class="w-3 h-3 flex-shrink-0 transition-transform duration-300"
+                          :class="deepToggle.fetchMultichoiceProductCodes.findProductAddonsForSelectedProduct ? 'rotate-90' : ''"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                        </svg>
+                      </button>
+                      <div x-show="deepToggle.fetchMultichoiceProductCodes.findProductAddonsForSelectedProduct" x-transition x-cloak class="pl-6 mt-1 space-y-2 text-gray-400">
+                        <a href="/cabletv_multichoice.html#fmpcfpareqb" class="block hover:underline">Request Body</a>
+                        <a href="/cabletv_multichoice.html#fmpcfparesb" class="block hover:underline">Response Body</a>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div>
+                    <button @click="nestedToggle.cableTvMultichoice.vendmultichoiceAccount = !nestedToggle.cableTvMultichoice.vendmultichoiceAccount"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <span class="flex-1 text-left truncate" title="Vend Multichoice Account"><a class="cursor-pointer" href="/cabletv_multichoice.html#vma">Vend Account</a></span>
+                      <svg class="w-3 h-3 flex-shrink-0 transition-transform duration-300"
+                        :class="nestedToggle.cableTvMultichoice.vendmultichoiceAccount ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.cableTvMultichoice.vendmultichoiceAccount" x-transition x-cloak class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/cabletv_multichoice.html#vmareqb" class="block hover:underline">Request Body</a>
+                      <a href="/cabletv_multichoice.html#vmaresb" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <template x-if="key === 'bettingServices'">
+                <div class="space-y-3">
+                  <a href="/betting_services.html" class="block hover:underline">Introduction</a>
+                  
+                  <div>
+                    <button @click="nestedToggle.bettingServices.fetchProviders = !nestedToggle.bettingServices.fetchProviders"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/betting_services.html#betting-fetch-providers">Fetch Providers</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.bettingServices.fetchProviders ? 'rotate-90' : ''" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.bettingServices.fetchProviders" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/betting_services.html#betting-fetch-providers-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/betting_services.html#betting-fetch-providers-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button @click="nestedToggle.bettingServices.betAccountValidation = !nestedToggle.bettingServices.betAccountValidation"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/betting_services.html#bet-account-validation">Bet Account Validation</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.bettingServices.betAccountValidation ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.bettingServices.betAccountValidation" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/betting_services.html#bet-account-validation-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/betting_services.html#bet-account-validation-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                    <div>
+                      <button @click="nestedToggle.bettingServices.betAccountFunding = !nestedToggle.bettingServices.betAccountFunding"
+                        class="w-full flex items-center justify-between hover:underline">
+                        <a href="/betting_services.html#bet-account-funding">Bet Account Funding</a>
+                        <svg class="w-3 h-3 transition-transform duration-300"
+                          :class="nestedToggle.bettingServices.betAccountFunding ? 'rotate-90' : ''"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                        </svg>
+                      </button>
+                      <div x-show="nestedToggle.bettingServices.betAccountFunding" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                        <a href="/betting_services.html#bet-account-funding-request-body" class="block hover:underline">Request Body</a>
+                        <a href="/betting_services.html#bet-account-funding-response-body" class="block hover:underline">Response Body</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <template x-if="key === 'tollServices'">
+                <div class="space-y-3">
+                  <a href="/toll_services.html" class="block hover:underline">Introduction</a>
+                  
+                  <div>
+                    <button @click="nestedToggle.tollServices.tollAccountValidation = !nestedToggle.tollServices.tollAccountValidation"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/toll_services.html#toll-account-validation">Toll Account Validation</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.tollServices.tollAccountValidation ? 'rotate-90' : ''" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.tollServices.tollAccountValidation" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/toll_services.html#toll-account-validation-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/toll_services.html#toll-account-validation-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button @click="nestedToggle.tollServices.tollAccountFunding = !nestedToggle.tollServices.tollAccountFunding"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/toll_services.html#toll-account-funding">Toll Account Funding</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.tollServices.tollAccountFunding ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.tollServices.tollAccountFunding" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/toll_services.html#toll-account-funding-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/toll_services.html#toll-account-funding-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </template>
+
+              <template x-if="key === 'requeryTransaction'">
+                <div class="space-y-3">
+                  <a href="/requery_transaction.html" class="block hover:underline">Introduction</a>
+                  <a href="/requery_transaction.html#request-body" class="block hover:underline">Request Body</a>
+                  <a href="/requery_transaction.html#response-body" class="block hover:underline">Response Body</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'electricityValidationRequests'">
+                <div class="space-y-3">
+                  <a href="/electricity_validation_requests.html" class="block hover:underline">Introduction</a>
+                  <a href="/electricity_validation_requests.html#request-body" class="block hover:underline">Request Body</a>
+                  <a href="/electricity_validation_requests.html#response-body" class="block hover:underline">Response Body</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'electricityVendingRequests'">
+                <div class="space-y-3">
+                  <a href="/electricity_vending_requests.html" class="block hover:underline">Introduction</a>
+                  <a href="/electricity_vending_requests.html#request-body" class="block hover:underline">Request Body</a>
+                  
+                  <div>
+                    <button @click="nestedToggle.electricityVendingRequests.response = !nestedToggle.electricityVendingRequests.response"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/electricity_vending_requests.html#response-body">Response</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.electricityVendingRequests.response ? 'rotate-90' : ''" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.electricityVendingRequests.response" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/electricity_vending_requests.html#response-prepaid-response" class="block hover:underline">Prepaid</a>
+                      <a href="/electricity_vending_requests.html#response-postpaid-response" class="block hover:underline">Postpaid</a>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <template x-if="key === 'logicalPins'">
+                <div class="space-y-3">
+                  <a href="/logical_pins.html" class="block hover:underline">Introduction</a>
+                  
+                  <div>
+                    <button @click="nestedToggle.logicalPins.fetchPins = !nestedToggle.logicalPins.fetchPins"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/logical_pins.html#logical-pins-fetch-pins">Fetch Pins</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.logicalPins.fetchPins ? 'rotate-90' : ''" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.logicalPins.fetchPins" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/logical_pins.html#fetch-pins-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/logical_pins.html#fetch-pins-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button @click="nestedToggle.logicalPins.vendPins= !nestedToggle.logicalPins.vendPins"
+                      class="w-full flex items-center justify-between hover:underline">
+                      <a href="/logical_pins.html#logical-pin-vend">Vend Pins</a>
+                      <svg class="w-3 h-3 transition-transform duration-300"
+                        :class="nestedToggle.logicalPins.vendPins ? 'rotate-90' : ''"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                      </svg>
+                    </button>
+                    <div x-show="nestedToggle.logicalPins.vendPins" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                      <a href="/logical_pins.html#logical-pin-vend-request-body" class="block hover:underline">Request Body</a>
+                      <a href="/logical_pins.html#logical-pin-vend-response-body" class="block hover:underline">Response Body</a>
+                    </div>
+                  </div>
+
+                    <div>
+                      <button @click="nestedToggle.logicalPins.validateJamb = !nestedToggle.logicalPins.validateJamb"
+                        class="w-full flex items-center justify-between hover:underline">
+                        <a href="/logical_pins.html#validate-jamb">Validate Jamb</a>
+                        <svg class="w-3 h-3 transition-transform duration-300"
+                          :class="nestedToggle.logicalPins.validateJamb ? 'rotate-90' : ''"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                        </svg>
+                      </button>
+                      <div x-show="nestedToggle.logicalPins.validateJamb" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                        <a href="/logical_pins.html#validate-jamb-request-body" class="block hover:underline">Request Body</a>
+                        <a href="/logical_pins.html#validate-jamb-response-body" class="block hover:underline">Response Body</a>
+                      </div>
+                    </div>
+
+                    <div>
+                      <button @click="nestedToggle.logicalPins.vendJamb = !nestedToggle.logicalPins.vendJamb"
+                        class="w-full flex items-center justify-between hover:underline">
+                        <a href="/logical_pins.html#vend-jamb">Vend Jamb</a>
+                        <svg class="w-3 h-3 transition-transform duration-300"
+                          :class="nestedToggle.logicalPins.vendJamb ? 'rotate-90' : ''"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                        </svg>
+                      </button>
+                      <div x-show="nestedToggle.logicalPins.vendJamb" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                        <a href="/logical_pins.html#vend-jamb-request-body" class="block hover:underline">Request Body</a>
+                        <a href="/logical_pins.html#vend-jamb-response-body" class="block hover:underline">Response Body</a>
+                      </div>
+                    </div>
+
+                    <div>
+                      <button @click="nestedToggle.logicalPins.vendOtherEducationalServices = !nestedToggle.logicalPins.vendOtherEducationalServices"
+                        class="w-full flex items-center justify-between hover:underline">
+                        <span class="flex-1 text-left truncate" title="Vend Other Educational Services"><a href="/logical_pins.html#vend-other-educational-services">Vend Other Educational Services</a></span>
+                        <svg class="w-3 h-3 transition-transform duration-300"
+                          :class="nestedToggle.logicalPins.vendOtherEducationalServices ? 'rotate-90' : ''"
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"/>
+                        </svg>
+                      </button>
+                      <div x-show="nestedToggle.logicalPins.vendOtherEducationalServices" x-transition class="pl-6 mt-1 space-y-2 text-gray-400">
+                        <a href="/logical_pins.html#vend-other-educational-services-request-body" class="block hover:underline">Request Body</a>
+                        <a href="/logical_pins.html#vend-other-educational-services-response-body" class="block hover:underline">Response Body</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <template x-if="key === 'phoneNumberLookUp'">
+                <div class="space-y-3">
+                  <a href="/phone_number_lookup.html" class="block hover:underline">Introduction</a>
+                  <a href="/phone_number_lookup.html#request-body" class="block hover:underline">Request Body</a>
+                  <a href="/phone_number_lookup.html#response-body" class="block hover:underline">Response Body</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'dataPlans'">
+                <div class="space-y-3">
+                  <a href="/data_plans.html" class="block hover:underline">Introduction</a>
+                  <a href="/data_plans.html#request-body" class="block hover:underline">Request Body</a>
+                  <a href="/data_plans.html#response-body" class="block hover:underline">Response Body</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'securityChecksum'">
+                <div class="space-y-3">
+                  <a href="/security_checksum.html" class="block hover:underline">Introduction</a>
+                  <a href="/security_checksum.html#airtime-data" class="block hover:underline">Airtime/Data Request</a>
+                  <a href="/security_checksum.html#electric-validate" class="block hover:underline">Electric Validate Request</a>
+                  <a href="/security_checksum.html#electric-vend" class="block hover:underline">Electric Vend Request</a>
+                  <a href="/security_checksum.html#merchant-details" class="block hover:underline">Merchant Details Request</a>
+                  <a href="/security_checksum.html#deduct-mobile-subscriber-airtime" class="block hover:underline">Deduct Mobile Subscriber's Airtime Request</a>
+                  <a href="/security_checksum.html#send-sms" class="block hover:underline">Send SMS</a>
+                  <a href="/security_checksum.html#cable-tv-startimes-validate" class="block hover:underline">Cable TV: Startimes Validate</a>
+                  <a href="/security_checksum.html#cable-tv-startimes-vend" class="block hover:underline">Cable TV: Startimes Vend</a>
+                  <a href="/security_checksum.html#cable-tv-validate-multichoice" class="block hover:underline">Cable TV: Validate Multichoice Smartcard/Customer Number</a>
+                  <a href="/security_checksum.html#cable-tv-vend-multichoice" class="block hover:underline">Cable TV: Vend Multichoice Account</a>
+                </div>
+              </template>
+
+              <template x-if="key === 'securityGenerationSnips'">
+                <div class="space-y-3">
+                  <a href="/security_generation_snips.html" class="block hover:underline">Introduction</a>
+                  <a href="/security_generation_snips.html#php" class="block hover:underline">PHP</a>
+                  <a href="/security_generation_snips.html#python" class="block hover:underline">Python</a>
+                  <a href="/security_generation_snips.html#java" class="block hover:underline">Java</a>
+                  <a href="/security_generation_snips.html#netc" class="block hover:underline">.NET C#</a>
+                </div>
+              </template>
+            </div>
+          </li>
+        </template>
+
+        <li>
+          <a href="/services.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+            <span>Services</span>
+          </a>
+        </li>
+        <li>
+          <a href="/error_codes.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+            <span>Error Codes and Description</span>
+          </a>
+        </li>
+        <li>
+          <a href="/ussd.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+            <span>USSD</span>
+          </a>
+        </li>
+        <li>
+          <a href="/utility_advance_service.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+            <span>UTILITY ADVANCE SERVICE</span>
+          </a>
+        </li>
+        <li>
+          <a href="/low_balance_service.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+            <span>LOW BALANCE SERVICE</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+   <!-- Overlay -->
+  <div 
+   x-show="$store.sidebar.showSidebar"
+@click="$store.sidebar.showSidebar = false"
+
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity"
+    x-transition
+    x-cloak>
+  </div>
+</div>
+  </div>
 
   <main class="lg:ml-64 p-10 pt-5 max-md:w-full max-md:px-4 max-md:pb-2">
     <!-- SideBar Mobile Button Component  -->
             <header class="sticky bg-white lg:relative top-0 z-20 max-lg:-mx-1">
-                <div id="sidebarMobileButton" x-ref="sidebarMobileButton"></div>
+                <div id="sidebarMobileButton" x-ref="sidebarMobileButton">
+                    <button id="menu-btn" data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center  mt-3 ms-0 text-sm text-blue-900 rounded-lg lg:hidden  focus:outline-none focus:ring-2 focus:ring-gray-200  cursor-pointer" @click="$store.sidebar.showSidebar = true">
+                      <span class="sr-only">Open sidebar</span>
+                      <svg class="size-8" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                      </svg>
+                  </button>
+                </div>
 
                 <div class="w-full mb-20 py-3 bg-white flex justify-center border-0 shadow-none max-md:mb-10">
-                    <img src="/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
+                    <img src="/public/img/boilerplate stuff.png" alt="Creditswitch Logo" class="h-20 max-md:h-14 max-lg:h-16">
                 </div>
             </header>
       

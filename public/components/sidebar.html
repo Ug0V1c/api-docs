@@ -1,0 +1,141 @@
+<aside id="sidebar"
+       class="fixed lg:static inset-y-0 left-0 z-40 w-80 bg-sidebar border-r border-sidebar-border sidebar-transition -translate-x-full lg:translate-x-0">
+    <div class="flex flex-col h-full pt-20 lg:pt-0">
+
+        <div class="flex-1 overflow-y-auto p-6">
+            <nav class="space-y-2">
+                <div>
+                    <button class="sidebar-item active w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="overview">
+                        <i class="fas fa-book text-sm"></i>
+                        <span class="text-sm font-medium">Overview</span>
+                    </button>
+                </div>
+                <div>
+                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="integration-flow">
+                        <i class="fas fa-random text-sm"></i>
+                        <span class="text-sm font-medium">Integration Flow</span>
+                    </button>
+                </div>
+                <div>
+                    <a href="../pages/merchant_info.php" class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors bg-sidebar-accent text-sidebar-accent-foreground"
+                            data-section="get-merchant-info">
+                        <i class="fas fa-store text-sm"></i>
+                        <span class="text-sm font-medium">Get Merchant Info</span>
+                    </a>
+                </div>
+
+                <div>
+                    <a class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="get-merchant-info" role="button" href="../pages/send_sms.php">
+                        <i class="fas fa-comment-alt text-sm"></i>
+                        <span class="text-sm font-medium">Send SMS</span>
+                    </a>
+                </div>
+
+                <div x-data="{ drop_down_sms: false }">
+                    <!-- Toggle button -->
+                    <button
+                            @click="drop_down_sms = !drop_down_sms"
+                            class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    >
+                        <i class="fas fa-comment-alt text-sm"></i>
+                        <span class="text-sm font-medium">Drop Down Test</span>
+
+                        <!-- Chevron -->
+                        <i
+                                class="fas fa-chevron-right text-sm ml-auto transition-transform duration-200"
+                                :class="{ 'rotate-90': drop_down_sms }"
+                        ></i>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div x-show="drop_down_sms" x-transition class="ml-7 mt-2 space-y-1" >
+                        <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                                data-section="insurance">
+                            <i class="fas fa-code text-sm"></i>
+
+                            <span class="text-sm font-medium">Something</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div>
+                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="requery">
+                        <i class="fas fa-sync-alt text-sm"></i>
+                        <span class="text-sm font-medium">Requery</span>
+                        <svg class="h-4 w-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div>
+                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="airtime-vend">
+                        <i class="fas fa-mobile-alt text-sm"></i>
+
+                        <span class="text-sm font-medium">Airtime Vend Request</span>
+                    </button>
+                </div>
+                <div>
+                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="data-vend">
+                        <i class="fas fa-mobile-alt text-sm"></i>
+
+                        <span class="text-sm font-medium">Data Vend Request</span>
+                    </button>
+                </div>
+
+
+
+                <div>
+                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="insurance">
+                        <i class="fas fa-shield-alt text-sm"></i>
+
+                        <span class="text-sm font-medium">Insurance</span>
+                    </button>
+                </div>
+                <div>
+                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="international">
+                        <i class="fas fa-globe text-sm"></i>
+
+                        <span class="text-sm font-medium">International Services</span>
+                    </button>
+                </div>
+                <div>
+                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="showmax">
+                        <i class="fas fa-tv text-sm"></i>
+
+                        <span class="text-sm font-medium">Showmax</span>
+                    </button>
+                </div>
+                <div>
+                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="cable-tv">
+                        <i class="fas fa-satellite-dish text-sm"></i>
+
+                        <span class="text-sm font-medium">Cable TV: Startimes</span>
+                    </button>
+                </div>
+                <div>
+                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                            data-section="cable-tv-multi">
+                        <i class="fas fa-satellite-dish text-sm"></i>
+
+                        <span class="text-sm font-medium">Cable TV: Multichoice</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</aside>
+
+<!-- Overlay for mobile -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 lg:hidden hidden"></div>

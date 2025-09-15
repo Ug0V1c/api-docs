@@ -22,21 +22,21 @@ include '../components/header_nav.html';
             <!-- Breadcrumb -->
             <div class="flex items-center gap-2 text-sm text-muted-foreground mb-8">
                 <span>API Reference</span>
-                <i class="fas fa-comment-alt text-accent text-sm"></i>
+                <i class="fas fa-user text-accent text-sm"></i>
 
-                <span class="text-foreground font-medium">Send SMS</span>
+                <span class="text-foreground font-medium">Data Vend Request</span>
             </div>
 
             <!-- Page Header -->
             <div class="mb-8">
                 <div class="flex items-center gap-3 mb-4">
-                    <h1 class="text-3xl font-bold text-balance">Send SMS</h1>
+                    <h1 class="text-3xl font-bold text-balance">Data Vend Request</h1>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
 POST
                         </span>
                 </div>
                 <p class="text-lg text-muted-foreground leading-relaxed">
-                    Service to send single and bulk SMS
+                   Service for processing mobile data top-ups on a customer’s phone number via the merchant’s account.
                 </p>
 
             </div>
@@ -55,7 +55,7 @@ POST
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
                                 <label class="text-sm font-medium text-muted-foreground">Request URL</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">	baseUrl/api/v1/sendsms
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">		baseUrl/api/v1/dvend
                                 </div>
                             </div>
                             <div>
@@ -66,19 +66,13 @@ POST
                                         </span>
                                 </div>
                             </div>
+                            <div>
+                                <label class="text-sm font-medium text-muted-foreground">Request Headers</label>
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">application/json</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="mb-8">
-                <div class="flex items-center gap-3 mb-4">
-                    <h1 class="text-3xl font-bold text-balance">Single SMS</h1>
-                </div>
-                <p class="text-lg text-muted-foreground leading-relaxed">
-                    Send SMS to a single recipient
-                </p>
-
             </div>
 
 
@@ -162,10 +156,10 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Merchants (public) key</td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Merchant’s (public) key supplied during integration</td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">senderId</td>
+                                    <td class="py-3 px-4 font-mono text-sm">requestId</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -177,11 +171,11 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Sender Id for the send SMS request.
+                                        Unique transaction Id for the request. Maxlength (36characters)
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">msisdn</td>
+                                    <td class="py-3 px-4 font-mono text-sm">serviceId</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -193,7 +187,7 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Recipient / phone number. Ex: 09062120000
+                                        Corresponding service id for the request type. See "Services" section for the available services and corresponding service codes for each.
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
@@ -209,14 +203,14 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Amount with which to top-up amount customers phone Maximum 100000
+                                        Amount with which to top-up amount customers phone Maximum 100000
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">messageBody</td>
+                                    <td class="py-3 px-4 font-mono text-sm">recipient</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Text
+                                                Numeric
                                             </span>
                                     </td>
                                     <td class="py-3 px-4">
@@ -225,11 +219,11 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Message body for send SMS request
+                                        Customers phone number to top-up
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">transactionRef	</td>
+                                    <td class="py-3 px-4 font-mono text-sm">date</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -241,7 +235,23 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Unique transaction Id for the request. Maxlength (35characters)
+                                        Date-time at which the request was sent .
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">productId</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        The identifier of each data bundle e.g MTN-25MB-10.
                                     </td>
                                 </tr>
                                 <tr>
@@ -257,11 +267,38 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Checksum computed for the request. See "Security: Checksum" section for hash computation steps
+                                        Checksum computed for the request. See "Security: Checksum" section for hash computation steps
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Request -->
+                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
+                    <div class="p-6 border-b border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-semibold flex items-center gap-2">
+
+                            </h3>
+                            <button @click="copyText" x-ref="copyButton"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded-md hover:bg-muted transition-colors">
+                                <i class="fas fa-copy text-sm"></i>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="bg-card p-4 rounded-lg border">
+                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto lg:pb-4" x-ref="sampleCode">
+{
+    "loginId": "1234","key": "f7a2b427dedbdbdc4825675","requestId": "abcde1234","serviceId": "D04D",
+    "recipient": "080xxxxxxxx","amount": "50.00","productId": "MTN-25MB-10","date": "13-11-2019T09:28:38.273+01:00",
+    "checksum": "JDJ5JDEwJGRQZ0Y4UWZkUnFNNFQzaXpnOWsuOWVWTkVVRS9QNC85OU9IR2lVYVNwTUYyY05NLlB1Qjd1" 
+}
+</pre>
                         </div>
                     </div>
                 </div>
@@ -297,7 +334,7 @@ POST
                                         Status of the transaction. 00 signifies success
                                     </td>
                                 </tr>
-                                <tr class="border-b border-border">
+                                <tr>
                                     <td class="py-3 px-4 font-mono text-sm">statusDescription</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
@@ -311,11 +348,11 @@ POST
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding description for the status code. 00=Successful</td>
                                 </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">cost</td>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">mReference</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
+                                                String
                                             </span>
                                     </td>
                                     <td class="py-3 px-4">
@@ -323,11 +360,9 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Cost of sent SMS (in naira)
-                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Unique transaction id supplied by the integrator for the request</td>
                                 </tr>
-                                <tr class="border-b border-border">
+                                <tr>
                                     <td class="py-3 px-4 font-mono text-sm">tranxReference</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
@@ -339,156 +374,10 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchant/client’s initial transaction reference
-                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Creditswitch’s unique id generated for the transaction</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">transactionId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       Creditswitch’s unique id generated for the transaction
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sample Request -->
-                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
-                    <div class="p-6 border-b border-border">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-semibold flex items-center gap-2">
-
-                            </h3>
-                            <button @click="copyText" x-ref="copyButton"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded-md hover:bg-muted transition-colors">
-                                <i class="fas fa-copy text-sm"></i>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleCode">{
-    "loginId":"1234","key":"f7a2b42…", "senderId":"TEST-NG",
-    "msisdn":"09062120000", "messageBody":"Keep calm and test", "transactionRef":"008k97658891", "checksum":"JDhJk…"
-}</pre>
-                        </div>
-                    </div>
-                </div>
-
-                <div x-show="tab==='response'" class="bg-card border border-border rounded-lg mb-8">
-
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
-{
-    {"statusCode":"00","statusDescription":"successful","cost":2.5,
-    "transactionRef":"pp0p88097976 58891","transactionId":"167241535005733"}
-}
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-
-                
-
-
-            </div>
-
-            <div class="mb-8">
-                <div class="flex items-center gap-3 mb-4">
-                    <h1 class="text-3xl font-bold text-balance">Bulk SMS</h1>
-                </div>
-                <p class="text-lg text-muted-foreground leading-relaxed">
-                    Send SMS to a bulk recipients
-                </p>
-
-            </div>
-
-
-            <!-- Tabs -->
-            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'request' }">
-                <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
-
-                    <button class="px-4 py-2 font-serif  flex gap-2"
-                            :class="tab === 'request' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
-                            @click="tab='request'">
-
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Request Body
-
-                    </button>
-
-                    <button class="px-4 py-2 font-serif flex gap-2 "
-                            :class="tab === 'sample' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
-                            @click="tab='sample'">
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Sample Request Body
-                    </button>
-
-                    <button class="px-4 py-2 font-serif  flex gap-2"
-                            :class="tab === 'response body' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
-                            @click="tab='response body'">
-
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Response Body
-                    </button>
-
-                    <button class="px-4 py-2 font-serif flex gap-2 "
-                            :class="tab === 'response' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
-                            @click="tab='response'">
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Sample Response
-                    </button>
-                </div>
-
-                <!-- Request Body -->
-                <div x-show="tab==='request'" class="bg-card border border-border rounded-lg mb-8">
-
-                    <div class="p-6">
-                        <div class="overflow-x-auto">
-                            <table class="w-full">
-                                <thead>
-                                <tr class="border-b border-border">
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Parameter Name
-                                    </th>
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Type</th>
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">M/O</th>
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Description</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">loginId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchant id provided during integration
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">key</td>
+                                    <td class="py-3 px-4 font-mono text-sm">recipient</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -499,41 +388,9 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Merchants (public) key</td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Customers number on the network to which top-up was sent</td>
                                 </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">senderId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Sender Id for the send SMS request.
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">msisdn</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        An array of Recipient / phone number. Ex: 09062120000
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
+                                <tr>
                                     <td class="py-3 px-4 font-mono text-sm">amount</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
@@ -545,44 +402,24 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Amount with which to top-up amount customers phone Maximum 100000
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">messageBody</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Text
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Message body for send SMS request
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">transactionRef	</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Unique transaction Id for the request. Maxlength (35characters)
-                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Amount credited the customer</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">checksum</td>
+                                    <td class="py-3 px-4 font-mono text-sm">confirmCode</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric	
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Confirmation code returned by the network. Sent only for successful transactions</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">Network	</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -593,136 +430,24 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Checksum computed for the request. See "Security: Checksum" section for hash computation steps
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">The actual network fulfilled by the Telco</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">tranxDate</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
                                     </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Date at which transaction was carried out</td>
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div x-show="tab==='response body'" class="bg-card border border-border rounded-lg mb-8">
-
-                    <div class="p-6">
-                        <div class="overflow-x-auto">
-                            <table class="w-full">
-                                <thead>
-                                <tr class="border-b border-border">
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Parameter Name
-                                    </th>
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Type</th>
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">M/O</th>
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Description</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">statusCode</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Status of the transaction. 00 signifies success
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">statusDescription</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding description for the status code. 00=Successful</td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">cost</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Cost of sent SMS (in naira)
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">tranxReference</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchant/client’s initial transaction reference
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">transactionId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       Creditswitch’s unique id generated for the transaction
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sample Request -->
-                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
-                    <div class="p-6 border-b border-border">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-semibold flex items-center gap-2">
-
-                            </h3>
-                            <button @click="copyText" x-ref="copyButton"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded-md hover:bg-muted transition-colors">
-                                <i class="fas fa-copy text-sm"></i>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleCode">{
-    "loginId":"60789","key":"$2y$10$J39dLRgZ5vsIhu0030YVjuaSMirHalM8b0JBIpG0Jt9RCcOH1KEEu","senderId":"Creditswtch", 
-    "msisdn":[09034575188","08123748177"], "messageBody":"Testing", "transactionRef":"12ddsa73sde2hsdkklo7"
-    "checksum":"JDJ5JDEwJGNZVHUuQ2l4SkVsV0VsaTVwSi9GYnUubEM4eFdOcHR0SERRLmJ2ZFdxQko0STloNC5hSEJ1"
-}</pre>
                         </div>
                     </div>
                 </div>
@@ -733,13 +458,16 @@ POST
                         <div class="bg-card p-4 rounded-lg border">
                             <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
 {
-    {"statusCode":"00","statusDescription":"successful","cost":2.5,
-    "transactionRef":"pp0p88097976 58891","transactionId":"167241535005733"}
+    "statusCode": "00","statusDescription": "Successful","mReference": "abcde1234","tranxReference": "12345678",
+    "recipient": "080xxxxxx","amount": "50.00","confirmCode": "1234567890","network": "MTN",
+    "tranxDate": "17-01-2020 12:01 pm"
 }
                             </pre>
                         </div>
                     </div>
                 </div>
+
+            </div>
 
             <!-- Try It Out Section -->
             <div class="bg-card border border-border rounded-lg mb-8">
@@ -768,9 +496,12 @@ POST
 
 
         </div>
+
     </main>
+
 </div>
 
+<!-- Footer -->
 <?php
 echo "<script>";
 include "../scripts/app.js";

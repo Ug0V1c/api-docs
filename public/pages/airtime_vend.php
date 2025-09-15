@@ -24,19 +24,19 @@ include '../components/header_nav.html';
                 <span>API Reference</span>
                 <i class="fas fa-user text-accent text-sm"></i>
 
-                <span class="text-foreground font-medium">Get Merchant Info</span>
+                <span class="text-foreground font-medium">Airtime Vend Request</span>
             </div>
 
             <!-- Page Header -->
             <div class="mb-8">
                 <div class="flex items-center gap-3 mb-4">
-                    <h1 class="text-3xl font-bold text-balance">Get Merchant Info</h1>
+                    <h1 class="text-3xl font-bold text-balance">Airtime Vend Request</h1>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
 POST
                         </span>
                 </div>
                 <p class="text-lg text-muted-foreground leading-relaxed">
-                    The <strong>Get Merchant Details</strong> provides you with real-time access to essential account details. This includes current balance, authorized inbound IP addresses, a list of available services, and other info.
+                    Service to perform airtime top-up of customer’s phone number through merchant’s account
                 </p>
 
             </div>
@@ -55,7 +55,7 @@ POST
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
                                 <label class="text-sm font-medium text-muted-foreground">Request URL</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">baseUrl/api/v1/mdetails
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">		baseUrl/api/v1/mvend
                                 </div>
                             </div>
                             <div>
@@ -141,7 +141,7 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchant id provided during integration
+                                        Requery id provided during integration
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
@@ -158,8 +158,8 @@ POST
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">Merchants (public) key</td>
                                 </tr>
-                                <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">checksum</td>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">requestId</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -171,8 +171,71 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Checksum computed for the request. See "Security: Checksum for hash computation
-                                        steps"
+                                        Unique transaction Id for the request. Maxlength (36characters)
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">amount</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Amount with which to top-up amount customers phone Maximum 100000
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">recipient</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Customers phone number to top-up
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">date</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Date-time at which the request was sent .
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">checksum</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Checksum computed for the request. See "Security: Checksum" section for hash computation steps
                                     </td>
                                 </tr>
                                 </tbody>
@@ -197,11 +260,13 @@ POST
                     </div>
                     <div class="p-6">
                         <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleCode">{
-  "loginId": 1234,
-  "key": "0688378ec7fe23",
-  "checksum": "#2yx&23Unyc19"
-}</pre>
+                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto lg:pb-4" x-ref="sampleCode">
+{
+    "loginId": 1234,
+    "key":"0688378ec7fe233","requestId":"11345","serviceId":"A01E", "amount":"100", "recipient":"08030001111",
+    "date":"2-Jul-2017 18:30 GMT","checksum":"#2y*&23UnvC19" 
+}
+</pre>
                         </div>
                     </div>
                 </div>
@@ -241,7 +306,7 @@ POST
                                     <td class="py-3 px-4 font-mono text-sm">statusDescription</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Collection
+                                                String
                                             </span>
                                     </td>
                                     <td class="py-3 px-4">
@@ -249,7 +314,105 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">An array of merchant details</td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding description for the status code. 00=Successful</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">mReference</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Unique transaction id supplied by the integrator for the request</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">tranxReference</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Creditswitch’s unique id generated for the transaction</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">recipient</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Customers number on the network to which top-up was sent</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">amount</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Amount credited the customer</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">confirmCode</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric	
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Confirmation code returned by the network. Sent only for successful transactions</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">Network	</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">The actual network fulfilled by the Telco</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">tranxDate</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Date at which transaction was carried out</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -262,300 +425,10 @@ POST
                     <div class="p-6">
                         <div class="bg-card p-4 rounded-lg border">
                             <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
-                                {
-    "statusCode": "00",
-    "statusDescription": {
-        "name": "Csw Airtel Switch",
-        "balance": "91226.40",
-        "status": "active",
-        "email": "info@creditswitch.com",
-        "allowedIps": [
-            "127.0.0.1"
-        ],
-        "serviceDetail": [
-            [
-                "A01E",
-                "0.00"
-            ],
-            [
-                "A02E",
-                "0.00"
-            ],
-            [
-                "P10N",
-                "1.50"
-            ],
-            [
-                "P11N",
-                "1.50"
-            ],
-            [
-                "P04N",
-                "1.50"
-            ],
-            [
-                "B01T",
-                "8.00"
-            ],
-            [
-                "B03T",
-                "5.00"
-            ],
-            [
-                "E01E",
-                "0.00"
-            ],
-            [
-                "E02E",
-                "0.00"
-            ],
-            [
-                "P12N",
-                "1.50"
-            ],
-            [
-                "C2TV",
-                "1.50"
-            ],
-            [
-                "C3TV",
-                "2.00"
-            ],
-            [
-                "C1TV",
-                "1.50"
-            ],
-            [
-                "S01M",
-                "0.00"
-            ],
-            [
-                "S02M",
-                "0.00"
-            ],
-            [
-                "S03M",
-                "0.00"
-            ],
-            [
-                "S04M",
-                "0.00"
-            ],
-            [
-                "INT1",
-                "0.00"
-            ],
-            [
-                "INT2",
-                "0.00"
-            ],
-            [
-                "INT3",
-                "0.00"
-            ],
-            [
-                "INT4",
-                "0.00"
-            ],
-            [
-                "INT5",
-                "0.00"
-            ],
-            [
-                "INT6",
-                "0.00"
-            ],
-            [
-                "INT7",
-                "0.00"
-            ],
-            [
-                "INT8",
-                "0.00"
-            ],
-            [
-                "INT9",
-                "0.00"
-            ],
-            [
-                "INT10",
-                "0.00"
-            ],
-            [
-                "INT11",
-                "0.00"
-            ],
-            [
-                "INT12",
-                "0.00"
-            ],
-            [
-                "INT13",
-                "0.00"
-            ],
-            [
-                "INT14",
-                "0.00"
-            ],
-            [
-                "INT15",
-                "0.00"
-            ],
-            [
-                "INT16",
-                "0.00"
-            ],
-            [
-                "INT17",
-                "0.00"
-            ],
-            [
-                "INT18",
-                "0.00"
-            ],
-            [
-                "INT19",
-                "0.00"
-            ],
-            [
-                "INT20",
-                "0.00"
-            ],
-            [
-                "INT21",
-                "0.00"
-            ],
-            [
-                "INT22",
-                "0.00"
-            ],
-            [
-                "INT23",
-                "0.00"
-            ],
-            [
-                "INT24",
-                "0.00"
-            ],
-            [
-                "INT25",
-                "0.00"
-            ],
-            [
-                "INT26",
-                "0.00"
-            ],
-            [
-                "INT27",
-                "0.00"
-            ],
-            [
-                "INT28",
-                "0.00"
-            ],
-            [
-                "INT29",
-                "0.00"
-            ],
-            [
-                "INT30",
-                "0.00"
-            ],
-            [
-                "INT31",
-                "0.00"
-            ],
-            [
-                "B06T",
-                "0.00"
-            ],
-            [
-                "B07T",
-                "0.00"
-            ],
-            [
-                "B08T",
-                "0.00"
-            ],
-            [
-                "P01N",
-                "1.50"
-            ],
-            [
-                "P02N",
-                "1.50"
-            ],
-            [
-                "P03N",
-                "1.50"
-            ],
-            [
-                "P05N",
-                "1.50"
-            ],
-            [
-                "P06N",
-                "1.50"
-            ],
-            [
-                "P07N",
-                "1.50"
-            ],
-            [
-                "P08N",
-                "1.50"
-            ],
-            [
-                "P09N",
-                "1.50"
-            ],
-            [
-                "P13N",
-                "1.50"
-            ],
-            [
-                "P14N",
-                "1.50"
-            ],
-            [
-                "P15N",
-                "1.50"
-            ],
-            [
-                "P16N",
-                "1.50"
-            ],
-            [
-                "P17N",
-                "1.50"
-            ],
-            [
-                "P18N",
-                "1.50"
-            ],
-            [
-                "P19N",
-                "1.50"
-            ],
-            [
-                "P20N",
-                "1.50"
-            ],
-            [
-                "P21N",
-                "1.50"
-            ],
-            [
-                "T01N",
-                "0.00"
-            ],
-            [
-                "D02D",
-                "0.00"
-            ]
-        ],
-        "transactionsToday": 0
-    }
+{
+    "statusCode":"00","statusDescription":"Successful","mReference":"11345", "tranxReference":"
+    123452114", "recipient":"08030001111", "amount":"100", 
+    "confirmCode":"R20170707.2150.234565","network":"MTN",tranxDate":"21-06-2017 10:25 am"
 }
                             </pre>
                         </div>

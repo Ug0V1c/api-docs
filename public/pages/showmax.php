@@ -24,23 +24,23 @@ include '../components/header_nav.html';
                 <span>API Reference</span>
                 <i class="fas fa-comment-alt text-accent text-sm"></i>
 
-                <span class="text-foreground font-medium">Insurance</span>
+                <span class="text-foreground font-medium">Showmax</span>
             </div>
 
             <!-- Page Header -->
             <div class="mb-8">
                 <div class="flex items-center gap-3 mb-4">
-                    <h1 class="text-3xl font-bold text-balance">Insurance</h1>
+                    <h1 class="text-3xl font-bold text-balance">Showmax</h1>
                 </div>
                 <p class="text-lg text-muted-foreground leading-relaxed">
-                    Service to Pay for Insurance This web service is in two phases: (1) get product codes (2) vend – can take place.
+                    Service to recharge Showmax This web service is in two phases: (1) get product codes (2) vend – can take place.
                 </p>
 
             </div>
 
             <div class="mb-4">
                 <div class="flex items-center gap-3 mb-4">
-                    <h6 class="text-2xl font-bold text-balance">Insurance Get Packages</h6>
+                    <h6 class="text-2xl font-bold text-balance">Showmax Get Packages</h6>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
 GET
                         </span>
@@ -62,7 +62,7 @@ GET
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="text-sm font-medium text-muted-foreground">Request URL</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">{{baseUrl}}insurance/packages
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">{{baseUrl}}showmax/packages
                                 </div>
                             </div>
                             <div>
@@ -189,13 +189,156 @@ GET
                     <div class="p-6">
                         <div class="bg-card p-4 rounded-lg border">
                             <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
-{ 
-    "statusCode": "00", "statusDescription": { "items": { "insuranceName": [ "LAW UNION & ROCK INSURANCE" ], "insuranceType": [ { "name":
-    "TRICYCLE", "amount": "2500" }, { "name": "PRIVATE_MOTOR", "amount": "5000" }, { "name": "COMMERCIAL", "amount": "7500" } ], "vehicleColor": [ 
-    "ASH", "BRONZE", "BEIGE", "BLACK", "BLUE", "BROWN", "CREAM", "CUSTOM", "GOLD", "GREEN", "GREY", "NAVY BLUE", "ORANGE", "PEACH", "PINK", 
-    "PURPLE", "RED", "SILVER", "VIOLET", "WHITE", "WIINE", "YELLOW" ], "yearOfMake": [ "1990", "1991", "1992", "1993", "1994", "1995", "1996", 
-    "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", 
-    "2015", "2016", "2017", "2018", "2019", "2020" ] } } 
+{
+    "statusCode": "00",
+
+    "statusDescription": {
+
+    "items": [
+
+    {
+    "name": "Showmax Mobile",
+
+    "subscriptionPeriod": 1,
+
+    "price": 1200,
+
+    "type": "mobile_only"
+
+    }, {
+    "name": "Showmax Mobile",
+
+    "subscriptionPeriod": 3,
+
+    "price": 2499,
+
+    "type": "mobile_only"
+
+    }, {
+    "name": "Showmax Mobile",
+
+    "subscriptionPeriod": 6,
+
+    "price": 4299,
+
+    "type": "mobile_only"
+
+    }, {
+    "name": "Showmax Mobile",
+
+    "subscriptionPeriod": 12,
+
+    "price": 7200,
+
+    "type": "mobile_only"
+
+    }, {
+    "name": "Showmax",
+
+    "subscriptionPeriod": 1,
+
+    "price": 1200,
+
+    "type": "full"
+
+    }, {
+    "name": "Showmax",
+
+    "subscriptionPeriod": 3,
+
+    "price": 5999,
+
+    "type": "full"
+
+    }, {
+    "name": "Showmax",
+
+    "subscriptionPeriod": 6,
+
+    "price": 10400,
+
+    "type": "full"
+
+    }, {
+    "name": "Showmax",
+
+    "subscriptionPeriod": 12,
+
+    "price": 17400,
+
+    "type": "full"
+
+    }, {
+    "name": "Showmax Pro Mobile",
+
+    "subscriptionPeriod": 1,
+
+    "price": 3200,
+
+    "type": "sports_mobile_only"
+
+    }, {
+    "name": "Showmax Pro Mobile",
+
+    "subscriptionPeriod": 3,
+
+    "price": 9600,
+
+    "type": "sports_mobile_only"
+
+    }, {
+    "name": "Showmax Pro Mobile",
+
+    "subscriptionPeriod": 6,
+
+    "price": 19200,
+
+    "type": "sports_mobile_only"
+
+    }, {
+    "name": "Showmax Pro Mobile",
+
+    "subscriptionPeriod": 12,
+
+    "price": 38400,
+
+    "type": "sports_mobile_only"
+
+    }, {
+    "name": "Showmax Pro",
+
+    "subscriptionPeriod": 1,
+
+    "price": 6300,
+
+    "type": "sports_full"
+
+    }, {
+    "name": "Showmax Pro",
+
+    "subscriptionPeriod": 3,
+
+    "price": 18900,
+
+    "type": "sports_full"
+
+    }, {
+    "name": "Showmax Pro",
+
+    "subscriptionPeriod": 6,
+
+    "price": 37800,
+
+    "type": "sports_full"
+
+    }, {
+    "name": "Showmax Pro",
+
+    "subscriptionPeriod": 12,
+
+    "price": 75600,
+
+    "type": "sports_full" } ] } 
 }
                             </pre>
                         </div>
@@ -209,7 +352,7 @@ GET
 
             <div class="mb-4 mt-16">
                 <div class="flex items-center gap-3 mb-4">
-                    <h6 class="text-2xl font-bold text-balance">Insurance Recharge</h6>
+                    <h6 class="text-2xl font-bold text-balance">Showmax Recharge</h6>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
 POST
                         </span>
@@ -231,7 +374,7 @@ POST
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="text-sm font-medium text-muted-foreground">Request URL</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">{{baseUrl}}insurance/pay
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">{{baseUrl}}showmax/pay
                                 </div>
                             </div>
                             <div>
@@ -323,6 +466,54 @@ POST
                                     <td class="py-3 px-4 text-sm text-muted-foreground">Merchants (public) key</td>
                                 </tr>
                                 <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">ServiceId</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                       	SOMX
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">customerNo</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Phone Number.
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">Amount</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                       	Amount of the package gotten from the get SHOWMAX package API Call
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
                                     <td class="py-3 px-4 font-mono text-sm">requestId</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
@@ -339,55 +530,7 @@ POST
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">ServiceId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        INS0
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Insured Name</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Customer Name
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Insurance Type</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Insurance Type gotten from the get Insurance package API Call
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">chassis_number</td>
+                                    <td class="py-3 px-4 font-mono text-sm">subscriptionType</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 Numeric
@@ -399,59 +542,11 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Chassis Number of the vehicle to be Insured
+                                       	Type of Subscription, gotten from the get Packages API call
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">engine_number</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Engine Number of the vehicle to be Insured
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">plate_number</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Plate Number of the vehicle to be Insured
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">vehicle_make</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Make of the vehicle to be Insured, e.g Toyota, Ford
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">vehicle_model</td>
+                                    <td class="py-3 px-4 font-mono text-sm">invoicePeriod</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 Numeric
@@ -463,59 +558,11 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Model of the vehicle to be Insured, e.g Camry, Matrix
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">vehicle_color</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Color of the vehicle to be Insured, e.g Blue, Black
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">year_of_make</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Year of the vehicle to be Insured, e.g Blue, Black
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">email</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Email of the Customer
+                                       	This is the value of subscriptionPeriod gotten from the get SHOWMAX package API call
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">contact_address</td>
+                                    <td class="py-3 px-4 font-mono text-sm">packageName</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 Numeric
@@ -527,7 +574,7 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Contact Address of the customer
+                                       	Name of package gotten from the get SHOWMAX package API call
                                     </td>
                                 </tr>
                                 </tbody>
@@ -556,21 +603,13 @@ POST
 {
     "loginId": "{{loginId}}",
     "key": "{{publicKey}}",
-    "requestId": "{{random12digit}}",
-    "serviceId": "INS0",
-    "insured_name": "David OG",
-    "insurance_type": "PRIVATE_MOTOR",
-    "chassis_number": "7338388393951",
-    "engine_number": "1234rtrg5g5g",
-    "plate_number": "AS53333Rfr5",
-    "customerId": "08047621639",
-    "amount": "5000",
-    "vehicle_make": "TOYOTA",
-    "vehicle_model": "CAMRY",
-    "vehicle_color": "BLACK",
-    "year_of_make": "2010",
-    "email": "test123@gmail.com",
-    "contact_address": "dkij"
+    "serviceId" : "SOMX",
+    "customerNo":"09058639550",
+    "amount": 100,
+    "requestId" : "{{random12digit}}",
+    "subscriptionType" : "mobile_only",
+    "invoicePeriod" : "1",
+    "packageName" : "Showmax Mobile"
 }                              
                             </pre>
                         </div>
@@ -596,8 +635,8 @@ POST
     "subscriptionType": "mobile_only",
     "validUntil": "2025-02-21 16:50:39 UTC",
     "voucherCode": "788623",
-    "captureUrl": "https://secure.showmax.io/payment/subscriptions/access_code"
-} }
+    "captureUrl": "https://secure.showmax.io/payment/subscriptions/access_code" }
+}
                             </pre>
                         </div>
                     </div>

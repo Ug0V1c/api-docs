@@ -1207,22 +1207,6 @@ POST
                                     <td class="py-3 px-4 text-sm text-muted-foreground">Merchants (public) key</td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Confirm Code</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Individual Student Code gotten from Jamb Board
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
                                     <td class="py-3 px-4 font-mono text-sm">RequestId</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
@@ -1302,22 +1286,6 @@ POST
                                         Checksum computed for the request. See "Security: Checksum" section for hash computation steps
                                     </td>
                                 </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">email</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Email of the candidate
-                                    </td>
-                                </tr>
                                 <tr>
                                     <td class="py-3 px-4 font-mono text-sm">productType</td>
                                     <td class="py-3 px-4">
@@ -1361,13 +1329,11 @@ POST
     "loginId": "{{loginId}}",
     "key": "{{publicKey}}",
     "requestId": "{{requestId}}",
-    "serviceId": "P07N",
+    "serviceId": "P06N",
     "amount": 4,
     "recipient": "08012345678",
     "checksum": "{{checkSum}}",
-    "email": "xyz@gmail.com",
-    "confirmCode": "1375779512",
-    "productType": "jambutme"
+    "productType": "WAEC Checker"
 }
 </pre>
                         </div>
@@ -1385,7 +1351,7 @@ POST
     "detail": {
     "pin": "30138820169806991",
     "serial_no": "094089700 1698060076",
-    "network": "JAMB",
+    "network": "WAEC",
     "qty": 1,
     "amount": 4,
     "tranxReference": "2310231221161190695" }

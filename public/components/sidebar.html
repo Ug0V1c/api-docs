@@ -1,25 +1,27 @@
 <aside id="sidebar"
-       class="fixed  inset-y-0 lg:pt-20 pb-5 left-0 z-40 w-80 bg-sidebar border-r border-sidebar-border sidebar-transition -translate-x-full lg:translate-x-0">
+       x-data="{ current: window.location.pathname.split('/').pop() }"
+       class="fixed inset-y-0 lg:pt-20 lg:pb-5 left-0 z-40 w-80 bg-sidebar border-r border-sidebar-border sidebar-transition -translate-x-full lg:translate-x-0">
     <div class="flex flex-col h-full pt-20 lg:pt-0">
 
         <div class="flex-1 overflow-y-auto p-6">
             <nav class="space-y-2">
                 <div>
-                    <button class="sidebar-item active w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/index.php" 
+                    :class="current === 'index.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item active w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="overview">
                         <i class="fas fa-book text-sm"></i>
                         <span class="text-sm font-medium">Overview</span>
-                    </button>
+                    </a>
                 </div>
                 <div>
-                    <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
-                            data-section="integration-flow">
-                        <i class="fas fa-random text-sm"></i>
-                        <span class="text-sm font-medium">Integration Flow</span>
-                    </button>
-                </div>
-                <div>
-                    <a href="../pages/merchant_info.php" class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors bg-sidebar-accent text-sidebar-accent-foreground"
+                    <a href="../pages/merchant_info.php"
+                    :class="current === 'merchant_info.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="get-merchant-info">
                         <i class="fas fa-store text-sm"></i>
                         <span class="text-sm font-medium">Get Merchant Info</span>
@@ -27,54 +29,35 @@
                 </div>
 
                 <div>
-                    <a class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
-                            data-section="get-merchant-info" role="button" href="../pages/send_sms.php">
+                    <a 
+                    :class="current === 'send_sms.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
+                            data-section="send-sms" role="button" href="../pages/send_sms.php">
                         <i class="fas fa-comment-alt text-sm"></i>
                         <span class="text-sm font-medium">Send SMS</span>
                     </a>
                 </div>
 
-                <div x-data="{ drop_down_sms: false }">
-                    <!-- Toggle button -->
-                    <button
-                            @click="drop_down_sms = !drop_down_sms"
-                            class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
-                    >
-                        <i class="fas fa-comment-alt text-sm"></i>
-                        <span class="text-sm font-medium">Drop Down Test</span>
-
-                        <!-- Chevron -->
-                        <i
-                                class="fas fa-chevron-right text-sm ml-auto transition-transform duration-200"
-                                :class="{ 'rotate-90': drop_down_sms }"
-                        ></i>
-                    </button>
-
-                    <!-- Dropdown menu -->
-                    <div x-show="drop_down_sms" x-transition class="ml-7 mt-2 space-y-1" >
-                        <button class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
-                                data-section="insurance">
-                            <i class="fas fa-code text-sm"></i>
-
-                            <span class="text-sm font-medium">Something</span>
-                        </button>
-                    </div>
-                </div>
-
 
                 <div>
-                    <a href="../pages/requery.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/requery.php" 
+                    :class="current === 'requery.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="requery">
                         <i class="fas fa-sync-alt text-sm"></i>
                         <span class="text-sm font-medium">Requery</span>
-                        <svg class="h-4 w-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 5l7 7-7 7"></path>
-                        </svg>
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/airtime_vend.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/airtime_vend.php" 
+                    :class="current === 'airtime_vend.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="airtime-vend">
                         <i class="fas fa-mobile-alt text-sm"></i>
 
@@ -82,7 +65,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/data_vend.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/data_vend.php" 
+                    :class="current === 'data_vend.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="data-vend">
                         <i class="fas fa-mobile-alt text-sm"></i>
 
@@ -93,7 +80,11 @@
 
 
                 <div>
-                    <a href="../pages/insurance.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/insurance.php" 
+                    :class="current === 'insurance.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="insurance">
                         <i class="fas fa-shield-alt text-sm"></i>
 
@@ -101,7 +92,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/international_services.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/international_services.php" 
+                    :class="current === 'international_services.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="international">
                         <i class="fas fa-globe text-sm"></i>
 
@@ -109,7 +104,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/showmax.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/showmax.php" 
+                    :class="current === 'showmax.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="showmax">
                         <i class="fas fa-tv text-sm"></i>
 
@@ -117,7 +116,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/cabletv_startimes.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/cabletv_startimes.php" 
+                    :class="current === 'cabletv_startimes.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -125,7 +128,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/cabletv_multichoice.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/cabletv_multichoice.php" 
+                    :class="current === 'cabletv_multichoice.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -133,7 +140,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/betting_services.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/betting_services.php" 
+                    :class="current === 'betting_services.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -141,7 +152,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/toll_services.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/toll_services.php" 
+                    :class="current === 'toll_services.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -149,7 +164,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/requery_transaction.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/requery_transaction.php" 
+                    :class="current === 'requery_transaction.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -157,7 +176,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/electricity_validation.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/electricity_validation.php" 
+                    :class="current === 'electricity_validation.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -165,7 +188,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/electricity_vending.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/electricity_vending.php" 
+                    :class="current === 'electricity_vending.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -173,7 +200,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/logical_pins.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/logical_pins.php" 
+                    :class="current === 'logical_pins.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -181,7 +212,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/phoneNumber_lookup.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/phoneNumber_lookup.php" 
+                    :class="current === 'phoneNumber_lookup.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -189,7 +224,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/data_plans.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/data_plans.php" 
+                    :class="current === 'data_plans.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -197,7 +236,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/security_checksum.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/security_checksum.php" 
+                    :class="current === 'security_checksum.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -205,7 +248,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/security_generation.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/security_generation.php" 
+                    :class="current === 'security_generation.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -213,7 +260,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/services.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/services.php" 
+                    :class="current === 'services.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -221,7 +272,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/error_codes.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/error_codes.php" 
+                    :class="current === 'error_codes.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -229,7 +284,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/ussd.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/ussd.php" 
+                    :class="current === 'ussd.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -237,7 +296,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/utility_advance.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/utility_advance.php" 
+                    :class="current === 'utility_advance.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 
@@ -245,7 +308,11 @@
                     </a>
                 </div>
                 <div>
-                    <a href="../pages/low_balance.php" class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    <a href="../pages/low_balance.php" 
+                    :class="current === 'low_balance.php' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i class="fas fa-satellite-dish text-sm"></i>
 

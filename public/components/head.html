@@ -43,6 +43,20 @@
             }
         }
     </script>
+    <script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sidebar = document.querySelector("#sidebar .overflow-y-auto");
+
+    // Restore saved scroll position
+    const savedScroll = localStorage.getItem("sidebar-scroll");
+    if (savedScroll) sidebar.scrollTop = savedScroll;
+
+    // Save on scroll
+    sidebar.addEventListener("scroll", () => {
+      localStorage.setItem("sidebar-scroll", sidebar.scrollTop);
+    });
+  });
+</script>
     <style>
         .sidebar-transition {
             transition: transform 0.2s ease-in-out;

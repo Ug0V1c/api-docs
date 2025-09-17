@@ -17,7 +17,7 @@ include '../components/header_nav.html';
 
 
     <!-- Main Content -->
-    <main class="flex-1 min-w-0">
+    <main class="flex-1 min-w-0 lg:ml-80">
         <div class="max-w-4xl mx-auto p-6 lg:p-8">
             <!-- Breadcrumb -->
             <div class="flex items-center gap-2 text-sm text-muted-foreground mb-8">

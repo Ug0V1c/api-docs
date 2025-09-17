@@ -24,220 +24,51 @@ include '../components/header_nav.html';
                 <span>API Reference</span>
                 <i class="fas fa-comment-alt text-accent text-sm"></i>
 
-                <span class="text-foreground font-medium">Logical Pins</span>
+                <span class="text-foreground font-medium">Utility Advance Service</span>
             </div>
 
             <!-- Page Header -->
             <div class="mb-8">
                 <div class="flex items-center gap-3 mb-4">
-                    <h1 class="text-3xl font-bold text-balance">Logical Pins</h1>
+                    <h1 class="text-3xl font-bold text-balance">Utility Advance Service</h1>
                 </div>
                 <p class="text-lg text-muted-foreground leading-relaxed">
-                   This service will purchase a logical pin for the service ID provided. NOTE: Payload may differ depending on service ID. Logical Pin services cover the following AIRTEL, GLO, 9MOBILE, MTN, JAMB, NECO, WAEC, NABTECH, SPECTRANET. The respective service ID's can be found in the service ID table below.
+                    This document gives an overview of the Creditswitch Utility Advance service. This service enables business partners to consume existing services on the Creditswitch Platform in a buy now pay later fashion. For technical assistance with the CSW API contact us at techsupport@creditswitch.com to enable swift response and support.
                 </p>
 
             </div>
 
-            <div class="mb-4">
+            <div class="mb-8">
                 <div class="flex items-center gap-3 mb-4">
-                    <h6 class="text-2xl font-bold text-balance">Fetch Pins</h6>
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
-POST
-                        </span>
+                    <h3 class="text-2xl font-bold text-balance">Integration Process Flow</h3>
                 </div>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                    This section contains a description of recommended integration flow which helps minimize the risk of disputing transactions and also increase customer confidence in the system
+                </p>
+
+                <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                    1) Authentication: Begin by authenticating through the Login Endpoint to retrieve a bearer token for subsequent API calls.</p>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">2) Loan Eligibility Check: Call the Loan Eligibility Endpoint with the specified payload. This step confirms eligibility and returns potential loan offers if eligible.</p>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">3) Loan Approval: If the user accepts the terms and conditions presented in step 2, the system automatically processes the loan disbursement/approval.</p>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">4) Loan Status: Check the status of an existing loan, utilize the status endpoint.</p>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">5) Loan Repayment: To close an existing loan, utilize the Repayment Endpoint as needed.</p>
 
             </div>
 
-            <!-- Service Information -->
-            <div class="bg-card border border-border rounded-lg mb-8">
-                <div class="p-6 border-b border-border">
-                    <h3 class="text-lg font-semibold flex items-center gap-2">
-                        <i class="fas fa-circle-info text-accent text-xl"></i>
-
-                        Service Information
-                    </h3>
-                </div>
-                <div class="p-6">
-                    <div class="grid gap-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="text-sm font-medium text-muted-foreground">Request URL</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm overflow-x-auto">{{baseUrl}}get_avail_pin_packages
-                                </div>
-                            </div>
-                            <div>
-                                <label class="text-sm font-medium text-muted-foreground">HTTP Method</label>
-                                <div class="mt-1 p-3">
-                                        <span class="inline-flex items-center px-2.5 py-1.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
-                                            POST
-                                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- Tabs -->
-            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'request' }">
-                <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
-
-                    <button class="px-4 py-2 font-serif  flex gap-2"
-                            :class="tab === 'request' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
-                            @click="tab='request'">
-
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Request Body
-
-                    </button>
-
-                    <button class="px-4 py-2 font-serif flex gap-2 "
-                            :class="tab === 'sample' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
-                            @click="tab='sample'">
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Sample Request Body
-                    </button>
-
-                    <button class="px-4 py-2 font-serif flex gap-2 "
-                            :class="tab === 'response' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
-                            @click="tab='response'">
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Sample Response
-                    </button>
-                </div>
-
-                <!-- Request Body -->
-                <div x-show="tab==='request'" class="bg-card border border-border rounded-lg mb-8">
-
-                    <div class="p-6">
-                        <div class="overflow-x-auto">
-                            <table class="w-full">
-                                <thead>
-                                <tr class="border-b border-border">
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Parameter Name
-                                    </th>
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Type</th>
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">M/O</th>
-                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Description</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">loginId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchant id provided during integration
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">key</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Merchant’s (public) key</td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">serviceId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding service id for the request type</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sample Request -->
-                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
-                    <div class="p-6 border-b border-border">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-semibold flex items-center gap-2">
-
-                            </h3>
-                            <button @click="copyText" x-ref="copyButton"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded-md hover:bg-muted transition-colors">
-                                <i class="fas fa-copy text-sm"></i>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleCode">{
-   "loginId": "{{loginId}}",
-    "key": "{{publicKey}}",
-    "serviceId": "PO4N"
-}</pre>
-                        </div>
-                    </div>
-                </div>
-
-                <div x-show="tab==='response'" class="bg-card border border-border rounded-lg mb-8">
-
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
-{
-    "statusCode": "00",
-    "statusDescription": "successful",
-    "pinDetail": {
-    "pinValues": [
-    { "amount": 100
-    },
-    { "amount": 200
-    },
-    { "amount": 500
-    },
-    { "amount": 1000
-    },
-    { "amount": 1500 } ] } 
-}
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-
-                
-
-
-            </div>
 
             <div class="mb-4 mt-16">
                 <div class="flex items-center gap-3 mb-4">
-                    <h6 class="text-2xl font-bold text-balance">Logical Pin Vend</h6>
+                    <h6 class="text-2xl font-bold text-balance">Authentication</h6>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
 POST
                         </span>
                 </div>
+                <p class="text-lg text-muted-foreground leading-relaxed">
+                    Generate bearer token for subsequent API calls.
+                </p>
 
             </div>
+
 
             <!-- Service Information -->
             <div class="bg-card border border-border rounded-lg mb-8">
@@ -253,7 +84,7 @@ POST
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
                                 <label class="text-sm font-medium text-muted-foreground">Request URL</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">baseUrl/api/v1/vend_pins
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">baseUrl/api/v1/login
                                 </div>
                             </div>
                             <div>
@@ -266,7 +97,7 @@ POST
                             </div>
                             <div>
                                 <label class="text-sm font-medium text-muted-foreground">Request Headers</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">application/json</div>
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm"><p>Content-Type: application/json</p>X-Signature: {{encrypted_checksum}}</div>
                             </div>
                         </div>
                     </div>
@@ -275,17 +106,8 @@ POST
 
 
             <!-- Tabs -->
-            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'request' }">
+            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'sample' }">
                 <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
-
-                    <button class="px-4 py-2 font-serif  flex gap-2"
-                            :class="tab === 'request' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
-                            @click="tab='request'">
-
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Request Body
-
-                    </button>
 
                     <button class="px-4 py-2 font-serif flex gap-2 "
                             :class="tab === 'sample' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
@@ -311,7 +133,7 @@ POST
                 </div>
 
                 <!-- Request Body -->
-                <div x-show="tab==='request'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -327,10 +149,10 @@ POST
                                 </thead>
                                 <tbody>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">loginId</td>
+                                    <td class="py-3 px-4 font-mono text-sm">email</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
+                                                Email
                                             </span>
                                     </td>
                                     <td class="py-3 px-4">
@@ -339,89 +161,11 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchant id provided during integration
+                                        Configured Email Address
                                     </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">serviceId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Corresponding service id for the request type. See "Services" section for the available services and corresponding service codes for each.
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">recipient</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Phone number of the merchant
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">requestId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchants unique id/reference for the transaction
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">amount</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Face Value of the PIN
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">key</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Merchants (public) key</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">checksum</td>
+                                    <td class="py-3 px-4 font-mono text-sm">password</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -432,36 +176,10 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                       	Checksum computed for the request. See "Security: Checksum" section for hash computation steps
-                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Password</td>
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sample Request -->
-                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
-                    <div class="p-6 border-b border-border">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-semibold flex items-center gap-2">
-
-                            </h3>
-                            <button @click="copyText" x-ref="copyButton"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded-md hover:bg-muted transition-colors">
-                                <i class="fas fa-copy text-sm"></i>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleCode">
-{"loginId":"38457","key":"***","checksum":"******","serviceId":"P01N",
-"recipient":"080", "amount":"100","requestId":"4792sccfkdkfd8fdbxxclxcxg"}
-</pre>
                         </div>
                     </div>
                 </div>
@@ -482,10 +200,10 @@ POST
                                 </thead>
                                 <tbody>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">statusCode</td>
+                                    <td class="py-3 px-4 font-mono text-sm">status</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
+                                                String
                                             </span>
                                     </td>
                                     <td class="py-3 px-4">
@@ -494,11 +212,25 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Status of the transaction. 00 signifies success
+                                        Status of the request. true signifies success
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">statusDescription</td>
+                                    <td class="py-3 px-4 font-mono text-sm">code</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Integer
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding description for the status. 200 = Successful</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">message</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -509,69 +241,13 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding description for the status code. 00=Successful</td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">tranxReference</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Creditswitch transaction reference</td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">qty</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Quantity of PINs generated (usually 1)</td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">amount</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">The face value of the generated pin</td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">network</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">The actual network of the PIN</td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Description of the api response.</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">detail</td>
+                                    <td class="py-3 px-4 font-mono text-sm">data</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
+                                                Object
                                             </span>
                                     </td>
                                     <td class="py-3 px-4">
@@ -579,7 +255,7 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Contains array of pin and serial number generated by the network operator</td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">An object containing authentication details.</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -592,25 +268,38 @@ POST
                     <div class="p-6">
                         <div class="bg-card p-4 rounded-lg border">
                             <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
-{"statusCode": "00","statusDescription": "successful","detail": {"pin": ["614821599037390"],
-"serialNo": ["903736148215990"],"network": "Airtel","qty": 1,"amount": "100","tranxReference": "354391599124667"}}
+{
+    <span class="text-green-400">"status"</span>:<span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>:<span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>:<span class="text-green-400">"Successful"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"token_type"</span>: <span class="text-green-400">"Bearer"</span>,
+        <span class="text-green-400">"access_token"</span>: <span class="text-green-400">"eyJygurwiyugiwbreugijbiwqhfiywefgibwa"</span>,
+        <span class="text-green-400">"expires_at"</span>: <span class="text-purple-400">7200</span>,
+        <span class="text-green-400">"name"</span>: <span class="text-green-400">"John Doe"</span>,
+        <span class="text-green-400">"email"</span>: <span class="text-green-400">"john.doe@example.com"</span>
+    }
+}
                             </pre>
                         </div>
                     </div>
                 </div>
             </div>
 
-                
-                
+
             <div class="mb-4 mt-16">
                 <div class="flex items-center gap-3 mb-4">
-                    <h6 class="text-2xl font-bold text-balance">Validate JAMB</h6>
+                    <h6 class="text-2xl font-bold text-balance">Loan Eligibility Check</h6>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
-GET
+POST
                         </span>
                 </div>
+                <p class="text-lg text-muted-foreground leading-relaxed">
+                    This action confirms recipient's eligibility using agreed metrics and returns with loan offers where eligible. Client is required to make a POST request to this endpoint.
+                </p>
 
             </div>
+
 
             <!-- Service Information -->
             <div class="bg-card border border-border rounded-lg mb-8">
@@ -623,10 +312,538 @@ GET
                 </div>
                 <div class="p-6">
                     <div class="grid gap-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
                                 <label class="text-sm font-medium text-muted-foreground">Request URL</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">{{baseUrl}}verify_jamb_candidate
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm overflow-x-auto">baseUrl/api/v1/loan/eligibility/check
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium text-muted-foreground">HTTP Method</label>
+                                <div class="mt-1 p-3">
+                                        <span class="inline-flex items-center px-2.5 py-1.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
+                                            POST
+                                        </span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium text-muted-foreground">Request Headers</label>
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm"><p>Content-Type: application/json</p><p>Bearer: {{access_token}}</p>X-Signature: {{encrypted_checksum}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Tabs -->
+            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'sample' }">
+                <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
+
+                    <button class="px-4 py-2 font-serif flex gap-2 "
+                            :class="tab === 'sample' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
+                            @click="tab='sample'">
+                        <i class="fas fa-code text-accent text-sm"></i>
+                        Sample Request Body
+                    </button>
+
+                    <button class="px-4 py-2 font-serif  flex gap-2"
+                            :class="tab === 'response body' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
+                            @click="tab='response body'">
+
+                        <i class="fas fa-code text-accent text-sm"></i>
+                        Response Body
+                    </button>
+
+                    <button class="px-4 py-2 font-serif flex gap-2 "
+                            :class="tab === 'response' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
+                            @click="tab='response'">
+                        <i class="fas fa-code text-accent text-sm"></i>
+                        Sample Response
+                    </button>
+                </div>
+
+                <!-- Request Body -->
+                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
+
+                    <div class="p-6">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                <tr class="border-b border-border">
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Parameter Name
+                                    </th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Type</th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">M/O</th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">loginId</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Merchant Id provided during integration
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">serviceType</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">airtime or data</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">recipient</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Customers phone number</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="tab==='response body'" class="bg-card border border-border rounded-lg mb-8">
+
+                    <div class="p-6">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                <tr class="border-b border-border">
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Parameter Name
+                                    </th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Type</th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">M/O</th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">status</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Status of the request. true signifies success
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">code</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Integer
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding description for the status. 200 = Successful</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">message</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Description of the api response.</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">data</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Object
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">An object containing check response with available offer(s).</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="tab==='response'" class="bg-card border border-border rounded-lg mb-8">
+
+                    <div class="p-6">
+                        <div class="bg-card p-4 rounded-lg border">
+                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
+{
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Successful"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"offer1"</span>: {
+            <span class="text-green-400">"amount"</span>: <span class="text-green-400">"200"</span>,
+            <span class="text-green-400">"serviceId</span>: <span class="text-green-400">"A04E"</span>,
+            <span class="text-green-400">"product"</span>: <span class="text-green-400">"airtime"</span>
+        },
+        <span class="text-green-400">"offer2"</span>: {
+            <span class="text-green-400">"amount"</span>: <span class="text-green-400">"100"</span>,
+            <span class="text-green-400">"serviceId"</span>: <span class="text-green-400">"A04E"</span>,
+            <span class="text-green-400">"product"</span>: <span class="text-green-400">"airtime"</span>
+        },
+        <span class="text-green-400">"isEligible"</span>: <span class="text-purple-400">true</span>,
+        <span class="text-green-400">"reference"</span>: <span class="text-green-400">"077416241021064788727052243034"</span>
+    },
+    <span class="text-green-400">"meta"</span>: <span class="text-blue-300">null</span>
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 mt-16">
+                <div class="flex items-center gap-3 mb-4">
+                    <h6 class="text-2xl font-bold text-balance">Disburse Loan</h6>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
+POST
+                        </span>
+                </div>
+                <p class="text-lg text-muted-foreground leading-relaxed">
+                    This action confirms recipient's consent to the loan terms and conditions as indicated by the response returned from step 2) above.
+                    <span class="block">Client is required to make a POST request to this endpoint.</span>
+                </p>
+
+            </div>
+
+
+            <!-- Service Information -->
+            <div class="bg-card border border-border rounded-lg mb-8">
+                <div class="p-6 border-b border-border">
+                    <h3 class="text-lg font-semibold flex items-center gap-2">
+                        <i class="fas fa-circle-info text-accent text-xl"></i>
+
+                        Service Information
+                    </h3>
+                </div>
+                <div class="p-6">
+                    <div class="grid gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="text-sm font-medium text-muted-foreground">Request URL</label>
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm overflow-x-auto">baseUrl/api/v1/loan/apply
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium text-muted-foreground">HTTP Method</label>
+                                <div class="mt-1 p-3">
+                                        <span class="inline-flex items-center px-2.5 py-1.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
+                                            POST
+                                        </span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium text-muted-foreground">Request Headers</label>
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm"><p>Content-Type: application/json</p><p>Bearer: {{access_token}}</p>X-Signature: {{encrypted_checksum}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Tabs -->
+            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'sample' }">
+                <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
+
+                    <button class="px-4 py-2 font-serif flex gap-2 "
+                            :class="tab === 'sample' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
+                            @click="tab='sample'">
+                        <i class="fas fa-code text-accent text-sm"></i>
+                        Sample Request Body
+                    </button>
+
+                    <button class="px-4 py-2 font-serif  flex gap-2"
+                            :class="tab === 'response body' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
+                            @click="tab='response body'">
+
+                        <i class="fas fa-code text-accent text-sm"></i>
+                        Response Body
+                    </button>
+
+                    <button class="px-4 py-2 font-serif flex gap-2 "
+                            :class="tab === 'response' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
+                            @click="tab='response'">
+                        <i class="fas fa-code text-accent text-sm"></i>
+                        Sample Response
+                    </button>
+                </div>
+
+                <!-- Request Body -->
+                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
+
+                    <div class="p-6">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                <tr class="border-b border-border">
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Parameter Name
+                                    </th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Type</th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">M/O</th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">loginId</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Merchant Id provided during integration
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">requestId</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Unique transaction Id for the request. Maxlength (36characters)</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">serviceId</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding service id for the request type. See "Services" section for the available services and corresponding service codes for each.</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">amount</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Amount with which to top-up amount customers phone Maximum 100000</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">recipient</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Numeric
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Customers phone number to top-up</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="tab==='response body'" class="bg-card border border-border rounded-lg mb-8">
+
+                    <div class="p-6">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                <tr class="border-b border-border">
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Parameter Name
+                                    </th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Type</th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">M/O</th>
+                                    <th class="text-left py-3 px-4 font-medium text-muted-foreground">Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">status</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Status of the request. true signifies success
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">code</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Integer
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding description for the status. 200 = Successful, 202 = Processing, 422 = Failed</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">message</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Description of the vend response.</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">data</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Object
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">An object containing vend response details.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="tab==='response'" class="bg-card border border-border rounded-lg mb-8">
+
+                    <div class="p-6">
+                        <div class="bg-card p-4 rounded-lg border">
+                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
+{
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Loan Advance Approved Successfully"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"requestId"</span>: <span class="text-green-400">"jc1bciigdebc"</span>,
+        <span class="text-green-400">"recipient</span>: <span class="text-green-400">"08092343261"</span>,
+        <span class="text-green-400">"amount"</span>: <span class="text-green-400">"90.00"</span>
+        <span class="text-green-400">"confirmCode"</span>: <span class="text-green-400">"1705997694210722624497994"</span>,
+        <span class="text-green-400">"network"</span>: <span class="text-green-400">"9Mobile"</span>,
+        <span class="text-green-400">"tranxDate"</span>: <span class="text-green-400">"23-01-2024 9:14 am"</span>
+        <span class="text-green-400">"serviceCharge"</span>: <span class="text-green-400">10.00</span>
+    },
+        <span class="text-green-400">"meta"</span>: <span class="text-blue-300">null</span>
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 mt-16">
+                <div class="flex items-center gap-3 mb-4">
+                    <h6 class="text-2xl font-bold text-balance">Get Loan Status</h6>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
+GET
+                        </span>
+                </div>
+                <p class="text-lg text-muted-foreground leading-relaxed">
+                    his endpoint is used to confirm the status of a loan application.
+                </p>
+
+            </div>
+
+
+            <!-- Service Information -->
+            <div class="bg-card border border-border rounded-lg mb-8">
+                <div class="p-6 border-b border-border">
+                    <h3 class="text-lg font-semibold flex items-center gap-2">
+                        <i class="fas fa-circle-info text-accent text-xl"></i>
+
+                        Service Information
+                    </h3>
+                </div>
+                <div class="p-6">
+                    <div class="grid gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="text-sm font-medium text-muted-foreground">Request URL</label>
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm overflow-x-auto">baseUrl/api/v1/loan/status/{requestId}
                                 </div>
                             </div>
                             <div>
@@ -637,6 +854,10 @@ GET
                                         </span>
                                 </div>
                             </div>
+                            <div>
+                                <label class="text-sm font-medium text-muted-foreground">Request Headers</label>
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm"><p>Content-Type: application/json</p><p>Bearer: {{access_token}}</p>X-Signature: {{encrypted_checksum}}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -644,23 +865,15 @@ GET
 
 
             <!-- Tabs -->
-            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'request' }">
+            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'response body' }">
                 <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
 
                     <button class="px-4 py-2 font-serif  flex gap-2"
-                            :class="tab === 'request' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
-                            @click="tab='request'">
+                            :class="tab === 'response body' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
+                            @click="tab='response body'">
 
                         <i class="fas fa-code text-accent text-sm"></i>
-                        Request Body
-
-                    </button>
-
-                    <button class="px-4 py-2 font-serif flex gap-2 "
-                            :class="tab === 'sample' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
-                            @click="tab='sample'">
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Sample Request Body
+                        Response Body
                     </button>
 
                     <button class="px-4 py-2 font-serif flex gap-2 "
@@ -671,8 +884,7 @@ GET
                     </button>
                 </div>
 
-                <!-- Request Body -->
-                <div x-show="tab==='request'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='response body'" class="bg-card border border-border rounded-lg mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -688,10 +900,10 @@ GET
                                 </thead>
                                 <tbody>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">loginId</td>
+                                    <td class="py-3 px-4 font-mono text-sm">status</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
+                                                String
                                             </span>
                                     </td>
                                     <td class="py-3 px-4">
@@ -700,11 +912,25 @@ GET
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchant id provided during integration
+                                        Status of the request. true signifies success
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">key</td>
+                                    <td class="py-3 px-4 font-mono text-sm">code</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Integer
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding description for the status. 200 = Successful</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">message</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -715,13 +941,13 @@ GET
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Merchants (public) key</td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Description of the status check response.</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">Confirm Code</td>
+                                    <td class="py-3 px-4 font-mono text-sm">data</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
+                                                Object
                                             </span>
                                     </td>
                                     <td class="py-3 px-4">
@@ -729,37 +955,10 @@ GET
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Individual Student Code gotten from Jamb Board
-                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">An object containing utility loan details.</td>
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sample Request -->
-                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
-                    <div class="p-6 border-b border-border">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-semibold flex items-center gap-2">
-
-                            </h3>
-                            <button @click="copyText" x-ref="copyButton"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded-md hover:bg-muted transition-colors">
-                                <i class="fas fa-copy text-sm"></i>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleCode">
-"loginId": "{{loginId}}",
-"key": "{{publicKey}}",
-"ConfirmCode": "a8h793b4f35f"
-</pre>
                         </div>
                     </div>
                 </div>
@@ -770,13 +969,20 @@ GET
                         <div class="bg-card p-4 rounded-lg border">
                             <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
 {
-    "statusCode": "00",
-    "statusDescription": "Successful",
-    "result": {
-    "gsmNo": "08000000000",
-    "lastName": "Amunike",
-    "firstName": "Emmanuel",
-    "middleName": "Michael" }
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Loan Request Retrieved Successfully"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"requestId"</span>: <span class="text-green-400">"9a1d44fij437"</span>,
+        <span class="text-green-400">"recipient</span>: <span class="text-green-400">"07067729339"</span>,
+        <span class="text-green-400">"amount"</span>: <span class="text-green-400">"100"</span>
+        <span class="text-green-400">"confirmCode"</span>: <span class="text-green-400">"2021063019080126701629681"</span>,
+        <span class="text-green-400">"network"</span>: <span class="text-green-400">"MTN"</span>,
+        <span class="text-green-400">"tranxDate"</span>: <span class="text-green-400">"17-01-2024 2:06 pm"</span>
+        <span class="text-green-400">"serviceCharge"</span>: <span class="text-green-400">10.00</span>,
+        <span class="text-green-400">"status"</span>: <span class="text-green-400">Open</span>
+    },
+    <span class="text-green-400">"meta"</span>: <span class="text-blue-300">null</span>
 }
                             </pre>
                         </div>
@@ -784,15 +990,20 @@ GET
                 </div>
             </div>
 
+
             <div class="mb-4 mt-16">
                 <div class="flex items-center gap-3 mb-4">
-                    <h6 class="text-2xl font-bold text-balance">Vend JAMB</h6>
+                    <h6 class="text-2xl font-bold text-balance">Repay Utility Loan</h6>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
 POST
                         </span>
                 </div>
+                <p class="text-lg text-muted-foreground leading-relaxed">
+                    This endpoint is used to finalized or close out an outstanding loan. To confirm the outstanding payment, a call the the loan status endpoint will suffice
+                </p>
 
             </div>
+
 
             <!-- Service Information -->
             <div class="bg-card border border-border rounded-lg mb-8">
@@ -805,10 +1016,10 @@ POST
                 </div>
                 <div class="p-6">
                     <div class="grid gap-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
                                 <label class="text-sm font-medium text-muted-foreground">Request URL</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">{{baseUrl}}vend_pins
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm overflow-x-auto">baseUrl/api/v1/loan/repay
                                 </div>
                             </div>
                             <div>
@@ -819,6 +1030,10 @@ POST
                                         </span>
                                 </div>
                             </div>
+                            <div>
+                                <label class="text-sm font-medium text-muted-foreground">Request Headers</label>
+                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm"><p>Content-Type: application/json</p><p>Bearer: {{access_token}}</p>X-Signature: {{encrypted_checksum}}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -826,23 +1041,22 @@ POST
 
 
             <!-- Tabs -->
-            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'request' }">
+            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'sample' }">
                 <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
-
-                    <button class="px-4 py-2 font-serif  flex gap-2"
-                            :class="tab === 'request' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
-                            @click="tab='request'">
-
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Request Body
-
-                    </button>
 
                     <button class="px-4 py-2 font-serif flex gap-2 "
                             :class="tab === 'sample' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
                             @click="tab='sample'">
                         <i class="fas fa-code text-accent text-sm"></i>
                         Sample Request Body
+                    </button>
+
+                    <button class="px-4 py-2 font-serif  flex gap-2"
+                            :class="tab === 'response body' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
+                            @click="tab='response body'">
+
+                        <i class="fas fa-code text-accent text-sm"></i>
+                        Response Body
                     </button>
 
                     <button class="px-4 py-2 font-serif flex gap-2 "
@@ -854,7 +1068,7 @@ POST
                 </div>
 
                 <!-- Request Body -->
-                <div x-show="tab==='request'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -870,7 +1084,23 @@ POST
                                 </thead>
                                 <tbody>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">loginId</td>
+                                    <td class="py-3 px-4 font-mono text-sm">requestId</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                String
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">
+                                        Unique transaction Id for the request. Maxlength (36characters)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-mono text-sm">amount</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 Numeric
@@ -881,151 +1111,7 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchant id provided during integration
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">key</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Merchants (public) key</td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Confirm Code</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Individual Student Code gotten from Jamb Board
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">RequestId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchants unique id/reference for the transaction
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">ServiceId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchants id provided during integration
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Amount</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Face Value of the pin
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Recipients</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Phone number of the merchant
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Checksum</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Checksum computed for the request. See "Security: Checksum" section for hash computation steps
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">email</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Email of the candidate
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">productType</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Type of Jamb service
-                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Outstanding Loan Amount. Note: It must be the exact amount as indicated by get loan status.</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -1033,135 +1119,7 @@ POST
                     </div>
                 </div>
 
-                <!-- Sample Request -->
-                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
-                    <div class="p-6 border-b border-border">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-semibold flex items-center gap-2">
-
-                            </h3>
-                            <button @click="copyText" x-ref="copyButton"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded-md hover:bg-muted transition-colors">
-                                <i class="fas fa-copy text-sm"></i>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleCode">
-{
-    "loginId": "{{loginId}}",
-    "key": "{{publicKey}}",
-    "requestId": "{{requestId}}",
-    "serviceId": "P07N",
-    "amount": 4,
-    "recipient": "08012345678",
-    "checksum": "{{checkSum}}",
-    "email": "xyz@gmail.com",
-    "confirmCode": "1375779512",
-    "productType": "jambutme"
-}
-</pre>
-                        </div>
-                    </div>
-                </div>
-
-                <div x-show="tab==='response'" class="bg-card border border-border rounded-lg mb-8">
-
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
-{
-    "statusCode": "00",
-    "statusDescription": "successful",
-    "detail": {
-    "pin": "30138820169806991",
-    "serial_no": "094089700 1698060076",
-    "network": "JAMB",
-    "qty": 1,
-    "amount": 4,
-    "tranxReference": "2310231221161190695" }
-}
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="mb-4 mt-16">
-                <div class="flex items-center gap-3 mb-4">
-                    <h6 class="text-2xl font-bold text-balance">Vend Other Educational Services</h6>
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
-POST
-                        </span>
-                </div>
-
-            </div>
-
-            <!-- Service Information -->
-            <div class="bg-card border border-border rounded-lg mb-8">
-                <div class="p-6 border-b border-border">
-                    <h3 class="text-lg font-semibold flex items-center gap-2">
-                        <i class="fas fa-circle-info text-accent text-xl"></i>
-
-                        Service Information
-                    </h3>
-                </div>
-                <div class="p-6">
-                    <div class="grid gap-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="text-sm font-medium text-muted-foreground">Request URL</label>
-                                <div class="mt-1 p-3 bg-muted rounded-lg font-mono text-sm">{{baseUrl}}vend_pins
-                                </div>
-                            </div>
-                            <div>
-                                <label class="text-sm font-medium text-muted-foreground">HTTP Method</label>
-                                <div class="mt-1 p-3">
-                                        <span class="inline-flex items-center px-2.5 py-1.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
-                                            POST
-                                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Tabs -->
-            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'request' }">
-                <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
-
-                    <button class="px-4 py-2 font-serif  flex gap-2"
-                            :class="tab === 'request' ? 'border-b-2 border-blue-200 text-blue-600' : 'text-gray-500'"
-                            @click="tab='request'">
-
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Request Body
-
-                    </button>
-
-                    <button class="px-4 py-2 font-serif flex gap-2 "
-                            :class="tab === 'sample' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
-                            @click="tab='sample'">
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Sample Request Body
-                    </button>
-
-                    <button class="px-4 py-2 font-serif flex gap-2 "
-                            :class="tab === 'response' ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-500'"
-                            @click="tab='response'">
-                        <i class="fas fa-code text-accent text-sm"></i>
-                        Sample Response
-                    </button>
-                </div>
-
-                <!-- Request Body -->
-                <div x-show="tab==='request'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='response body'" class="bg-card border border-border rounded-lg mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -1177,37 +1135,7 @@ POST
                                 </thead>
                                 <tbody>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">loginId</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                Numeric
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchant id provided during integration
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">key</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">Merchants (public) key</td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">RequestId</td>
+                                    <td class="py-3 px-4 font-mono text-sm">status</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -1219,11 +1147,25 @@ POST
                                             </span>
                                     </td>
                                     <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchants unique id/reference for the transaction
+                                        Status of the request. true signifies success
                                     </td>
                                 </tr>
                                 <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">ServiceId</td>
+                                    <td class="py-3 px-4 font-mono text-sm">code</td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
+                                                Integer
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
+                                                M
+                                            </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Corresponding description for the status. 200 = Successful</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-mono text-sm">message</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
                                                 String
@@ -1234,63 +1176,13 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Merchants id provided during integration
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Amount</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Face Value of the pin
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Recipients</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Phone number of the merchant
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-border">
-                                    <td class="py-3 px-4 font-mono text-sm">Checksum</td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4">
-                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-destructive text-destructive-foreground">
-                                                M
-                                            </span>
-                                    </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Checksum computed for the request. See "Security: Checksum" section for hash computation steps
-                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">Description of the status repayment request.</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 px-4 font-mono text-sm">productType</td>
+                                    <td class="py-3 px-4 font-mono text-sm">data</td>
                                     <td class="py-3 px-4">
                                             <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium border border-border">
-                                                String
+                                                Object
                                             </span>
                                     </td>
                                     <td class="py-3 px-4">
@@ -1298,44 +1190,10 @@ POST
                                                 M
                                             </span>
                                     </td>
-                                    <td class="py-3 px-4 text-sm text-muted-foreground">
-                                        Type of Jamb service
-                                    </td>
+                                    <td class="py-3 px-4 text-sm text-muted-foreground">An object containing utility loan repayment details.</td>
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sample Request -->
-                <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
-                    <div class="p-6 border-b border-border">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-semibold flex items-center gap-2">
-
-                            </h3>
-                            <button @click="copyText" x-ref="copyButton"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded-md hover:bg-muted transition-colors">
-                                <i class="fas fa-copy text-sm"></i>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="bg-card p-4 rounded-lg border">
-                            <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleCode">
-{
-    "loginId": "{{loginId}}",
-    "key": "{{publicKey}}",
-    "requestId": "{{requestId}}",
-    "serviceId": "P06N",
-    "amount": 4,
-    "recipient": "08012345678",
-    "checksum": "{{checkSum}}",
-    "productType": "WAEC Checker"
-}
-</pre>
                         </div>
                     </div>
                 </div>
@@ -1346,22 +1204,19 @@ POST
                         <div class="bg-card p-4 rounded-lg border">
                             <pre class="text-sm font-mono text-card-foreground overflow-x-auto" x-ref="sampleResponse">
 {
-    "statusCode": "00",
-    "statusDescription": "successful",
-    "detail": {
-    "pin": "30138820169806991",
-    "serial_no": "094089700 1698060076",
-    "network": "WAEC",
-    "qty": 1,
-    "amount": 4,
-    "tranxReference": "2310231221161190695" }
+    <span class="text-green-400">"status"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-green-400">"code"</span>: <span class="text-purple-400">200</span>,
+    <span class="text-green-400">"message"</span>: <span class="text-green-400">"Loan status updated successfully"</span>,
+    <span class="text-green-400">"data"</span>: {
+        <span class="text-green-400">"message"</span>: <span class="text-green-400">"Loan status updated successfully"</span>
+    },
+    <span class="text-green-400">"meta"</span>: <span class="text-blue-300">null</span>
 }
                             </pre>
                         </div>
                     </div>
                 </div>
             </div>
-
 
 
             <!-- Try It Out Section -->

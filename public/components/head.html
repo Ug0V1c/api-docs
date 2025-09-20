@@ -3,59 +3,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CreditSwitch API Documentation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="../scripts/alpinejs.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'hsl(222.2 84% 4.9%)',
-                        foreground: 'hsl(210 40% 98%)',
-                        card: 'hsl(222.2 84% 4.9%)',
-                        'card-foreground': 'hsl(210 40% 98%)',
-                        popover: 'hsl(222.2 84% 4.9%)',
-                        'popover-foreground': 'hsl(210 40% 98%)',
-                        primary: 'hsl(263.4 70% 50.4%)',
-                        'primary-foreground': 'hsl(210 40% 98%)',
-                        secondary: 'hsl(217.2 32.6% 17.5%)',
-                        'secondary-foreground': 'hsl(210 40% 98%)',
-                        muted: 'hsl(217.2 32.6% 17.5%)',
-                        'muted-foreground': 'hsl(215 20.2% 65.1%)',
-                        accent: 'hsl(263.4 70% 50.4%)',
-                        'accent-foreground': 'hsl(210 40% 98%)',
-                        destructive: 'hsl(0 62.8% 30.6%)',
-                        'destructive-foreground': 'hsl(210 40% 98%)',
-                        border: 'hsl(217.2 32.6% 17.5%)',
-                        input: 'hsl(217.2 32.6% 17.5%)',
-                        ring: 'hsl(263.4 70% 50.4%)',
-                        sidebar: 'hsl(220 13% 13%)',
-                        'sidebar-foreground': 'hsl(220 9% 46%)',
-                        'sidebar-primary': 'hsl(224 71% 4%)',
-                        'sidebar-primary-foreground': 'hsl(210 20% 98%)',
-                        'sidebar-accent': 'hsl(263.4 70% 50.4%)',
-                        'sidebar-accent-foreground': 'hsl(210 40% 98%)',
-                        'sidebar-border': 'hsl(217.2 32.6% 17.5%)',
-                    }
-                }
-            }
-        }
-    </script>
     <script defer>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sidebar = document.querySelector("#sidebar .overflow-y-auto");
 
-    // Restore saved scroll position
-    const savedScroll = localStorage.getItem("sidebar-scroll");
-    if (savedScroll) sidebar.scrollTop = savedScroll;
-
-    // Save on scroll
-    sidebar.addEventListener("scroll", () => {
-      localStorage.setItem("sidebar-scroll", sidebar.scrollTop);
-    });
-  });
 </script>
     <style>
         .sidebar-transition {

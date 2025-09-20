@@ -1,14 +1,14 @@
 <aside id="sidebar"
        x-data="{ current: window.location.pathname.split('/').pop() }"
-       class="fixed inset-y-0 lg:pt-20 lg:pb-5 left-0 z-40 w-80 bg-sidebar border-r border-sidebar-border sidebar-transition -translate-x-full lg:translate-x-0">
+       class="fixed inset-y-0 lg:pt-20 lg:pb-5 left-0 z-40 w-80 border-r border-sidebar-border sidebar-transition -translate-x-full lg:translate-x-0">
     <div class="flex flex-col h-full pt-20 lg:pt-0">
 
         <div class="flex-1 overflow-y-auto p-6">
             <nav class="space-y-2">
                 <div>
-                    <a href="../pages/index.php" 
+                    <a href="../index.php"
                     :class="current === 'index.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    ? 'active bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item active w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="overview">
@@ -127,6 +127,50 @@
                         <span class="text-sm font-medium">Cable TV: Startimes</span>
                     </a>
                 </div>
+
+                <div x-data="{ drop_down_cable: false }">
+                    <!-- Toggle button -->
+                    <button
+                            @click="drop_down_cable = !drop_down_cable"
+                            class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
+                    >
+                        <i class="fas fa-satellite-dish text-sm"></i>
+                        <span class="text-sm font-medium">Cable Tv</span>
+
+                        <!-- Chevron -->
+                        <i
+                                class="fas fa-chevron-right text-sm ml-auto transition-transform duration-200"
+                                :class="{ 'rotate-90': drop_down_cable }"
+                        ></i>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div x-show="drop_down_cable" x-transition class="ml-7 mt-2 space-y-1" >
+                        <a href="../pages/cabletv_multichoice.php"
+                           :class="current === 'cabletv_multichoice.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                           class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
+                           data-section="cable-tv-multi">
+                            <i class="fas fa-satellite-dish text-sm"></i>
+
+                            <span class="text-sm font-medium">DSTV</span>
+                        </a>
+
+                        <a href="../pages/cabletv_multichoice.php"
+                           :class="current === 'cabletv_multichoice.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                           class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
+                           data-section="cable-tv-multi">
+                            <i class="fas fa-satellite-dish text-sm"></i>
+
+                            <span class="text-sm font-medium">GOTV</span>
+                        </a>
+
+                    </div>
+                </div>
+
                 <div>
                     <a href="../pages/cabletv_multichoice.php" 
                     :class="current === 'cabletv_multichoice.php' 

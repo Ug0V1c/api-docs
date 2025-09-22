@@ -139,6 +139,19 @@
                 </div>
 
                 <div>
+                    <a href="../pages/transportation_services.php"
+                    :class="current === 'transportation_services.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
+                            data-section="cable-tv-multi">
+                        <i class="fas fa-bus text-sm"></i>
+
+                        <span class="text-sm font-medium">Transportation </span>
+                    </a>
+                </div>
+
+                <div>
                     <a href="../pages/electricity.php"
                     :class="current === 'electricity.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground' 

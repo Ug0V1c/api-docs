@@ -24,7 +24,7 @@ include '../components/header_nav.html';
                 <span>API Reference</span>
                 <i class="fas fa-user text-accent text-sm"></i>
 
-                <span class="text-foreground font-medium">Electricity Validation Requests</span>
+                <span class="text-foreground dark:text-black font-medium">Electricity Validation Requests</span>
             </div>
 
             <!-- Page Header -->

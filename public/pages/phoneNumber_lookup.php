@@ -17,7 +17,7 @@ require_once '../components/head.php';
                     <span>API Reference</span>
                     <i class="fas fa-user text-accent text-sm"></i>
 
-                    <span class="text-foreground font-medium">Phone Number Look UP</span>
+                    <span class="text-foreground dark:text-black font-medium">Phone Number Look UP</span>
                 </div>
 
                 <!-- Page Header -->

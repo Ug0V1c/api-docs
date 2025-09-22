@@ -17,7 +17,7 @@ require_once '../components/head.php';
                     <span>API Reference</span>
                     <i class="fas fa-user text-accent text-sm"></i>
 
-                    <span class="text-foreground font-medium">Data Plans</span>
+                    <span class="text-foreground dark:text-black font-medium">Data Plans</span>
                 </div>
 
                 <!-- Page Header -->

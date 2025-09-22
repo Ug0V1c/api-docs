@@ -17,7 +17,7 @@ require_once '../components/head.php';
                     <span>API Reference</span>
                     <i class="fas fa-comment-alt text-accent text-sm"></i>
 
-                    <span class="text-foreground font-medium">Low Balance Service</span>
+                    <span class="text-foreground dark:text-black font-medium">Low Balance Service</span>
                 </div>
 
                 <!-- Page Header -->

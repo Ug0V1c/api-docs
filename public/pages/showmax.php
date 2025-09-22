@@ -17,7 +17,7 @@ require_once '../components/head.php';
                     <span>API Reference</span>
                     <i class="fas fa-comment-alt text-accent text-sm"></i>
 
-                    <span class="text-foreground font-medium">Showmax</span>
+                    <span class="text-foreground dark:text-black font-medium">Showmax</span>
                 </div>
 
                 <!-- Page Header -->

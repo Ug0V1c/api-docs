@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
 <?php
-include '../components/head.html';
-?>
-<body class="min-h-screen bg-background text-foreground">
-
-<?php
-include '../components/header_nav.html';
+require_once '../components/head.php';
 ?>
 
 <div class="flex">
@@ -554,13 +547,6 @@ include '../components/header_nav.html';
 
 </div>
 
-<!-- Footer -->
 <?php
-echo "<script>";
-include "../scripts/app.js";
-echo "</script>";
+require_once "../components/footer.php";
 ?>
-
-
-</body>
-</html>

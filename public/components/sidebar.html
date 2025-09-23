@@ -1,74 +1,74 @@
 <aside id="sidebar"
        x-data="{ current: window.location.pathname.split('/').pop() }"
-       class="fixed inset-y-0 lg:pt-20 lg:pb-5 left-0 z-40 w-80 bg-sidebar-primary dark:bg-gray-200 border-r border-sidebar-border sidebar-transition -translate-x-full lg:translate-x-0">
-    <div class="flex flex-col h-full pt-20 lg:pt-0">
+       class="fixed inset-y-0 lg:pt-20 lg:pb-5 left-0 z-40 w-80 bg-sidebar-primary dark:bg-gray-200 border-r
+        border-sidebar-border sidebar-transition -translate-x-full lg:translate-x-0 overflow-y-auto custom-scrollbar">
 
-        <div class="flex-1 overflow-y-auto p-6">
+        <div class="flex-1 p-6" >
             <nav class="space-y-2">
-                <div>
+                <div  x-init="index_icon= 'fas fa-book'">
                     <a href="../index.php"
-                    :class="current === 'index.php' 
+                    :class="current === 'index.php'
                     ? 'active bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item active w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="overview">
-                        <i class="fas fa-book text-sm"></i>
+                        <i :class="index_icon + ' text-sm'"></i>
                         <span class="text-sm font-medium">Overview</span>
                     </a>
                 </div>
-                <div>
+                <div  x-init="merchant_info_icon= 'fas fa-store'">
                     <a href="../pages/merchant_info.php"
-                    :class="current === 'merchant_info.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    :class="current === 'merchant_info.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="get-merchant-info">
-                        <i class="fas fa-store text-sm"></i>
+                        <i :class="merchant_info_icon + ' text-sm'"></i>
                         <span class="text-sm font-medium">Get Merchant Info</span>
                     </a>
                 </div>
 
-                <div>
-                    <a 
-                    :class="current === 'send_sms.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                <div  x-init="send_sms_icon= 'fas fa-comment-alt'">
+                    <a
+                    :class="current === 'send_sms.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="send-sms" role="button" href="../pages/send_sms.php">
-                        <i class="fas fa-comment-alt text-sm"></i>
+                        <i :class="send_sms_icon + ' text-sm'"></i>
                         <span class="text-sm font-medium">SMS</span>
                     </a>
                 </div>
 
 
-                <div>
-                    <a href="../pages/airtime_vend.php" 
-                    :class="current === 'airtime_vend.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                <div  x-init="airtime_vend_icon= 'fas fa-mobile-alt'">
+                    <a href="../pages/airtime_vend.php"
+                    :class="current === 'airtime_vend.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="airtime-vend">
-                        <i class="fas fa-mobile-alt text-sm"></i>
+                        <i :class="airtime_vend_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Airtime</span>
                     </a>
                 </div>
 
-                <div>
+                <div  x-init="data_icon= 'fas fa-book-atlas'">
                     <a href="../pages/data.php"
                     :class="current === 'data.php'
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="data">
-                        <i class="fas fa-book-atlas text-sm"></i>
+                        <i :class="data_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Data</span>
                     </a>
                 </div>
 
 
-                <div x-data="{ drop_down_cable: false }">
+                <div x-data="{ drop_down_cable: false }" x-init="cabletv_multichoice_icon= 'fas fa-video', cabletv_startimes_icon= 'fas fa-solid fa-tv'">
                     <!-- Toggle button -->
                     <button
                             :class="['cabletv_multichoice.php', 'cabletv_startimes.php'].includes(current) ? 'bg-sidebar-accent text-sidebar-accent-foreground'
@@ -93,7 +93,7 @@
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                            class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                            data-section="cable-tv-multi">
-                            <i class="fas fa-video text-sm"></i>
+                            <i :class="cabletv_multichoice_icon + ' text-sm'"></i>
 
                             <span class="text-sm font-medium">GOTV/DSTV</span>
                         </a>
@@ -104,7 +104,7 @@
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                            class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                            data-section="cable-tv-multi">
-                            <i class="fas fa-solid fa-tv text-sm"></i>
+                            <i :class="cabletv_startimes_icon + ' text-sm'"></i>
 
                             <span class="text-sm font-medium">STARTIMES</span>
                         </a>
@@ -112,207 +112,209 @@
                     </div>
                 </div>
 
-                <div>
+                <div  x-init="showmax_icon= 'fas fa-book-atlas'">
                     <a href="../pages/showmax.php"
                        :class="current === 'showmax.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="showmax">
-                        <i class="fas fa-tv text-sm"></i>
+                        <i :class="showmax_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Showmax</span>
                     </a>
                 </div>
 
-                <div>
-                    <a href="../pages/betting_services.php" 
-                    :class="current === 'betting_services.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                <div  x-init="betting_services_icon= 'fas fa-dice'">
+                    <a href="../pages/betting_services.php"
+                    :class="current === 'betting_services.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-dice text-sm"></i>
+                        <i :class="betting_services_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Betting </span>
                     </a>
                 </div>
 
-                <div>
+                <div  x-init="transportation_services_icon= 'fas fa-bus'">
                     <a href="../pages/transportation_services.php"
                     :class="current === 'transportation_services.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-bus text-sm"></i>
+                        <i :class="transportation_services_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Transportation </span>
                     </a>
                 </div>
 
-                <div>
+                <div  x-init="electricity_icon= 'fas fa-lightbulb'">
                     <a href="../pages/electricity.php"
                     :class="current === 'electricity.php'
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-lightbulb text-sm"></i>
+                        <i :class="electricity_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Electricity </span>
                     </a>
                 </div>
 
-                <div>
-                    <a href="../pages/logical_pins.php" 
-                    :class="current === 'logical_pins.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                <div  x-init="logical_pins_icon= 'fas fa-keyboard'">
+                    <a href="../pages/logical_pins.php"
+                    :class="current === 'logical_pins.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-keyboard text-sm"></i>
+                        <i :class="logical_pins_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Logical Pins</span>
                     </a>
                 </div>
 
-                <div>
-                    <a href="../pages/phoneNumber_lookup.php" 
-                    :class="current === 'phoneNumber_lookup.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                <div  x-init="phoneNumber_lookup_icon= 'fas fa-phone'">
+                    <a href="../pages/phoneNumber_lookup.php"
+                    :class="current === 'phoneNumber_lookup.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-phone text-sm"></i>
+                        <i :class="phoneNumber_lookup_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Phone Number LookUp</span>
                     </a>
                 </div>
 
-                <div>
+                <div  x-init="insurance_icon= 'fas fa-shield-alt'">
                     <a href="../pages/insurance.php"
                        :class="current === 'insurance.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="insurance">
-                        <i class="fas fa-shield-alt text-sm"></i>
+                        <i :class="insurance_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Insurance</span>
                     </a>
                 </div>
 
-                <div>
+                <div  x-init="international_services_icon= 'fas fa-globe'">
                     <a href="../pages/international_services.php"
                        :class="current === 'international_services.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="international">
-                        <i class="fas fa-globe text-sm"></i>
+                        <i :class="international_services_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">International Services</span>
                     </a>
                 </div>
 
-                <div>
-                    <a href="../pages/toll_services.php"
-                       :class="current === 'toll_services.php'
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
-                       class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
-                       data-section="cable-tv-multi">
-                        <i class="fas fa-satellite-dish text-sm"></i>
+<!--                <div  x-init="toll_services_icon= 'fas fa-road-barrier'">-->
+<!--                    <a href="../pages/toll_services.php"-->
+<!--                       :class="current === 'toll_services.php'-->
+<!--                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'-->
+<!--                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"-->
+<!--                       class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"-->
+<!--                       data-section="cable-tv-multi">-->
+<!--                        <i :class="toll_services_icon + ' text-sm'"></i>-->
 
-                        <span class="text-sm font-medium">Toll Services</span>
-                    </a>
-                </div>
+<!--                        <span class="text-sm font-medium">Toll Services</span>-->
+<!--                    </a>-->
+<!--                </div>-->
 
-                <div>
+                <div  x-init="requery_icon= 'fas fa-sync-alt'">
                     <a href="../pages/requery.php"
                        :class="current === 'requery.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="requery">
-                        <i class="fas fa-sync-alt text-sm"></i>
+                        <i :class="requery_icon + ' text-sm'"></i>
                         <span class="text-sm font-medium">Requery</span>
                     </a>
                 </div>
 
-                <div>
+                <div  x-init="security_generation_icon= 'fas fa-user-secret'">
                     <a href="../pages/security_generation.php"
                     :class="current === 'security_generation.php'
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-user-secret text-sm"></i>
+                        <i :class="security_generation_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Security: Checksum</span>
                     </a>
                 </div>
 
 
-                <div>
-                    <a href="../pages/error_codes.php" 
-                    :class="current === 'error_codes.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                <div  x-init="error_codes_icon= 'fas fa-bug'">
+                    <a href="../pages/error_codes.php"
+                    :class="current === 'error_codes.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-bug text-sm"></i>
+                        <i :class="error_codes_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Error Codes and Description</span>
                     </a>
                 </div>
 
-                <div>
+                <div  x-init="services_icon= 'fas fa-sync-alt'">
                     <a href="../pages/services.php"
                        :class="current === 'services.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="cable-tv-multi">
-                        <i class="fas fa-bell-concierge text-sm"></i>
+                        <i :class="services_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Services</span>
                     </a>
                 </div>
 
-                <div>
-                    <a href="../pages/ussd.php" 
-                    :class="current === 'ussd.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+                <div  x-init="ussd_icon= 'fas fa-mobile-retro'">
+                    <a href="../pages/ussd.php"
+                    :class="current === 'ussd.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-mobile-retro text-sm"></i>
+                        <i :class="ussd_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">USSD</span>
                     </a>
                 </div>
-                <div>
-                    <a href="../pages/utility_advance.php" 
-                    :class="current === 'utility_advance.php' 
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
+
+                <div  x-init="utility_advance_icon= 'fas fa-money-bill-transfer'">
+                    <a href="../pages/utility_advance.php"
+                    :class="current === 'utility_advance.php'
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-money-bill-transfer text-sm"></i>
+                        <i :class="utility_advance_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Utility Advance Service</span>
                     </a>
                 </div>
-                <div>
-                    <a href="../pages/low_balance.php" 
-                    :class="current === 'low_balance.php' 
+
+                <div  x-init="low_balance_icon= 'fas fa-battery-quarter'">
+                    <a href="../pages/low_balance.php"
+                    :class="current === 'low_balance.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
-                        <i class="fas fa-battery-quarter text-sm"></i>
+                        <i :class="low_balance_icon + ' text-sm'"></i>
 
                         <span class="text-sm font-medium">Low Balance Service</span>
                     </a>

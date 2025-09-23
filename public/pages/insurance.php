@@ -15,7 +15,7 @@ require_once '../components/head.php';
                 <!-- Breadcrumb -->
                 <div class="flex items-center gap-2 text-sm text-muted-foreground mb-8">
                     <span>API Reference</span>
-                    <i class="fas fa-comment-alt text-accent text-sm"></i>
+                    <i :class="insurance_icon + ' text-accent text-sm'"></i>
 
                     <span class="text-foreground dark:text-black font-medium">Insurance</span>
                 </div>

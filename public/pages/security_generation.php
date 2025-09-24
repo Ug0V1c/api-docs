@@ -43,7 +43,7 @@ require_once '../components/head.php';
 
 
                 <!-- Tabs -->
-                <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'airtime_data' }">
+                <div class="bg-card mb-8" x-data="{ tab: 'airtime_data' }">
                     <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
 
                         <button class="px-4 py-2 font-serif  flex gap-2"
@@ -127,7 +127,7 @@ require_once '../components/head.php';
                         </button>
                     </div>
 
-                    <div x-show="tab==='airtime_data'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='airtime_data'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -140,7 +140,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='electric_validate'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='electric_validate'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -152,7 +152,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='electric_vend'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='electric_vend'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -165,7 +165,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='merchant_details'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='merchant_details'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -177,7 +177,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='deduct_mobile'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='deduct_mobile'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -189,7 +189,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='send_sms'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='send_sms'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -201,7 +201,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='startimes_validate'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='startimes_validate'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -213,7 +213,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='startimes_vend'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='startimes_vend'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -225,7 +225,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='validate_multichoice'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='validate_multichoice'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -237,7 +237,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='vend_multichoice'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='vend_multichoice'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -250,7 +250,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='logical_pins'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='logical_pins'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -277,7 +277,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
 
 
                 <!-- Tabs -->
-                <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'php' }">
+                <div class="bg-card mb-8" x-data="{ tab: 'php' }">
                     <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
 
                         <button class="px-4 py-2 font-serif  flex gap-2"
@@ -312,7 +312,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </button>
                     </div>
 
-                    <div x-show="tab==='php'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='php'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -360,7 +360,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='python'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='python'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -394,7 +394,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='java'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='java'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -436,7 +436,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                         </div>
                     </div>
 
-                    <div x-show="tab==='netc'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='netc'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -465,7 +465,7 @@ Checksum = Base64(Bcyrpt(ConcatString));
                 </div>
 
                 <!-- Try It Out Section -->
-                <div class="bg-card border border-border rounded-lg mb-8">
+                <div class="bg-card mb-8">
                     <div class="p-6 border-b border-border">
                         <h3 class="text-lg font-semibold flex items-center gap-2">
                             <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">

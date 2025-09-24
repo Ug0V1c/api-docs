@@ -20,3 +20,7 @@
 .text-sidebar-accent-foreground{
     color: hsl(210 40% 98%);
 }
+
+.text-blue-600 {!important;
+    color: #5BA3D0;!important;
+}

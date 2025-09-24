@@ -39,7 +39,7 @@ GET
                 </div>
 
                 <!-- Service Information -->
-                <div class="bg-card border border-border rounded-lg mb-8">
+                <div class="bg-card mb-8">
                     <div class="p-6 border-b border-border">
                         <h3 class="text-lg font-semibold flex items-center gap-2">
                             <i class="fas fa-circle-info text-accent text-xl"></i>
@@ -70,7 +70,7 @@ GET
 
 
                 <!-- Tabs -->
-                <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'request' }">
+                <div class="bg-card mb-8" x-data="{ tab: 'request' }">
                     <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
 
                         <button class="px-4 py-2 font-serif  flex gap-2"
@@ -106,7 +106,7 @@ GET
                     </div>
 
                     <!-- Request Body -->
-                    <div x-show="tab==='request'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='request'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="overflow-x-auto">
@@ -192,7 +192,7 @@ GET
                     </div>
 
                     <!-- Sample Request -->
-                    <div x-show="tab==='sample'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='sample'" class="bg-card mb-8">
                         <div class="p-6 border-b border-border">
                             <div class="flex items-center justify-between">
                                 <h3 class="text-lg font-semibold flex items-center gap-2">
@@ -215,7 +215,7 @@ BASE_URL?loginId=17777&key=Ttdedbdc482f277243b&requestId=10B2E6F123&serviceId=A0
                         </div>
                     </div>
 
-                    <div x-show="tab==='response body'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='response body'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="overflow-x-auto">
@@ -349,7 +349,7 @@ BASE_URL?loginId=17777&key=Ttdedbdc482f277243b&requestId=10B2E6F123&serviceId=A0
                         </div>
                     </div>
 
-                    <div x-show="tab==='response'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='response'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="bg-card p-4 rounded-lg border">
@@ -366,7 +366,7 @@ BASE_URL?loginId=17777&key=Ttdedbdc482f277243b&requestId=10B2E6F123&serviceId=A0
                 </div>
 
                 <!-- Try It Out Section -->
-                <div class="bg-card border border-border rounded-lg mb-8">
+                <div class="bg-card mb-8">
                     <div class="p-6 border-b border-border">
                         <h3 class="text-lg font-semibold flex items-center gap-2">
                             <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -40,43 +40,36 @@ require_once 'components/head.php';
 
                 <div class="mb-8">
                     <div class="flex items-center gap-3 mb-4">
-                        <h3 class="text-xl font-bold text-balance">Integration Flow</h3>
+                        <h3 class="text-xl font-bold text-balance">🔗 Integration Flow</h3>
                     </div>
+
                     <p class="text-lg text-muted-foreground leading-relaxed mb-2">
-                        This section contains a description of recommended integration flow which helps minimize the
-                        risk of disputing transactions and also increase customer confidence in the system.
+                        This section describes the recommended integration flow 💡 — helping reduce the risk of disputed transactions and boosting customer confidence. ✅
                     </p>
 
-                    <h4 class="text-xl uppercase text-balance leading-relaxed mb-2 mt-7">Step One</h4>
+                    <h4 class="text-xl uppercase text-balance leading-relaxed mb-2 mt-7">🛠️ Step One</h4>
                     <p class="text-lg text-muted-foreground leading-relaxed mb-2">
-                        If the service has a method for validating the customer, that method should be used first in
-                        order to make sure the customer is properly identified on provider platform and that products
-                        customer wishes to purchase are available at the moment.</p>
+                        If your service supports customer validation, it should be performed first. This ensures the customer is correctly identified on the provider platform and that the desired products are currently available.
+                    </p>
 
-                    <h4 class="text-xl uppercase text-balance leading-relaxed mb-2 mt-7">Step Two</h4>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">In case step 1 is successfully
-                        completed, a Vend request can be sent. If the HTTP status of the response is OK, then you can
-                        check the request status through status field which can be Successful or not. In either case,
-                        the request has been processed</p>
+                    <h4 class="text-xl uppercase text-balance leading-relaxed mb-2 mt-7">🚀 Step Two</h4>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                        Once Step 1 is completed successfully, send a Vend request. If the HTTP response status is <code>OK</code>, check the <code>status</code> field — it will indicate whether the request was successful. Either way, the request has been processed. 📦
+                    </p>
 
-                    <h4 class="text-xl uppercase text-balance leading-relaxed mb-2 mt-7">Step Three</h4>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-1">Possible alternative scenarios to an
-                        ideal step 2 include a Response timeout or a Connection error or any other error defined in our
-                        response</p>
+                    <h4 class="text-xl uppercase text-balance leading-relaxed mb-2 mt-7">⚠️ Step Three</h4>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-1">
+                        Alternative outcomes in Step 2 include timeouts, connection issues, or other defined errors. 🔄 Handle these gracefully:
+                    </p>
                     <ul class="ml-8 space-y-1 list-disc text-lg text-muted-foreground leading-relaxed">
-                        <li>In case of an error, you can safely resend the vend request - however, the request id must
-                            be updated.
-                        </li>
-                        <li>If a response with HTTP status OK is received, you can consider vend to have been carried
-                            out.
-                        </li>
+                        <li>If an error occurs, you can safely resend the Vend request — just be sure to generate a new request ID. 🔁</li>
+                        <li>If a new response with HTTP status <code>OK</code> is received, you may consider the vend process completed. ✅</li>
                     </ul>
 
-                    <h4 class="text-xl uppercase text-balance leading-relaxed mb-2 mt-7">Step Four</h4>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">If the service has a method for
-                        validating the customer, that method should be used first in order to make sure the customer is
-                        properly identified on provider platform and that products customer wishes to purchase are
-                        available at the moment.</p>
+                    <h4 class="text-xl uppercase text-balance leading-relaxed mb-2 mt-7">🔍 Step Four</h4>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                        (Optional) Re-validate the customer if needed. This ensures continued consistency in user identity and availability of desired products at this final step. 🧾
+                    </p>
                 </div>
 
 

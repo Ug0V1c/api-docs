@@ -1020,6 +1020,10 @@ video {
   padding-left: 0.25rem;
 }
 
+.pt-20 {
+  padding-top: 5rem;
+}
+
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -1120,11 +1124,6 @@ video {
   color: rgb(96 165 250 / var(--tw-text-opacity, 1));
 }
 
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
-}
-
 .text-destructive-foreground {
   --tw-text-opacity: 1;
   color: hsl(210 40% 98% / var(--tw-text-opacity, 1));
@@ -1186,6 +1185,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
 }
 
 .filter {
@@ -1314,9 +1318,5 @@ video {
 
   .lg\:pb-5 {
     padding-bottom: 1.25rem;
-  }
-
-  .lg\:pt-20 {
-    padding-top: 5rem;
   }
 }

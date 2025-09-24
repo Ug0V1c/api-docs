@@ -32,7 +32,7 @@ require_once '../components/head.php';
             </div>
 
             <!-- Tabs -->
-            <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'airtime' }">
+            <div class="bg-card mb-8" x-data="{ tab: 'airtime' }">
                 <div class="flex space-x-4 border-b mb-4 overflow-x-auto">
 
                     <button class="px-4 py-2 font-serif  flex gap-2"
@@ -82,7 +82,7 @@ require_once '../components/head.php';
                 </div>
 
                 <!-- Request Body -->
-                <div x-show="tab==='airtime'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='airtime'" class="bg-card mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -134,7 +134,7 @@ require_once '../components/head.php';
                 </div>
 
                 <!-- Request Body -->
-                <div x-show="tab==='data'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='data'" class="bg-card mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -202,7 +202,7 @@ require_once '../components/head.php';
                 </div>
 
                 <!-- Request Body -->
-                <div x-show="tab==='logical pins'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='logical pins'" class="bg-card mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -294,7 +294,7 @@ require_once '../components/head.php';
                 </div>
 
                 <!-- Request Body -->
-                <div x-show="tab==='electricity'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='electricity'" class="bg-card mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -458,7 +458,7 @@ require_once '../components/head.php';
                 </div>
 
                 <!-- Request Body -->
-                <div x-show="tab==='insurance'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='insurance'" class="bg-card mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -486,7 +486,7 @@ require_once '../components/head.php';
                 </div>
 
                 <!-- Request Body -->
-                <div x-show="tab==='showmax'" class="bg-card border border-border rounded-lg mb-8">
+                <div x-show="tab==='showmax'" class="bg-card mb-8">
 
                     <div class="p-6">
                         <div class="overflow-x-auto">
@@ -516,7 +516,7 @@ require_once '../components/head.php';
             </div>
 
             <!-- Try It Out Section -->
-            <div class="bg-card border border-border rounded-lg mb-8">
+            <div class="bg-card mb-8">
                 <div class="p-6 border-b border-border">
                     <h3 class="text-lg font-semibold flex items-center gap-2">
                         <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">

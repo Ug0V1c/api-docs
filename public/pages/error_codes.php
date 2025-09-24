@@ -30,10 +30,10 @@ require_once '../components/head.php';
 
 
                 <!-- Tabs -->
-                <div class="bg-card border border-border rounded-lg mb-8" x-data="{ tab: 'error codes' }">
+                <div class="bg-card mb-8" x-data="{ tab: 'error codes' }">
 
                     <!-- Request Body -->
-                    <div x-show="tab==='error codes'" class="bg-card border border-border rounded-lg mb-8">
+                    <div x-show="tab==='error codes'" class="bg-card mb-8">
 
                         <div class="p-6">
                             <div class="overflow-x-auto">
@@ -280,7 +280,7 @@ require_once '../components/head.php';
                 </div>
 
                 <!-- Try It Out Section -->
-                <div class="bg-card border border-border rounded-lg mb-8">
+                <div class="bg-card mb-8">
                     <div class="p-6 border-b border-border">
                         <h3 class="text-lg font-semibold flex items-center gap-2">
                             <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">

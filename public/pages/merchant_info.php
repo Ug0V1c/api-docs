@@ -28,9 +28,9 @@ POST
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        The <strong>Get Merchant Details</strong> provides you with real-time access to essential
-                        account details. This includes current balance, authorized inbound IP addresses, a list of
-                        available services, and other info.
+                        The <strong>Get Merchant Details</strong> endpoint gives you real-time access to key account information ⚡.  
+                        You can quickly view your <strong>current balance 💰</strong>, <strong>authorized inbound IP addresses 🌐</strong>,  
+                        <strong>available services 📋</strong>, and other important details 📊.
                     </p>
 
                 </div>

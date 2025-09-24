@@ -26,8 +26,9 @@ require_once '../components/head.php';
                     <h1 class="text-3xl font-bold text-balance">Services</h1>
                 </div>
                 <p class="text-lg text-muted-foreground leading-relaxed">
-                    This section covers the services available to merchants, and the corresponding service codes for each service
+                    This section outlines the <strong>services available to merchants 💼</strong> along with their corresponding <strong>service codes 🆔</strong> for each offering.
                 </p>
+
 
             </div>
 

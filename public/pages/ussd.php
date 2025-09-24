@@ -26,10 +26,14 @@ require_once '../components/head.php';
                         <h1 class="text-3xl font-bold text-balance">USSD Solutions</h1>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        This document gives a description of the USSD web service exposed on the Creditswitch Platform
-                        which enables business partners’ display their USSD menu. For technical assistance with the CSW
-                        API contact us at techsupport@creditswitch.com to enable swift response and support.
+                        This document provides an overview of the <strong>USSD web service 📱</strong> available on the <strong>Creditswitch Platform 💳</strong>,  
+                        which enables business partners to display their USSD menus seamlessly.  
+                        <br><br>
+                        For technical assistance with the <strong>CSW API 🛠️</strong>, please contact us at  
+                        <a href="mailto:techsupport@creditswitch.com" class="underline">techsupport@creditswitch.com ✉️</a>  
+                        to ensure a swift response and dedicated support.
                     </p>
+
 
                 </div>
 
@@ -38,15 +42,14 @@ require_once '../components/head.php';
                         <h3 class="text-2xl font-bold text-balance">Integration</h3>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed mb-2">
-                        This section contains a description of recommended integration flow which helps minimize the
-                        risk of disputing transactions and also increase customer confidence in the system
+                        This section outlines the <strong>recommended integration flow 🔄</strong>, designed to minimize the risk of transaction disputes ⚠️ and boost customer confidence in the system ✅.
                     </p>
 
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        For a secure transfer of data between Creditswitch server and client’s server, a secured
-                        connection is required. This can be achieved via a VPN a connection, https or other secured
-                        protocols.
+                        To ensure <strong>secure data transfer 🔐</strong> between the Creditswitch server and the client’s server, a secured connection is required.  
+                        This can be achieved using a <strong>VPN 🌐</strong>, <strong>HTTPS 🔒</strong>, or other trusted security protocols.
                     </p>
+
 
                 </div>
 
@@ -59,10 +62,11 @@ GET
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        This service allows a client to be able to display their preferred menu via USSD. Creditswitch
-                        will append user’s request parameters and push to the provided endpoint. A JSON response is
-                        expected for this request.
+                        This service allows clients to display their <strong>preferred USSD menu 📱</strong>.  
+                        <strong>Creditswitch 💳</strong> appends the user’s request parameters and forwards them to the specified <strong>endpoint 🔗</strong>.  
+                        A <strong>JSON response 📦</strong> is expected for each request.
                     </p>
+
 
                 </div>
 
@@ -361,9 +365,9 @@ GET
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        This API describe how a third party can initiate USSD push to subscriber mobile phone number
-                        from CreditSwitch Platform.
+                        This API explains how a third party can initiate a <strong>USSD push 📱</strong> to a subscriber’s mobile number directly from the <strong>Creditswitch Platform 💳</strong>.
                     </p>
+
 
                 </div>
 

@@ -29,12 +29,14 @@ GET
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        This is to retrieve detailed information or confirm the status of a previous transaction. This
-                        service is useful for retrial implementation. Using the reference ID of an already initiated
-                        request, the final response of that transaction can be called back – in order to determine
-                        whether a retry process should be triggered or not. Note: The first requery should be done
-                        within a minimum of three (3) minutes after initiating the transaction.
+                        This service allows you to <strong>retrieve detailed information 📑</strong> or confirm the <strong>status of a previous transaction 🔍</strong>.  
+                        It is particularly useful for <strong>retry implementations 🔄</strong>.  
+                        <br><br>
+                        By using the <strong>Reference ID 🆔</strong> of an already initiated request, the final response of that transaction can be fetched to determine whether a retry should be triggered or not.  
+                        <br><br>
+                        ⚠️ <strong>Note:</strong> The first requery should be performed at least <strong>five (5) minutes ⏱️</strong> after initiating the transaction.
                     </p>
+
 
                 </div>
 

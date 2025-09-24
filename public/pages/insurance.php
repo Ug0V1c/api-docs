@@ -25,10 +25,16 @@ require_once '../components/head.php';
                     <div class="flex items-center gap-3 mb-4">
                         <h1 class="text-3xl font-bold text-balance">Insurance</h1>
                     </div>
-                    <p class="text-lg text-muted-foreground leading-relaxed">
-                        Service to Pay for Insurance This web service is in two phases: (1) get product codes (2) vend –
-                        can take place.
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                        <strong>Insurance Payment Service 🛡️</strong> operates in two phases:
                     </p>
+                        
+                    <ol class="list-decimal list-inside space-y-2 text-base text-muted-foreground">  
+                        <li class="pl-1"><strong>Retrieve Product Codes 📄</strong> – Fetch the available insurance product codes.</li>
+                        <li class="pl-1"><strong>Vend 💳</strong> – Complete the payment transaction using the selected product code.</li>
+                    </ol>
+                    
+
 
                 </div>
 

@@ -26,11 +26,16 @@ require_once '../components/head.php';
                         <h1 class="text-3xl font-bold text-balance">Logical Pins</h1>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        This service will purchase a logical pin for the service ID provided. NOTE: Payload may differ
-                        depending on service ID. Logical Pin services cover the following AIRTEL, GLO, 9MOBILE, MTN,
-                        JAMB, NECO, WAEC, NABTECH, SPECTRANET. The respective service ID's can be found in the service
-                        ID table below.
+                        This service allows you to purchase a <strong>Logical PIN 🔑</strong> using the provided <strong>Service ID 🆔</strong>.  
+                        <br><br>
+                        ⚠️ <strong>Note:</strong> The request payload may vary depending on the selected Service ID.  
+                        <br><br>
+                        Logical PIN services are available for the following providers and institutions:  
+                        <strong>AIRTEL 📱, GLO 📡, 9MOBILE 📲, MTN 📶, JAMB 🎓, NECO 📝, WAEC 📘, NABTECH 🏫, SPECTRANET 🌐</strong>.  
+                        <br><br>
+                        The respective Service IDs can be found in the <strong>Service ID table 📋</strong> below.
                     </p>
+
 
                 </div>
 

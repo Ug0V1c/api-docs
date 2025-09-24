@@ -30,8 +30,9 @@ POST
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        Service to perform airtime top-up of customer’s phone number through merchant’s account
+                        Service to perform <strong>airtime top-up 📱</strong> for a customer’s phone number directly through the merchant’s account 💳.
                     </p>
+
 
                 </div>
 

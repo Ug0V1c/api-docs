@@ -26,19 +26,23 @@ require_once '../components/head.php';
                         <h1 class="text-3xl font-bold text-balance">Security: Checksum</h1>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed mb-3">
-                        The CreditSwitch REST API uses an authentication scheme based on the Bcrypt hashing algorithm.
-                        Each merchant is assigned a unique public-private key pair. To authenticate a request, specific
-                        elements of the request — including the merchant’s private key — are concatenated to form a
-                        single string. </p>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-3"> This string is then hashed using
-                        Bcrypt, and the resulting hash is base64-encoded. When the API receives the request, it
-                        retrieves the merchant’s secret key (as claimed) and performs the same hashing procedure. If the
-                        resulting checksum matches the one provided in the request, the API considers the request
-                        authenticated and proceeds accordingly. If not, the request is rejected with an error
-                        response. </p>
-                    <p class="text-lg text-muted-foreground leading-relaxed"> The example below illustrates how to
-                        generate the request checksum. Note: the output of the Bcrypt hash is a string.
+                        The <strong>CreditSwitch REST API 🌐</strong> uses an authentication scheme based on the <strong>Bcrypt hashing algorithm 🔐</strong>.  
+                        Each merchant is assigned a unique <strong>public–private key pair 🔑</strong>.  
+                        To authenticate a request, specific elements — including the merchant’s private key — are concatenated to form a single string.
                     </p>
+
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-3">
+                        This string is then <strong>hashed using Bcrypt 🧮</strong>, and the resulting hash is <strong>Base64-encoded 📦</strong>.  
+                        When the API receives the request, it retrieves the merchant’s secret key and performs the same hashing procedure.  
+                        ✅ If the resulting checksum matches the one provided in the request, the API considers it authenticated and proceeds.  
+                        ❌ If not, the request is rejected with an error response.
+                    </p>
+
+                    <p class="text-lg text-muted-foreground leading-relaxed">
+                        The example below illustrates how to generate the <strong>request checksum 📝</strong>.  
+                        <em>Note:</em> The output of the Bcrypt hash is always a string.
+                    </p>
+
                 </div>
 
 

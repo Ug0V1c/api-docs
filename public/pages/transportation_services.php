@@ -26,8 +26,9 @@ require_once '../components/head.php';
                         <h1 class="text-3xl font-bold text-balance">Transportation Services</h1>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        This service will help to fund a transportation account/card across different transportation providers.
+                        This service enables funding of a <strong>transportation account or card 🚌</strong> across multiple transportation providers 💳.
                     </p>
+
 
                 </div>
 

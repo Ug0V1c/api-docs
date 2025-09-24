@@ -26,8 +26,14 @@ require_once '../components/head.php';
                     <h1 class="text-3xl font-bold text-balance">Utility Advance Service</h1>
                 </div>
                 <p class="text-lg text-muted-foreground leading-relaxed">
-                    This document gives an overview of the Creditswitch Utility Advance service. This service enables business partners to consume existing services on the Creditswitch Platform in a buy now pay later fashion. For technical assistance with the CSW API contact us at techsupport@creditswitch.com to enable swift response and support.
+                    This document provides an overview of the <strong>Creditswitch Utility Advance Service 💡</strong>.  
+                    It enables business partners to consume existing services on the <strong>Creditswitch Platform 💳</strong> in a convenient <strong>buy now, pay later 🛒⏳</strong> model.  
+                    <br><br>
+                    For technical assistance with the <strong>CSW API 🛠️</strong>, please contact us at  
+                    <a href="mailto:techsupport@creditswitch.com" class="underline">techsupport@creditswitch.com ✉️</a>  
+                    to ensure a swift response and dedicated support.
                 </p>
+
 
             </div>
 
@@ -40,11 +46,29 @@ require_once '../components/head.php';
                 </p>
 
                 <p class="text-lg text-muted-foreground leading-relaxed mb-2">
-                    1) Authentication: Begin by authenticating through the Login Endpoint to retrieve a bearer token for subsequent API calls.</p>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">2) Loan Eligibility Check: Call the Loan Eligibility Endpoint with the specified payload. This step confirms eligibility and returns potential loan offers if eligible.</p>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">3) Loan Approval: If the user accepts the terms and conditions presented in step 2, the system automatically processes the loan disbursement/approval.</p>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">4) Loan Status: Check the status of an existing loan, utilize the status endpoint.</p>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">5) Loan Repayment: To close an existing loan, utilize the Repayment Endpoint as needed.</p>
+                    This section outlines the <strong>recommended integration flow 🔄</strong>, designed to minimize the risk of transaction disputes ⚠️ and build customer confidence ✅.
+                </p>
+
+                <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                     1️⃣ <strong>Authentication 🔐</strong>: Begin by authenticating through the <strong>Login Endpoint</strong> to retrieve a <strong>Bearer Token 🏷️</strong> for subsequent API calls.
+                </p>
+
+                <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                     2️⃣ <strong>Loan Eligibility Check 📊</strong>: Call the <strong>Loan Eligibility Endpoint</strong> with the required payload. This step confirms eligibility and, if successful, returns available loan offers.
+                </p>
+
+                <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                    3️⃣ <strong>Loan Approval ✅</strong>: If the user accepts the terms and conditions from Step 2, the system automatically processes loan disbursement/approval.
+                </p>
+
+                <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                     4️⃣ <strong>Loan Status 🔍</strong>: Check the status of an existing loan by calling the <strong>Status Endpoint</strong>.
+                </p>
+
+                <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                    5️⃣ <strong>Loan Repayment 💸</strong>: To close an existing loan, use the <strong>Repayment Endpoint</strong> as needed.
+                </p>
+
 
             </div>
 

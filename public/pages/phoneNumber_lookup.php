@@ -29,9 +29,9 @@ POST
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        Service to verify the network operator of an eleven digit Nigerian mobile number. This is a
-                        premium service.
+                        A premium service ⭐ that verifies the <strong>network operator 📡</strong> of any eleven-digit Nigerian mobile number 📱.
                     </p>
+
 
                 </div>
 

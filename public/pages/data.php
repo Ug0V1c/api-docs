@@ -29,8 +29,9 @@ POST
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        This service provides all available and active data plans based on the serviceId provided.
+                        This service provides a list of all <strong>available and active data plans 📶</strong> based on the specified <strong>Service ID 🆔</strong>.
                     </p>
+
 
                 </div>
 

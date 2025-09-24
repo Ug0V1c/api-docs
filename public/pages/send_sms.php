@@ -29,7 +29,7 @@ POST
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        Service to send single and bulk SMS
+                        Reliable service for sending <strong>single 📩</strong> and <strong>bulk SMS 📢</strong> with ease.
                     </p>
 
                 </div>

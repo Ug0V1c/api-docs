@@ -28,14 +28,18 @@ require_once '../components/head.php';
 POST
                         </span>
                     </div>
-                    <p class="text-lg text-muted-foreground leading-relaxed">
-                        Electricity top-up requests follow a somewhat different routine. And involves two steps.
-                        Validation of the account/meter number to which top-up should be made is first made. Only after
-                        validation of the account/meter number is Vending possible. The validation logic, input
-                        parameters, and responses is somewhat similar for the all distribution companies, however,
-                        responses to the vending request differs for different distribution companies. Security checksum
-                        generation is covered in the Security: Checksum section
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                        Electricity top-up requests ⚡ follow a slightly different process, involving two key steps:</p>
+                        <ol class="list-decimal list-inside space-y-2 text-base text-muted-foreground mb-3">
+                       <li class="pl-1"><strong>Validation</strong> – The account or meter number must be verified before a top-up can proceed.</li>  
+                       <li class="pl-1"><strong>Vending</strong> – Once validation is successful, the top-up is processed.</li>
+                        </ol>  
+                        <br>
+                    <p class="text-lg text-muted-foreground leading-relaxed">While the validation logic, input parameters, and responses are generally consistent across all distribution companies 🏢, vending responses may vary depending on the provider.  
+                        <br><br>
+                        For details on checksum generation 🔐, see the <strong><a class= "underline" href="security_generation.php">Security: Checksum</a></strong> section.
                     </p>
+
 
                 </div>
 
@@ -339,10 +343,11 @@ POST
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        The request parameters to the vending endpoint remains the same across distribution companies.
-                        Pay attention though to the Vending responses. Varying responses are returned for each electric
-                        disco. Security checksum generation is covered in the Security: Checksum section
+                        The request parameters for the <strong>Vending endpoint 🔌</strong> remain consistent across all distribution companies 🏢.  
+                        However, pay close attention to the <strong>Vending responses 📩</strong>, as these vary for each electricity provider ⚡.  
+                        For guidance on security checksum generation 🔐, refer to the <strong><a class="underline" href="security_generation.php">Security: Checksum</a></strong> section.
                     </p>
+
 
                 </div>
 

@@ -26,11 +26,14 @@ require_once '../components/head.php';
                         <h1 class="text-3xl font-bold text-balance">Low Balance Service(Auto Top-up)</h1>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        This document gives an overview of the Creditswitch low balance service. This is a subscription
-                        based service that enables customer to top up their balance while making calls . For technical
-                        assistance with the CSW API contact us at techsupport@creditswitch.com to enable swift response
-                        and support.
+                        This document provides an overview of the <strong>Creditswitch Low Balance Service 📉📱</strong>.  
+                        It is a <strong>subscription-based service 🔄</strong> that enables customers to seamlessly <strong>top up their balance 💳</strong> while making calls 📞.  
+                        <br><br>
+                        For technical assistance with the <strong>CSW API 🛠️</strong>, please contact us at  
+                        <a href="mailto:techsupport@creditswitch.com" class="underline">techsupport@creditswitch.com ✉️</a>  
+                        to ensure a swift response and dedicated support.
                     </p>
+
 
                 </div>
 
@@ -39,19 +42,22 @@ require_once '../components/head.php';
                         <h3 class="text-2xl font-bold text-balance">Integration Process Flow</h3>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed mb-2">
-                        This section contains a description of recommended integration flow which helps minimize the
-                        risk of disputing transactions and also increase customer confidence in the system
+                        This section outlines the <strong>recommended integration flow 🔄</strong>, designed to minimize the risk of transaction disputes ⚠️ and strengthen customer confidence ✅.
                     </p>
 
                     <p class="text-lg text-muted-foreground leading-relaxed mb-2">
-                        1) Onboarding: Begin by authenticating through the onboard Endpoint to retrieve a token for
-                        subsequent API calls.</p>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">2) Subscription: Call the Auto Top up
-                        subscription Endpoint with the specified payload. This step allows user to subscribe to the
-                        service.</p>
-                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">3) Unsubscribe: If the customer wishes
-                        to unsubscribe from the Low Balance service, Call the unsubscribe endpoint to cancel active
-                        subscription.</p>
+                        1️⃣ <strong>Onboarding 🚀</strong>: Authenticate through the <strong>Onboard Endpoint</strong> to retrieve a <strong>token 🔑</strong> for subsequent API calls.
+                    </p>
+
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                        2️⃣ <strong>Subscription 📲</strong>: Call the <strong>Auto Top-up Subscription Endpoint</strong> with the required payload.  
+                    This step allows the customer to subscribe to the service seamlessly.
+                    </p>
+
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-2">
+                        3️⃣ <strong>Unsubscribe ❌</strong>: If the customer wishes to cancel their Low Balance subscription, call the <strong>Unsubscribe Endpoint</strong> to deactivate the service.
+                    </p>
+
 
                 </div>
 
@@ -317,10 +323,10 @@ POST
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        Call the Auto Top up subscription Endpoint with the specified payload. This step allows user to
-                        subscribe to the service.
-                        <span class="block">Client is required to make a POST request to this endpoint.</span>
+                        To subscribe to the service, call the <strong>Auto Top-up Subscription Endpoint 📲</strong> with the required payload.  
+                        <span class="block">Clients must send a <strong>POST request 📤</strong> to this endpoint.</span>
                     </p>
+
 
                 </div>
 
@@ -616,10 +622,11 @@ DELETE
                         </span>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        If the customer wishes to unsubscribe from the Low Balance service, Call the unsubscribe
-                        endpoint to cancel active subscription.
-                        <span class="block">Client is required to make a DELETE request to this endpoint.</span>
+                        If a customer chooses to unsubscribe from the <strong>Low Balance Service 📉</strong>, call the 
+                        <strong>Unsubscribe Endpoint ❌</strong> to cancel the active subscription.  
+                        <span class="block">Clients must send a <strong>DELETE request 🗑️</strong> to this endpoint.</span>
                     </p>
+
 
                 </div>
 
@@ -819,9 +826,10 @@ DELETE
                         <h6 class="text-2xl font-bold text-balance">Notifications Callback</h6>
                     </div>
                     <p class="text-lg text-muted-foreground leading-relaxed">
-                        A Low balance notification is trigger to you if the subscriber airtime/data balance is below
-                        their threshold and a successful response will also trigger value to be given to the subscriber.
+                        A <strong>Low Balance Notification ⚠️</strong> is triggered when a subscriber’s airtime or data balance falls below their set threshold.  
+                        A successful response will also ensure that the subscriber receives the corresponding <strong>top-up value 💳</strong>.
                     </p>
+
 
                 </div>
 

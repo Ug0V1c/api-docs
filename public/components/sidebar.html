@@ -9,7 +9,7 @@
                     <a href="../index.php"
                     :class="current === 'index.php'
                     ? 'active bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item active w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="overview">
                         <i :class="index_icon + ' text-sm'"></i>
@@ -20,7 +20,7 @@
                     <a href="../pages/merchant_info.php"
                     :class="current === 'merchant_info.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="get-merchant-info">
                         <i :class="merchant_info_icon + ' text-sm'"></i>
@@ -32,7 +32,7 @@
                     <a
                     :class="current === 'send_sms.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item  w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="send-sms" role="button" href="../pages/send_sms.php">
                         <i :class="send_sms_icon + ' text-sm'"></i>
@@ -45,7 +45,7 @@
                     <a href="../pages/airtime_vend.php"
                     :class="current === 'airtime_vend.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="airtime-vend">
                         <i :class="airtime_vend_icon + ' text-sm'"></i>
@@ -58,7 +58,7 @@
                     <a href="../pages/data.php"
                     :class="current === 'data.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="data">
                         <i :class="data_icon + ' text-sm'"></i>
@@ -72,7 +72,7 @@
                     <!-- Toggle button -->
                     <button
                             :class="['cabletv_multichoice.php', 'cabletv_startimes.php'].includes(current) ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                     : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                     : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                             @click="drop_down_cable = !drop_down_cable"
                             class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
                     >
@@ -90,7 +90,7 @@
                         <a href="../pages/cabletv_multichoice.php"
                            :class="current === 'cabletv_multichoice.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                            class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                            data-section="cable-tv-multi">
                             <i :class="cabletv_multichoice_icon + ' text-sm'"></i>
@@ -101,7 +101,7 @@
                         <a href="../pages/cabletv_startimes.php"
                            :class="current === 'cabletv_startimes.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                            class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                            data-section="cable-tv-multi">
                             <i :class="cabletv_startimes_icon + ' text-sm'"></i>
@@ -116,7 +116,7 @@
                     <a href="../pages/showmax.php"
                        :class="current === 'showmax.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="showmax">
                         <i :class="showmax_icon + ' text-sm'"></i>
@@ -129,7 +129,7 @@
                     <a href="../pages/betting_services.php"
                     :class="current === 'betting_services.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="betting_services_icon + ' text-sm'"></i>
@@ -142,7 +142,7 @@
                     <a href="../pages/transportation_services.php"
                     :class="current === 'transportation_services.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="transportation_services_icon + ' text-sm'"></i>
@@ -155,7 +155,7 @@
                     <a href="../pages/electricity.php"
                     :class="current === 'electricity.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="electricity_icon + ' text-sm'"></i>
@@ -168,7 +168,7 @@
                     <a href="../pages/logical_pins.php"
                     :class="current === 'logical_pins.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="logical_pins_icon + ' text-sm'"></i>
@@ -181,7 +181,7 @@
                     <a href="../pages/phoneNumber_lookup.php"
                     :class="current === 'phoneNumber_lookup.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="phoneNumber_lookup_icon + ' text-sm'"></i>
@@ -194,7 +194,7 @@
                     <a href="../pages/insurance.php"
                        :class="current === 'insurance.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="insurance">
                         <i :class="insurance_icon + ' text-sm'"></i>
@@ -207,7 +207,7 @@
                     <a href="../pages/international_services.php"
                        :class="current === 'international_services.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="international">
                         <i :class="international_services_icon + ' text-sm'"></i>
@@ -220,7 +220,7 @@
 <!--                    <a href="../pages/toll_services.php"-->
 <!--                       :class="current === 'toll_services.php'-->
 <!--                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'-->
-<!--                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"-->
+<!--                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"-->
 <!--                       class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"-->
 <!--                       data-section="cable-tv-multi">-->
 <!--                        <i :class="toll_services_icon + ' text-sm'"></i>-->
@@ -233,7 +233,7 @@
                     <a href="../pages/requery.php"
                        :class="current === 'requery.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="requery">
                         <i :class="requery_icon + ' text-sm'"></i>
@@ -245,7 +245,7 @@
                     <a href="../pages/security_generation.php"
                     :class="current === 'security_generation.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="security_generation_icon + ' text-sm'"></i>
@@ -259,7 +259,7 @@
                     <a href="../pages/error_codes.php"
                     :class="current === 'error_codes.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="error_codes_icon + ' text-sm'"></i>
@@ -272,7 +272,7 @@
                     <a href="../pages/services.php"
                        :class="current === 'services.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                        class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                        data-section="cable-tv-multi">
                         <i :class="services_icon + ' text-sm'"></i>
@@ -285,7 +285,7 @@
                     <a href="../pages/ussd.php"
                     :class="current === 'ussd.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="ussd_icon + ' text-sm'"></i>
@@ -298,7 +298,7 @@
                     <a href="../pages/utility_advance.php"
                     :class="current === 'utility_advance.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="utility_advance_icon + ' text-sm'"></i>
@@ -311,7 +311,7 @@
                     <a href="../pages/low_balance.php"
                     :class="current === 'low_balance.php'
                     ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
-                    : 'text-sidebar-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
+                    : 'hover:bg-sidebar-primary hover:text-sidebar-primary-foreground'"
                     class="sidebar-item w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors text-sidebar-foreground"
                             data-section="cable-tv-multi">
                         <i :class="low_balance_icon + ' text-sm'"></i>
